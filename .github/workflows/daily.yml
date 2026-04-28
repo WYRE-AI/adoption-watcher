@@ -1,0 +1,44 @@
+name: Daily adoption digest
+
+on:
+  schedule:
+    # 14:05 UTC — five min after stars-watcher so we don't double-page Slack.
+    - cron: "5 14 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-adoption
+  cancel-in-progress: false
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run report
+        env:
+          GATEWAY_BASE: ${{ vars.GATEWAY_BASE || 'https://mcp.wyre.ai' }}
+          GATEWAY_ADMIN_TOKEN: ${{ secrets.GATEWAY_ADMIN_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: python script/report.py
+
+      - name: Commit updated snapshot
+        run: |
+          git config user.name "wyre-adoption-watcher[bot]"
+          git config user.email "adoption-watcher@users.noreply.github.com"
+          git add state/snapshot.json
+          if git diff --cached --quiet -- state/snapshot.json; then
+            echo "No snapshot change."
+            exit 0
+          fi
+          git commit -m "snapshot: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git push
