@@ -5,20 +5,20 @@
       {
         "org_id": "L-Fk69VfrntBjgVxOvWJX",
         "org_name": "WYRE Technology",
-        "plan": "pro",
-        "tool_calls": 15299
+        "plan": "business",
+        "tool_calls": 14129
       },
       {
         "org_id": "BBbnACU7aLIb0HgRB0ami",
         "org_name": "Team DNS",
         "plan": "pro",
-        "tool_calls": 797
+        "tool_calls": 802
       },
       {
         "org_id": "7hvCcfX5Bivg81FmaQyRi",
         "org_name": "AM3 Technology & Cybersecurity",
         "plan": "pro",
-        "tool_calls": 238
+        "tool_calls": 252
       }
     ]
   },
@@ -29,22 +29,42 @@
       "plan": "pro"
     },
     {
-      "credits": 1371,
+      "credits": 1308,
+      "day": "2026-04-21",
+      "plan": "business"
+    },
+    {
+      "credits": 63,
       "day": "2026-04-21",
       "plan": "pro"
     },
     {
-      "credits": 245,
+      "credits": 171,
+      "day": "2026-04-22",
+      "plan": "business"
+    },
+    {
+      "credits": 74,
       "day": "2026-04-22",
       "plan": "pro"
     },
     {
-      "credits": 40,
+      "credits": 17,
+      "day": "2026-04-23",
+      "plan": "business"
+    },
+    {
+      "credits": 23,
       "day": "2026-04-23",
       "plan": "pro"
     },
     {
-      "credits": 41,
+      "credits": 25,
+      "day": "2026-04-24",
+      "plan": "business"
+    },
+    {
+      "credits": 16,
       "day": "2026-04-24",
       "plan": "pro"
     },
@@ -59,26 +79,28 @@
       "plan": "pro"
     },
     {
-      "credits": 66,
+      "credits": 6,
+      "day": "2026-04-27",
+      "plan": "business"
+    },
+    {
+      "credits": 60,
       "day": "2026-04-27",
       "plan": "pro"
     },
     {
-      "credits": 50,
+      "credits": 60,
+      "day": "2026-04-28",
+      "plan": "business"
+    },
+    {
+      "credits": 65,
       "day": "2026-04-28",
       "plan": "pro"
     }
   ],
-  "generated_at": "2026-04-28T15:15:59.292Z",
+  "generated_at": "2026-04-29T16:00:06.465Z",
   "new_orgs": [
-    {
-      "day": "2026-04-14",
-      "signups": 1
-    },
-    {
-      "day": "2026-04-15",
-      "signups": 1
-    },
     {
       "day": "2026-04-17",
       "signups": 2
@@ -98,48 +120,117 @@
     {
       "day": "2026-04-27",
       "signups": 1
+    },
+    {
+      "day": "2026-04-28",
+      "signups": 1
+    }
+  ],
+  "new_orgs_recent": [
+    {
+      "created_at": "2026-04-28 23:27:56",
+      "org_id": "9BU-8q8C-lN5z7nlf24mo",
+      "org_name": "GBT",
+      "owner_email": "troy@gauthiertech.com",
+      "owner_name": "Troy Gauthier",
+      "plan": "free"
+    },
+    {
+      "created_at": "2026-04-27 19:55:47",
+      "org_id": "Qb6v2N1BH07yrzJ0NbiCd",
+      "org_name": "EXOS",
+      "owner_email": "jowen@weareexos.com",
+      "owner_name": "Jeff Owen",
+      "plan": "free"
+    },
+    {
+      "created_at": "2026-04-21 16:34:26",
+      "org_id": "3K63Nc52J1B6EAl6ZJsJo",
+      "org_name": "Hive Communications",
+      "owner_email": "reece@hivecommunications.co.uk",
+      "owner_name": "reece@hivecommunications.co.uk",
+      "plan": "free"
+    },
+    {
+      "created_at": "2026-04-20 20:35:17",
+      "org_id": "1FI6Lm2To4H5ZjXiNvg-B",
+      "org_name": "AM3 Technology & Cybersecurity",
+      "owner_email": "cramirez@am3-it.com",
+      "owner_name": "cramirez@am3-it.com",
+      "plan": "free"
+    },
+    {
+      "created_at": "2026-04-20 18:35:37",
+      "org_id": "INLXmAFiJSPYINQ-njOio",
+      "org_name": "Sprinter MSP",
+      "owner_email": "isaiah@sprintermsp.com",
+      "owner_name": "isaiah@sprintermsp.com",
+      "plan": "free"
+    },
+    {
+      "created_at": "2026-04-19 00:18:10",
+      "org_id": "l3r8NLnKt7IIkB-6QLfsT",
+      "org_name": "ITernal Networks",
+      "owner_email": "michael@itnet.works",
+      "owner_name": "Michael Kanet",
+      "plan": "pro"
+    },
+    {
+      "created_at": "2026-04-17 13:45:50",
+      "org_id": "mB0omxRVE5WVyfGiU9SbB",
+      "org_name": "Liongard",
+      "owner_email": "vincent.tran@liongard.com",
+      "owner_name": "vincent.tran@liongard.com",
+      "plan": "pro"
+    },
+    {
+      "created_at": "2026-04-17 13:03:15",
+      "org_id": "9wrzNaViqAAjNIvFZiM_0",
+      "org_name": "Castlerock Managed IT Services",
+      "owner_email": "damian.casserley@castlerock.co",
+      "owner_name": "Damian Casserley",
+      "plan": "pro"
     }
   ],
   "plan_distribution": [
     {
-      "count": 8,
+      "count": 1,
+      "plan": "business"
+    },
+    {
+      "count": 9,
       "plan": "free"
     },
     {
-      "count": 14,
+      "count": 13,
       "plan": "pro"
     }
   ],
   "top_tools": [
     {
-      "call_count": 3258,
+      "call_count": 2962,
       "tool_name": "datto_list_devices",
       "vendor_slug": "datto-rmm"
     },
     {
-      "call_count": 2716,
+      "call_count": 2467,
       "tool_name": "search_configurations",
       "vendor_slug": "itglue"
     },
     {
-      "call_count": 1629,
+      "call_count": 1481,
       "tool_name": "initialize",
       "vendor_slug": "datto-rmm"
     },
     {
-      "call_count": 1629,
+      "call_count": 1481,
       "tool_name": "notifications/initialized",
       "vendor_slug": "datto-rmm"
     },
     {
-      "call_count": 1623,
+      "call_count": 1475,
       "tool_name": "tools/list",
       "vendor_slug": "datto-rmm"
-    },
-    {
-      "call_count": 611,
-      "tool_name": "autotask_search_tickets",
-      "vendor_slug": "autotask"
     },
     {
       "call_count": 603,
@@ -147,19 +238,29 @@
       "vendor_slug": "datto-rmm"
     },
     {
-      "call_count": 539,
-      "tool_name": "tools/list",
-      "vendor_slug": "itglue"
+      "call_count": 594,
+      "tool_name": "autotask_search_tickets",
+      "vendor_slug": "autotask"
     },
     {
-      "call_count": 539,
+      "call_count": 489,
       "tool_name": "initialize",
       "vendor_slug": "itglue"
     },
     {
-      "call_count": 539,
+      "call_count": 489,
+      "tool_name": "tools/list",
+      "vendor_slug": "itglue"
+    },
+    {
+      "call_count": 489,
       "tool_name": "notifications/initialized",
       "vendor_slug": "itglue"
+    },
+    {
+      "call_count": 437,
+      "tool_name": "autotask_search_ticket_notes",
+      "vendor_slug": "autotask"
     },
     {
       "call_count": 436,
@@ -172,34 +273,24 @@
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 431,
-      "tool_name": "autotask_search_ticket_notes",
-      "vendor_slug": "autotask"
-    },
-    {
-      "call_count": 326,
+      "call_count": 327,
       "tool_name": "cw_get_ticket_notes",
       "vendor_slug": "connectwise-manage"
     },
     {
-      "call_count": 280,
+      "call_count": 255,
       "tool_name": "initialize",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 280,
+      "call_count": 255,
       "tool_name": "notifications/initialized",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 207,
+      "call_count": 211,
       "tool_name": "search_organizations",
       "vendor_slug": "itglue"
-    },
-    {
-      "call_count": 192,
-      "tool_name": "tools/list",
-      "vendor_slug": "autotask"
     },
     {
       "call_count": 192,
@@ -207,7 +298,12 @@
       "vendor_slug": "connectwise-manage"
     },
     {
-      "call_count": 186,
+      "call_count": 181,
+      "tool_name": "tools/list",
+      "vendor_slug": "autotask"
+    },
+    {
+      "call_count": 173,
       "tool_name": "cw_search_tickets",
       "vendor_slug": "connectwise-manage"
     }
