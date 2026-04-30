@@ -6,13 +6,13 @@
         "org_id": "L-Fk69VfrntBjgVxOvWJX",
         "org_name": "WYRE Technology",
         "plan": "business",
-        "tool_calls": 14129
+        "tool_calls": 13050
       },
       {
         "org_id": "BBbnACU7aLIb0HgRB0ami",
         "org_name": "Team DNS",
         "plan": "pro",
-        "tool_calls": 802
+        "tool_calls": 823
       },
       {
         "org_id": "7hvCcfX5Bivg81FmaQyRi",
@@ -97,9 +97,24 @@
       "credits": 65,
       "day": "2026-04-28",
       "plan": "pro"
+    },
+    {
+      "credits": 36,
+      "day": "2026-04-29",
+      "plan": "business"
+    },
+    {
+      "credits": 58,
+      "day": "2026-04-30",
+      "plan": "business"
+    },
+    {
+      "credits": 21,
+      "day": "2026-04-30",
+      "plan": "pro"
     }
   ],
-  "generated_at": "2026-04-29T16:00:06.465Z",
+  "generated_at": "2026-04-30T15:52:15.915Z",
   "new_orgs": [
     {
       "day": "2026-04-17",
@@ -111,7 +126,7 @@
     },
     {
       "day": "2026-04-20",
-      "signups": 2
+      "signups": 1
     },
     {
       "day": "2026-04-21",
@@ -149,14 +164,6 @@
       "org_name": "Hive Communications",
       "owner_email": "reece@hivecommunications.co.uk",
       "owner_name": "reece@hivecommunications.co.uk",
-      "plan": "free"
-    },
-    {
-      "created_at": "2026-04-20 20:35:17",
-      "org_id": "1FI6Lm2To4H5ZjXiNvg-B",
-      "org_name": "AM3 Technology & Cybersecurity",
-      "owner_email": "cramirez@am3-it.com",
-      "owner_name": "cramirez@am3-it.com",
       "plan": "free"
     },
     {
@@ -198,7 +205,7 @@
       "plan": "business"
     },
     {
-      "count": 9,
+      "count": 8,
       "plan": "free"
     },
     {
@@ -208,29 +215,34 @@
   ],
   "top_tools": [
     {
-      "call_count": 2962,
+      "call_count": 2679,
       "tool_name": "datto_list_devices",
       "vendor_slug": "datto-rmm"
     },
     {
-      "call_count": 2467,
+      "call_count": 2234,
       "tool_name": "search_configurations",
       "vendor_slug": "itglue"
     },
     {
-      "call_count": 1481,
+      "call_count": 1340,
       "tool_name": "initialize",
       "vendor_slug": "datto-rmm"
     },
     {
-      "call_count": 1481,
+      "call_count": 1340,
       "tool_name": "notifications/initialized",
       "vendor_slug": "datto-rmm"
     },
     {
-      "call_count": 1475,
+      "call_count": 1334,
       "tool_name": "tools/list",
       "vendor_slug": "datto-rmm"
+    },
+    {
+      "call_count": 619,
+      "tool_name": "autotask_search_tickets",
+      "vendor_slug": "autotask"
     },
     {
       "call_count": 603,
@@ -238,23 +250,18 @@
       "vendor_slug": "datto-rmm"
     },
     {
-      "call_count": 594,
-      "tool_name": "autotask_search_tickets",
-      "vendor_slug": "autotask"
-    },
-    {
-      "call_count": 489,
+      "call_count": 443,
       "tool_name": "initialize",
       "vendor_slug": "itglue"
     },
     {
-      "call_count": 489,
-      "tool_name": "tools/list",
+      "call_count": 443,
+      "tool_name": "notifications/initialized",
       "vendor_slug": "itglue"
     },
     {
-      "call_count": 489,
-      "tool_name": "notifications/initialized",
+      "call_count": 443,
+      "tool_name": "tools/list",
       "vendor_slug": "itglue"
     },
     {
@@ -268,27 +275,27 @@
       "vendor_slug": "itglue"
     },
     {
-      "call_count": 432,
+      "call_count": 434,
       "tool_name": "autotask_get_ticket_details",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 327,
+      "call_count": 338,
       "tool_name": "cw_get_ticket_notes",
       "vendor_slug": "connectwise-manage"
     },
     {
-      "call_count": 255,
-      "tool_name": "initialize",
-      "vendor_slug": "autotask"
-    },
-    {
-      "call_count": 255,
+      "call_count": 232,
       "tool_name": "notifications/initialized",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 211,
+      "call_count": 232,
+      "tool_name": "initialize",
+      "vendor_slug": "autotask"
+    },
+    {
+      "call_count": 217,
       "tool_name": "search_organizations",
       "vendor_slug": "itglue"
     },
@@ -298,14 +305,14 @@
       "vendor_slug": "connectwise-manage"
     },
     {
-      "call_count": 181,
-      "tool_name": "tools/list",
-      "vendor_slug": "autotask"
-    },
-    {
-      "call_count": 173,
+      "call_count": 179,
       "tool_name": "cw_search_tickets",
       "vendor_slug": "connectwise-manage"
+    },
+    {
+      "call_count": 163,
+      "tool_name": "tools/list",
+      "vendor_slug": "autotask"
     }
   ]
 }
