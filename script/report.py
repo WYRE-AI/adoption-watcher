@@ -38,8 +38,17 @@ def fetch_metrics() -> dict:
             "User-Agent": "wyre-gateway-adoption-watcher",
         },
     )
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        return json.loads(resp.read())
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            return json.loads(resp.read())
+    except urllib.error.HTTPError as exc:
+        if exc.code in (401, 403):
+            sys.exit(
+                f"Gateway rejected GATEWAY_ADMIN_TOKEN ({exc.code} {exc.reason}). "
+                f"The token does not match the gateway's ADMIN_API_KEY for "
+                f"{GATEWAY_BASE} — rotate the repo secret to the current prod value."
+            )
+        sys.exit(f"Gateway returned {exc.code} {exc.reason} for {GATEWAY_BASE}/api/admin/metrics")
 
 
 def fmt_int(n: int | str) -> str:
