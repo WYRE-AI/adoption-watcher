@@ -6,19 +6,19 @@
         "org_id": "L-Fk69VfrntBjgVxOvWJX",
         "org_name": "WYRE Technology",
         "plan": "business",
-        "tool_calls": 1239
+        "tool_calls": 1171
       },
       {
         "org_id": "ghrO0tn7cS99BYhaDknJI",
         "org_name": "Koine Ventures",
         "plan": "pro",
-        "tool_calls": 902
+        "tool_calls": 926
       },
       {
         "org_id": "BBbnACU7aLIb0HgRB0ami",
         "org_name": "Team DNS",
         "plan": "business",
-        "tool_calls": 714
+        "tool_calls": 694
       },
       {
         "org_id": "j8VgkefyBt6Qi47I0QDvS",
@@ -60,12 +60,7 @@
   },
   "credit_burn_rate": [
     {
-      "credits": 41,
-      "day": "2026-05-03",
-      "plan": "business"
-    },
-    {
-      "credits": 107,
+      "credits": 57,
       "day": "2026-05-04",
       "plan": "business"
     },
@@ -265,22 +260,18 @@
       "plan": "pro"
     },
     {
-      "credits": 12,
+      "credits": 15,
       "day": "2026-06-02",
       "plan": "business"
     },
     {
-      "credits": 86,
+      "credits": 109,
       "day": "2026-06-02",
       "plan": "pro"
     }
   ],
-  "generated_at": "2026-06-02T15:36:23.940Z",
+  "generated_at": "2026-06-03T15:46:26.315Z",
   "new_orgs": [
-    {
-      "day": "2026-05-19",
-      "signups": 1
-    },
     {
       "day": "2026-05-21",
       "signups": 2
@@ -296,9 +287,21 @@
     {
       "day": "2026-06-01",
       "signups": 1
+    },
+    {
+      "day": "2026-06-02",
+      "signups": 1
     }
   ],
   "new_orgs_recent": [
+    {
+      "created_at": "2026-06-02 21:16:02",
+      "org_id": "zh3bF73lROnWkrOl76M8U",
+      "org_name": "TTechT-Autotask",
+      "owner_email": "lisa@ttecht.com",
+      "owner_name": "Lisa Niekamp-Urwin",
+      "plan": "pro"
+    },
     {
       "created_at": "2026-06-01 15:23:52",
       "org_id": "TCA5fSUvdc3GmtRkFh_ug",
@@ -338,14 +341,6 @@
       "owner_email": "dan@zouling.ca",
       "owner_name": "dan@zouling.ca",
       "plan": "free"
-    },
-    {
-      "created_at": "2026-05-19 18:38:00",
-      "org_id": "9D6NcUJ0yE_3jfVpH9AEa",
-      "org_name": "Blue Ridge Tech",
-      "owner_email": "zack@blueridge.tech",
-      "owner_name": "Zack Calloway",
-      "plan": "free"
     }
   ],
   "plan_distribution": [
@@ -358,7 +353,7 @@
       "plan": "free"
     },
     {
-      "count": 17,
+      "count": 18,
       "plan": "pro"
     },
     {
@@ -368,29 +363,24 @@
   ],
   "top_tools": [
     {
-      "call_count": 828,
+      "call_count": 787,
       "tool_name": "autotask_search_tickets",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 593,
-      "tool_name": "autotask_search_time_entries",
-      "vendor_slug": "autotask"
-    },
-    {
-      "call_count": 541,
+      "call_count": 552,
       "tool_name": "autotask_raw_request",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 382,
-      "tool_name": "autotask_get_ticket_details",
+      "call_count": 545,
+      "tool_name": "autotask_search_time_entries",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 231,
-      "tool_name": "cw_search_tickets",
-      "vendor_slug": "connectwise-manage"
+      "call_count": 376,
+      "tool_name": "autotask_get_ticket_details",
+      "vendor_slug": "autotask"
     },
     {
       "call_count": 226,
@@ -398,12 +388,17 @@
       "vendor_slug": "connectwise-manage"
     },
     {
-      "call_count": 160,
+      "call_count": 214,
+      "tool_name": "cw_search_tickets",
+      "vendor_slug": "connectwise-manage"
+    },
+    {
+      "call_count": 159,
       "tool_name": "autotask_search_resources",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 139,
+      "call_count": 140,
       "tool_name": "autotask_search_companies",
       "vendor_slug": "autotask"
     },
@@ -418,8 +413,13 @@
       "vendor_slug": "connectwise-manage"
     },
     {
-      "call_count": 116,
+      "call_count": 117,
       "tool_name": "autotask_create_ticket_note",
+      "vendor_slug": "autotask"
+    },
+    {
+      "call_count": 111,
+      "tool_name": "autotask_search_ticket_notes",
       "vendor_slug": "autotask"
     },
     {
@@ -428,13 +428,18 @@
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 103,
-      "tool_name": "autotask_search_ticket_notes",
+      "call_count": 87,
+      "tool_name": "autotask_update_ticket",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 86,
-      "tool_name": "autotask_update_ticket",
+      "call_count": 82,
+      "tool_name": "autotask_search_billing_items",
+      "vendor_slug": "autotask"
+    },
+    {
+      "call_count": 78,
+      "tool_name": "autotask_search_contacts",
       "vendor_slug": "autotask"
     },
     {
@@ -443,12 +448,12 @@
       "vendor_slug": "connectwise-manage"
     },
     {
-      "call_count": 70,
-      "tool_name": "autotask_search_contacts",
-      "vendor_slug": "autotask"
+      "call_count": 69,
+      "tool_name": "cipp_list_users",
+      "vendor_slug": "cipp"
     },
     {
-      "call_count": 64,
+      "call_count": 65,
       "tool_name": "autotask_get_field_info",
       "vendor_slug": "autotask"
     },
@@ -456,16 +461,6 @@
       "call_count": 63,
       "tool_name": "cw_add_ticket_note",
       "vendor_slug": "connectwise-manage"
-    },
-    {
-      "call_count": 61,
-      "tool_name": "cipp_list_users",
-      "vendor_slug": "cipp"
-    },
-    {
-      "call_count": 59,
-      "tool_name": "publish_document",
-      "vendor_slug": "itglue"
     }
   ]
 }
