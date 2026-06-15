@@ -6,13 +6,13 @@
         "org_id": "ghrO0tn7cS99BYhaDknJI",
         "org_name": "Koine Ventures",
         "plan": "pro",
-        "tool_calls": 3908
+        "tool_calls": 3972
       },
       {
         "org_id": "L-Fk69VfrntBjgVxOvWJX",
         "org_name": "WYRE Technology",
         "plan": "business",
-        "tool_calls": 2943
+        "tool_calls": 2996
       },
       {
         "org_id": "j8VgkefyBt6Qi47I0QDvS",
@@ -30,7 +30,7 @@
         "org_id": "BBbnACU7aLIb0HgRB0ami",
         "org_name": "Team DNS",
         "plan": "business",
-        "tool_calls": 403
+        "tool_calls": 377
       },
       {
         "org_id": "TCA5fSUvdc3GmtRkFh_ug",
@@ -39,16 +39,16 @@
         "tool_calls": 234
       },
       {
-        "org_id": "i6mF8EGo54uS5zPEi8bl6",
-        "org_name": "Ghost Pepper",
-        "plan": "pro",
-        "tool_calls": 49
-      },
-      {
         "org_id": "W0ETvPAiirjOFvqLDAXtI",
         "org_name": "Byte Time",
         "plan": "pro",
-        "tool_calls": 49
+        "tool_calls": 56
+      },
+      {
+        "org_id": "i6mF8EGo54uS5zPEi8bl6",
+        "org_name": "Ghost Pepper",
+        "plan": "pro",
+        "tool_calls": 45
       },
       {
         "org_id": "7hvCcfX5Bivg81FmaQyRi",
@@ -60,26 +60,11 @@
         "org_id": "8Cu12Wl9p2s-ypYTnXGxJ",
         "org_name": "Stu Ian",
         "plan": "business",
-        "tool_calls": 22
+        "tool_calls": 36
       }
     ]
   },
   "credit_burn_rate": [
-    {
-      "credits": 24,
-      "day": "2026-05-15",
-      "plan": "business"
-    },
-    {
-      "credits": 2,
-      "day": "2026-05-16",
-      "plan": "business"
-    },
-    {
-      "credits": 4,
-      "day": "2026-05-16",
-      "plan": "pro"
-    },
     {
       "credits": 15,
       "day": "2026-05-17",
@@ -301,22 +286,221 @@
       "plan": "pro"
     },
     {
-      "credits": 5,
+      "credits": 16,
       "day": "2026-06-14",
       "plan": "business"
     },
     {
-      "credits": 3,
+      "credits": 52,
       "day": "2026-06-14",
+      "plan": "pro"
+    },
+    {
+      "credits": 56,
+      "day": "2026-06-15",
+      "plan": "business"
+    },
+    {
+      "credits": 22,
+      "day": "2026-06-15",
       "plan": "pro"
     }
   ],
-  "generated_at": "2026-06-14T14:54:02.031Z",
-  "new_orgs": [
+  "free_orgs": [
     {
-      "day": "2026-06-01",
-      "signups": 1
+      "created_at": "2026-05-21 17:23:39",
+      "org_id": "yHCamoNhLbqgCxhpopqjQ",
+      "org_name": "Rival MSP",
+      "owner_email": "craig@rival-tech.com",
+      "plan": "free",
+      "stripe_customer_id": null,
+      "trial_ends_at": null
     },
+    {
+      "created_at": "2026-05-21 02:20:13",
+      "org_id": "KrpGgpke48hBJb79vhi0f",
+      "org_name": "Zouling Technologies",
+      "owner_email": "dan@zouling.ca",
+      "plan": "free",
+      "stripe_customer_id": null,
+      "trial_ends_at": null
+    },
+    {
+      "created_at": "2026-05-19 18:38:00",
+      "org_id": "9D6NcUJ0yE_3jfVpH9AEa",
+      "org_name": "Blue Ridge Tech",
+      "owner_email": "zack@blueridge.tech",
+      "plan": "free",
+      "stripe_customer_id": null,
+      "trial_ends_at": null
+    },
+    {
+      "created_at": "2026-05-18 12:04:01",
+      "org_id": "v3wAe5a-ntb_BtByYBXJQ",
+      "org_name": "Pierre",
+      "owner_email": "pierre.trublereau@gmail.com",
+      "plan": "free",
+      "stripe_customer_id": null,
+      "trial_ends_at": null
+    },
+    {
+      "created_at": "2026-05-16 18:09:25",
+      "org_id": "oGfr653pfawLFXlaSBkJq",
+      "org_name": "Thomas Cloud",
+      "owner_email": "tom@48tech.com",
+      "plan": "free",
+      "stripe_customer_id": null,
+      "trial_ends_at": null
+    },
+    {
+      "created_at": "2026-05-14 12:23:25",
+      "org_id": "1VdqIC11USyIHeTQkqCyQ",
+      "org_name": "The Network Gurus",
+      "owner_email": "evan@thenetworkgurus.com",
+      "plan": "free",
+      "stripe_customer_id": null,
+      "trial_ends_at": null
+    },
+    {
+      "created_at": "2026-05-14 11:40:27",
+      "org_id": "9OxDarsiERsiI-ocYO_0F",
+      "org_name": "mspilot",
+      "owner_email": "pierce@mspilot.io",
+      "plan": "free",
+      "stripe_customer_id": null,
+      "trial_ends_at": null
+    },
+    {
+      "created_at": "2026-05-13 16:45:03",
+      "org_id": "Cgj67-PJMFl0JpJRXHumw",
+      "org_name": "MSP Advisor",
+      "owner_email": "grant@mspadvisor.com",
+      "plan": "free",
+      "stripe_customer_id": null,
+      "trial_ends_at": null
+    },
+    {
+      "created_at": "2026-05-11 23:41:40",
+      "org_id": "Y2sPle2Nk31M86__gPViD",
+      "org_name": "Consortyo",
+      "owner_email": "atu@consortyo.com",
+      "plan": "free",
+      "stripe_customer_id": null,
+      "trial_ends_at": null
+    },
+    {
+      "created_at": "2026-05-08 21:13:02",
+      "org_id": "ybkrvP7pDT83PPfUVzzdV",
+      "org_name": "Great Oak Digital",
+      "owner_email": "john.davis@greatoakdigital.com",
+      "plan": "free",
+      "stripe_customer_id": null,
+      "trial_ends_at": null
+    },
+    {
+      "created_at": "2026-05-07 18:44:03",
+      "org_id": "oK9yLl14iKsG1ldv4LXqQ",
+      "org_name": "Delivery",
+      "owner_email": "jclough@aisllp.com",
+      "plan": "free",
+      "stripe_customer_id": null,
+      "trial_ends_at": null
+    },
+    {
+      "created_at": "2026-05-07 09:00:55",
+      "org_id": "7EWKWOiqA_u2gC1IDCIey",
+      "org_name": "ACI TECHNOLOGY",
+      "owner_email": "baudoin.fety@acitechnology.fr",
+      "plan": "free",
+      "stripe_customer_id": null,
+      "trial_ends_at": null
+    },
+    {
+      "created_at": "2026-05-06 14:17:41",
+      "org_id": "eHWCduSsKxZSTC3-OTVqZ",
+      "org_name": "ITA",
+      "owner_email": "tony.hayden@insighttechadv.com",
+      "plan": "free",
+      "stripe_customer_id": null,
+      "trial_ends_at": null
+    }
+  ],
+  "generated_at": "2026-06-15T16:05:31.744Z",
+  "grandfathered_pro": [
+    {
+      "created_at": "2026-04-17 13:45:50",
+      "org_id": "mB0omxRVE5WVyfGiU9SbB",
+      "org_name": "Liongard",
+      "owner_email": "vincent.tran@liongard.com",
+      "plan": "pro",
+      "stripe_customer_id": null,
+      "trial_ends_at": null
+    },
+    {
+      "created_at": "2026-04-17 13:03:15",
+      "org_id": "9wrzNaViqAAjNIvFZiM_0",
+      "org_name": "Castlerock Managed IT Services",
+      "owner_email": "damian.casserley@castlerock.co",
+      "plan": "pro",
+      "stripe_customer_id": null,
+      "trial_ends_at": null
+    },
+    {
+      "created_at": "2026-04-13 10:23:09",
+      "org_id": "TkUOpkqjIsItWPDvR-_Hu",
+      "org_name": "Ilkley IT",
+      "owner_email": "warren@ilkleyitservices.co.uk",
+      "plan": "pro",
+      "stripe_customer_id": null,
+      "trial_ends_at": null
+    },
+    {
+      "created_at": "2026-04-11 00:35:01",
+      "org_id": "izNpQQ-N9fY3b3I9W1BPT",
+      "org_name": "sheasty",
+      "owner_email": "sheasty@nerdssupport.com",
+      "plan": "pro",
+      "stripe_customer_id": null,
+      "trial_ends_at": null
+    },
+    {
+      "created_at": "2026-04-10 13:58:18",
+      "org_id": "q5ricYpvwHLrL09C3N8sJ",
+      "org_name": "Divergys",
+      "owner_email": "mpowell@divergys.com",
+      "plan": "pro",
+      "stripe_customer_id": null,
+      "trial_ends_at": null
+    },
+    {
+      "created_at": "2026-04-10 02:49:13",
+      "org_id": "nuY4ycS8anTaeUqXQzY0c",
+      "org_name": "Your IT",
+      "owner_email": "jeff@youritbc.com.au",
+      "plan": "pro",
+      "stripe_customer_id": null,
+      "trial_ends_at": null
+    },
+    {
+      "created_at": "2026-04-09 22:59:16",
+      "org_id": "gariFK_7fGwgq52b9PLkh",
+      "org_name": "Empower IT Group",
+      "owner_email": "yusniel2010@gmail.com",
+      "plan": "pro",
+      "stripe_customer_id": null,
+      "trial_ends_at": null
+    },
+    {
+      "created_at": "2026-04-09 22:46:03",
+      "org_id": "7hvCcfX5Bivg81FmaQyRi",
+      "org_name": "AM3 Technology & Cybersecurity",
+      "owner_email": "cramirez@am3-it.com",
+      "plan": "pro",
+      "stripe_customer_id": null,
+      "trial_ends_at": null
+    }
+  ],
+  "new_orgs": [
     {
       "day": "2026-06-02",
       "signups": 1
@@ -374,14 +558,6 @@
       "owner_email": "lisa@ttecht.com",
       "owner_name": "Lisa Niekamp-Urwin",
       "plan": "pro"
-    },
-    {
-      "created_at": "2026-06-01 15:23:52",
-      "org_id": "TCA5fSUvdc3GmtRkFh_ug",
-      "org_name": "Furniture Wizard Software",
-      "owner_email": "matt@furniturewizard.com",
-      "owner_name": "Matt Spain",
-      "plan": "pro"
     }
   ],
   "plan_distribution": [
@@ -402,14 +578,35 @@
       "plan": "trial"
     }
   ],
+  "tiles": {
+    "activeOrgs": 10,
+    "creditBurn30d": 8695,
+    "creditBurnToday": 78,
+    "newOrgs14d": 5,
+    "planSplit": {
+      "free": 13,
+      "other": 0,
+      "paid": 7,
+      "pro": 17,
+      "total": 46,
+      "trial": 9
+    },
+    "recentSignups": 5,
+    "topTool": {
+      "call_count": 1470,
+      "tool_name": "autotask_raw_request",
+      "vendor_slug": "autotask"
+    },
+    "totalOrgs": 46
+  },
   "top_tools": [
     {
-      "call_count": 1393,
+      "call_count": 1470,
       "tool_name": "autotask_raw_request",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 1221,
+      "call_count": 1241,
       "tool_name": "autotask_search_tickets",
       "vendor_slug": "autotask"
     },
@@ -419,22 +616,22 @@
       "vendor_slug": "rootly"
     },
     {
-      "call_count": 859,
+      "call_count": 865,
       "tool_name": "autotask_search_time_entries",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 708,
+      "call_count": 719,
       "tool_name": "autotask_search_ticket_notes",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 657,
+      "call_count": 659,
       "tool_name": "autotask_execute_tool",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 608,
+      "call_count": 609,
       "tool_name": "autotask_get_ticket_details",
       "vendor_slug": "autotask"
     },
@@ -444,7 +641,7 @@
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 314,
+      "call_count": 317,
       "tool_name": "autotask_search_resources",
       "vendor_slug": "autotask"
     },
@@ -454,27 +651,27 @@
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 258,
+      "call_count": 263,
       "tool_name": "autotask_search_companies",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 229,
+      "call_count": 243,
       "tool_name": "cw_get_ticket_notes",
       "vendor_slug": "connectwise-manage"
     },
     {
-      "call_count": 189,
+      "call_count": 173,
       "tool_name": "cw_search_tickets",
       "vendor_slug": "connectwise-manage"
     },
     {
-      "call_count": 156,
+      "call_count": 158,
       "tool_name": "autotask_search_contacts",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 142,
+      "call_count": 135,
       "tool_name": "search_organizations",
       "vendor_slug": "itglue"
     },
@@ -484,12 +681,12 @@
       "vendor_slug": "cipp"
     },
     {
-      "call_count": 121,
+      "call_count": 123,
       "tool_name": "autotask_get_field_info",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 116,
+      "call_count": 115,
       "tool_name": "cw_update_ticket",
       "vendor_slug": "connectwise-manage"
     },
