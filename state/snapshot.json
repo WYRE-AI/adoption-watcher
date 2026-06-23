@@ -6,13 +6,13 @@
         "org_id": "ghrO0tn7cS99BYhaDknJI",
         "org_name": "Koine Ventures",
         "plan": "pro",
-        "tool_calls": 4095
+        "tool_calls": 4405
       },
       {
         "org_id": "L-Fk69VfrntBjgVxOvWJX",
         "org_name": "WYRE Technology",
         "plan": "business",
-        "tool_calls": 2525
+        "tool_calls": 2558
       },
       {
         "org_id": "j8VgkefyBt6Qi47I0QDvS",
@@ -24,13 +24,13 @@
         "org_id": "x5UYh751TgzLa3UiKpvmQ",
         "org_name": "ITPartners+",
         "plan": "pro",
-        "tool_calls": 596
+        "tool_calls": 613
       },
       {
         "org_id": "8Cu12Wl9p2s-ypYTnXGxJ",
         "org_name": "Stu Ian",
         "plan": "business",
-        "tool_calls": 338
+        "tool_calls": 483
       },
       {
         "org_id": "TCA5fSUvdc3GmtRkFh_ug",
@@ -41,14 +41,14 @@
       {
         "org_id": "W0ETvPAiirjOFvqLDAXtI",
         "org_name": "Byte Time",
-        "plan": "pro",
-        "tool_calls": 216
+        "plan": "business",
+        "tool_calls": 252
       },
       {
         "org_id": "7hvCcfX5Bivg81FmaQyRi",
         "org_name": "AM3 Technology & Cybersecurity",
         "plan": "pro",
-        "tool_calls": 73
+        "tool_calls": 83
       },
       {
         "org_id": "BBbnACU7aLIb0HgRB0ami",
@@ -60,18 +60,13 @@
         "org_id": "i6mF8EGo54uS5zPEi8bl6",
         "org_name": "Ghost Pepper",
         "plan": "pro",
-        "tool_calls": 17
+        "tool_calls": 13
       }
     ]
   },
   "credit_burn_rate": [
     {
-      "credits": 16,
-      "day": "2026-05-23",
-      "plan": "pro"
-    },
-    {
-      "credits": 23,
+      "credits": 19,
       "day": "2026-05-24",
       "plan": "pro"
     },
@@ -186,32 +181,32 @@
       "plan": "pro"
     },
     {
-      "credits": 10,
+      "credits": 19,
       "day": "2026-06-10",
       "plan": "business"
     },
     {
-      "credits": 815,
+      "credits": 806,
       "day": "2026-06-10",
       "plan": "pro"
     },
     {
-      "credits": 1394,
+      "credits": 1409,
       "day": "2026-06-11",
       "plan": "business"
     },
     {
-      "credits": 421,
+      "credits": 406,
       "day": "2026-06-11",
       "plan": "pro"
     },
     {
-      "credits": 44,
+      "credits": 66,
       "day": "2026-06-12",
       "plan": "business"
     },
     {
-      "credits": 241,
+      "credits": 219,
       "day": "2026-06-12",
       "plan": "pro"
     },
@@ -226,62 +221,62 @@
       "plan": "pro"
     },
     {
-      "credits": 16,
+      "credits": 19,
       "day": "2026-06-14",
       "plan": "business"
     },
     {
-      "credits": 52,
+      "credits": 49,
       "day": "2026-06-14",
       "plan": "pro"
     },
     {
-      "credits": 97,
+      "credits": 118,
       "day": "2026-06-15",
       "plan": "business"
     },
     {
-      "credits": 203,
+      "credits": 182,
       "day": "2026-06-15",
       "plan": "pro"
     },
     {
-      "credits": 197,
+      "credits": 211,
       "day": "2026-06-16",
       "plan": "business"
     },
     {
-      "credits": 329,
+      "credits": 315,
       "day": "2026-06-16",
       "plan": "pro"
     },
     {
-      "credits": 137,
+      "credits": 179,
       "day": "2026-06-17",
       "plan": "business"
     },
     {
-      "credits": 299,
+      "credits": 257,
       "day": "2026-06-17",
       "plan": "pro"
     },
     {
-      "credits": 186,
+      "credits": 212,
       "day": "2026-06-18",
       "plan": "business"
     },
     {
-      "credits": 147,
+      "credits": 121,
       "day": "2026-06-18",
       "plan": "pro"
     },
     {
-      "credits": 55,
+      "credits": 100,
       "day": "2026-06-19",
       "plan": "business"
     },
     {
-      "credits": 153,
+      "credits": 108,
       "day": "2026-06-19",
       "plan": "pro"
     },
@@ -301,13 +296,23 @@
       "plan": "pro"
     },
     {
-      "credits": 40,
+      "credits": 198,
       "day": "2026-06-22",
       "plan": "business"
     },
     {
-      "credits": 101,
+      "credits": 212,
       "day": "2026-06-22",
+      "plan": "pro"
+    },
+    {
+      "credits": 47,
+      "day": "2026-06-23",
+      "plan": "business"
+    },
+    {
+      "credits": 228,
+      "day": "2026-06-23",
       "plan": "pro"
     }
   ],
@@ -430,7 +435,7 @@
       "trial_ends_at": null
     }
   ],
-  "generated_at": "2026-06-22T15:45:36.613Z",
+  "generated_at": "2026-06-23T15:10:22.575Z",
   "grandfathered_pro": [
     {
       "created_at": "2026-04-17 13:45:50",
@@ -507,10 +512,6 @@
   ],
   "new_orgs": [
     {
-      "day": "2026-06-08",
-      "signups": 1
-    },
-    {
       "day": "2026-06-10",
       "signups": 1
     }
@@ -523,19 +524,11 @@
       "owner_email": "Jeff@thriveitmsp.com",
       "owner_name": "Jeff Smith",
       "plan": "business"
-    },
-    {
-      "created_at": "2026-06-08 23:30:17",
-      "org_id": "VbdKMteExjE-z3dID8TXL",
-      "org_name": "KNG",
-      "owner_email": "swebb@katalystng.com",
-      "owner_name": "swebb@katalystng.com",
-      "plan": "pro"
     }
   ],
   "plan_distribution": [
     {
-      "count": 7,
+      "count": 8,
       "plan": "business"
     },
     {
@@ -543,7 +536,7 @@
       "plan": "free"
     },
     {
-      "count": 17,
+      "count": 16,
       "plan": "pro"
     },
     {
@@ -553,20 +546,20 @@
   ],
   "tiles": {
     "activeOrgs": 10,
-    "creditBurn30d": 8778,
-    "creditBurnToday": 141,
-    "newOrgs14d": 2,
+    "creditBurn30d": 9302,
+    "creditBurnToday": 275,
+    "newOrgs14d": 1,
     "planSplit": {
       "free": 13,
       "other": 9,
-      "paid": 7,
-      "pro": 17,
+      "paid": 8,
+      "pro": 16,
       "total": 46,
       "trial": 0
     },
-    "recentSignups": 2,
+    "recentSignups": 1,
     "topTool": {
-      "call_count": 1370,
+      "call_count": 1391,
       "tool_name": "autotask_raw_request",
       "vendor_slug": "autotask"
     },
@@ -574,7 +567,7 @@
   },
   "top_tools": [
     {
-      "call_count": 1370,
+      "call_count": 1391,
       "tool_name": "autotask_raw_request",
       "vendor_slug": "autotask"
     },
@@ -584,93 +577,93 @@
       "vendor_slug": "rootly"
     },
     {
-      "call_count": 945,
+      "call_count": 1011,
       "tool_name": "autotask_search_tickets",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 876,
-      "tool_name": "autotask_search_time_entries",
-      "vendor_slug": "autotask"
-    },
-    {
-      "call_count": 863,
+      "call_count": 923,
       "tool_name": "autotask_search_ticket_notes",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 705,
+      "call_count": 886,
+      "tool_name": "autotask_search_time_entries",
+      "vendor_slug": "autotask"
+    },
+    {
+      "call_count": 808,
       "tool_name": "autotask_execute_tool",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 563,
-      "tool_name": "auvik_alerts_list",
-      "vendor_slug": "auvik"
-    },
-    {
-      "call_count": 495,
+      "call_count": 592,
       "tool_name": "autotask_create_ticket_note",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 484,
+      "call_count": 571,
+      "tool_name": "auvik_alerts_list",
+      "vendor_slug": "auvik"
+    },
+    {
+      "call_count": 566,
       "tool_name": "autotask_get_ticket_details",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 275,
-      "tool_name": "list_alerts",
-      "vendor_slug": "rootly"
-    },
-    {
-      "call_count": 271,
+      "call_count": 309,
       "tool_name": "autotask_update_ticket",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 263,
+      "call_count": 296,
+      "tool_name": "list_alerts",
+      "vendor_slug": "rootly"
+    },
+    {
+      "call_count": 273,
       "tool_name": "autotask_search_resources",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 228,
+      "call_count": 256,
       "tool_name": "cw_get_ticket_notes",
       "vendor_slug": "connectwise-manage"
     },
     {
-      "call_count": 226,
+      "call_count": 229,
       "tool_name": "autotask_search_companies",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 180,
+      "call_count": 204,
       "tool_name": "cw_search_tickets",
       "vendor_slug": "connectwise-manage"
     },
     {
-      "call_count": 154,
+      "call_count": 152,
       "tool_name": "search_documents",
       "vendor_slug": "itglue"
     },
     {
-      "call_count": 151,
+      "call_count": 148,
       "tool_name": "search_organizations",
       "vendor_slug": "itglue"
     },
     {
-      "call_count": 120,
-      "tool_name": "autotask_search_contacts",
-      "vendor_slug": "autotask"
-    },
-    {
-      "call_count": 119,
+      "call_count": 135,
       "tool_name": "cw_get_ticket",
       "vendor_slug": "connectwise-manage"
     },
     {
-      "call_count": 114,
+      "call_count": 131,
       "tool_name": "autotask_get_field_info",
+      "vendor_slug": "autotask"
+    },
+    {
+      "call_count": 120,
+      "tool_name": "autotask_search_contacts",
       "vendor_slug": "autotask"
     }
   ],
