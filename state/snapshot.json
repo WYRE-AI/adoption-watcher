@@ -6,49 +6,49 @@
         "org_id": "L-Fk69VfrntBjgVxOvWJX",
         "org_name": "WYRE Technology",
         "plan": "business",
-        "tool_calls": 5212
+        "tool_calls": 5230
       },
       {
         "org_id": "8Cu12Wl9p2s-ypYTnXGxJ",
         "org_name": "Stu Ian",
         "plan": "business",
-        "tool_calls": 4486
+        "tool_calls": 4755
       },
       {
         "org_id": "ghrO0tn7cS99BYhaDknJI",
         "org_name": "Koine Ventures",
         "plan": "pro",
-        "tool_calls": 1945
+        "tool_calls": 1889
       },
       {
         "org_id": "W0ETvPAiirjOFvqLDAXtI",
         "org_name": "Byte Time",
         "plan": "business",
-        "tool_calls": 1002
+        "tool_calls": 1029
       },
       {
         "org_id": "PMUa4ayGhHPChNfXqk9Y4",
         "org_name": "One2call Ops",
         "plan": "pro",
-        "tool_calls": 722
+        "tool_calls": 731
       },
       {
         "org_id": "x5UYh751TgzLa3UiKpvmQ",
         "org_name": "ITPartners+",
         "plan": "pro",
-        "tool_calls": 650
+        "tool_calls": 666
       },
       {
         "org_id": "j8VgkefyBt6Qi47I0QDvS",
         "org_name": "Aligned Technology Partners",
         "plan": "pro",
-        "tool_calls": 618
+        "tool_calls": 619
       },
       {
         "org_id": "7hvCcfX5Bivg81FmaQyRi",
         "org_name": "AM3 Technology & Cybersecurity",
         "plan": "pro",
-        "tool_calls": 228
+        "tool_calls": 255
       },
       {
         "org_id": "TCA5fSUvdc3GmtRkFh_ug",
@@ -60,22 +60,12 @@
   },
   "credit_burn_rate": [
     {
-      "credits": 11,
-      "day": "2026-06-14",
-      "plan": "business"
-    },
-    {
-      "credits": 49,
-      "day": "2026-06-14",
-      "plan": "pro"
-    },
-    {
-      "credits": 118,
+      "credits": 94,
       "day": "2026-06-15",
       "plan": "business"
     },
     {
-      "credits": 182,
+      "credits": 175,
       "day": "2026-06-15",
       "plan": "pro"
     },
@@ -345,13 +335,23 @@
       "plan": "pro"
     },
     {
-      "credits": 297,
+      "credits": 358,
       "day": "2026-07-14",
       "plan": "business"
     },
     {
-      "credits": 37,
+      "credits": 79,
       "day": "2026-07-14",
+      "plan": "pro"
+    },
+    {
+      "credits": 266,
+      "day": "2026-07-15",
+      "plan": "business"
+    },
+    {
+      "credits": 11,
+      "day": "2026-07-15",
       "plan": "pro"
     }
   ],
@@ -465,7 +465,7 @@
       "trial_ends_at": null
     }
   ],
-  "generated_at": "2026-07-14T14:41:17.733Z",
+  "generated_at": "2026-07-15T14:41:06.523Z",
   "grandfathered_pro": [
     {
       "created_at": "2026-04-17 13:45:50",
@@ -542,10 +542,6 @@
   ],
   "new_orgs": [
     {
-      "day": "2026-06-30",
-      "signups": 1
-    },
-    {
       "day": "2026-07-02",
       "signups": 1
     }
@@ -558,14 +554,6 @@
       "owner_email": "john.gray@mcsmc.co.uk",
       "owner_name": "John Gray MBCS",
       "plan": "business"
-    },
-    {
-      "created_at": "2026-06-30 19:26:32",
-      "org_id": "PJJgZezYjwagvSvH107ek",
-      "org_name": "Marco Technologies, LLC",
-      "owner_email": "adam.ramberg@marconet.com",
-      "owner_name": "Adam Ramberg",
-      "plan": "pro"
     }
   ],
   "plan_distribution": [
@@ -588,9 +576,9 @@
   ],
   "tiles": {
     "activeOrgs": 9,
-    "creditBurn30d": 14590,
-    "creditBurnToday": 334,
-    "newOrgs14d": 2,
+    "creditBurn30d": 14879,
+    "creditBurnToday": 277,
+    "newOrgs14d": 1,
     "planSplit": {
       "free": 12,
       "other": 8,
@@ -599,7 +587,7 @@
       "total": 48,
       "trial": 0
     },
-    "recentSignups": 2,
+    "recentSignups": 1,
     "topTool": {
       "call_count": 2072,
       "tool_name": "list_alerts",
@@ -614,27 +602,27 @@
       "vendor_slug": "rootly"
     },
     {
-      "call_count": 1979,
+      "call_count": 2006,
       "tool_name": "autotask_raw_request",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 1336,
+      "call_count": 1401,
       "tool_name": "autotask_search_tickets",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 1136,
+      "call_count": 1182,
       "tool_name": "autotask_get_ticket_details",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 1051,
+      "call_count": 1050,
       "tool_name": "autotask_search_time_entries",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 812,
+      "call_count": 827,
       "tool_name": "autotask_search_ticket_notes",
       "vendor_slug": "autotask"
     },
@@ -644,7 +632,7 @@
       "vendor_slug": "rootly"
     },
     {
-      "call_count": 736,
+      "call_count": 745,
       "tool_name": "cw_search_tickets",
       "vendor_slug": "connectwise-manage"
     },
@@ -654,37 +642,37 @@
       "vendor_slug": "auvik"
     },
     {
-      "call_count": 548,
+      "call_count": 568,
       "tool_name": "cw_get_ticket_notes",
       "vendor_slug": "connectwise-manage"
     },
     {
-      "call_count": 525,
+      "call_count": 549,
       "tool_name": "autotask_create_ticket_note",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 465,
+      "call_count": 485,
       "tool_name": "autotask_get_field_info",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 389,
+      "call_count": 387,
       "tool_name": "autotask_execute_tool",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 330,
+      "call_count": 341,
       "tool_name": "search_organizations",
       "vendor_slug": "itglue"
     },
     {
-      "call_count": 299,
+      "call_count": 305,
       "tool_name": "cipp_list_audit_logs",
       "vendor_slug": "cipp"
     },
     {
-      "call_count": 245,
+      "call_count": 264,
       "tool_name": "cw_get_ticket",
       "vendor_slug": "connectwise-manage"
     },
@@ -699,7 +687,7 @@
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 215,
+      "call_count": 217,
       "tool_name": "search_documents",
       "vendor_slug": "itglue"
     },
