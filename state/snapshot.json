@@ -6,31 +6,31 @@
         "org_id": "8Cu12Wl9p2s-ypYTnXGxJ",
         "org_name": "Stu Ian",
         "plan": "business",
-        "tool_calls": 10165
+        "tool_calls": 10813
       },
       {
         "org_id": "L-Fk69VfrntBjgVxOvWJX",
         "org_name": "WYRE Technology",
         "plan": "pro",
-        "tool_calls": 9474
+        "tool_calls": 9614
       },
       {
         "org_id": "x5UYh751TgzLa3UiKpvmQ",
         "org_name": "ITPartners+",
         "plan": "pro",
-        "tool_calls": 1570
+        "tool_calls": 1640
       },
       {
         "org_id": "W0ETvPAiirjOFvqLDAXtI",
         "org_name": "Byte Time",
         "plan": "business",
-        "tool_calls": 1183
+        "tool_calls": 1209
       },
       {
         "org_id": "j8VgkefyBt6Qi47I0QDvS",
         "org_name": "Aligned Technology Partners",
         "plan": "pro",
-        "tool_calls": 1070
+        "tool_calls": 1090
       },
       {
         "org_id": "PMUa4ayGhHPChNfXqk9Y4",
@@ -42,13 +42,13 @@
         "org_id": "ghrO0tn7cS99BYhaDknJI",
         "org_name": "Koine Ventures",
         "plan": "pro",
-        "tool_calls": 762
+        "tool_calls": 675
       },
       {
         "org_id": "7hvCcfX5Bivg81FmaQyRi",
         "org_name": "AM3 Technology & Cybersecurity",
         "plan": "pro",
-        "tool_calls": 270
+        "tool_calls": 311
       },
       {
         "org_id": "VbdKMteExjE-z3dID8TXL",
@@ -183,7 +183,7 @@
       "trial_ends_at": null
     }
   ],
-  "generated_at": "2026-08-03T15:07:43.727Z",
+  "generated_at": "2026-08-04T14:56:22.317Z",
   "grandfathered_pro": [
     {
       "created_at": "2026-04-17 13:45:50",
@@ -304,10 +304,10 @@
       "trial": 0
     },
     "recentSignups": 1,
-    "toolCalls30d": 25248,
-    "toolCallsToday": 723,
+    "toolCalls30d": 26112,
+    "toolCallsToday": 489,
     "topTool": {
-      "call_count": 5333,
+      "call_count": 5329,
       "tool_name": "list_alerts",
       "vendor_slug": "rootly"
     },
@@ -315,22 +315,12 @@
   },
   "tool_call_volume": [
     {
-      "calls": 78,
-      "day": "2026-07-04",
-      "plan": "business"
-    },
-    {
-      "calls": 120,
-      "day": "2026-07-04",
-      "plan": "pro"
-    },
-    {
-      "calls": 151,
+      "calls": 67,
       "day": "2026-07-05",
       "plan": "business"
     },
     {
-      "calls": 96,
+      "calls": 64,
       "day": "2026-07-05",
       "plan": "pro"
     },
@@ -615,114 +605,124 @@
       "plan": "pro"
     },
     {
-      "calls": 665,
+      "calls": 1062,
       "day": "2026-08-03",
       "plan": "business"
     },
     {
-      "calls": 58,
+      "calls": 350,
       "day": "2026-08-03",
+      "plan": "pro"
+    },
+    {
+      "calls": 446,
+      "day": "2026-08-04",
+      "plan": "business"
+    },
+    {
+      "calls": 43,
+      "day": "2026-08-04",
       "plan": "pro"
     }
   ],
   "top_tools": [
     {
-      "call_count": 5333,
+      "call_count": 5329,
       "tool_name": "list_alerts",
       "vendor_slug": "rootly"
     },
     {
-      "call_count": 3952,
+      "call_count": 4039,
       "tool_name": "autotask_raw_request",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 2231,
+      "call_count": 2307,
       "tool_name": "cipp_list_audit_logs",
       "vendor_slug": "cipp"
     },
     {
-      "call_count": 1453,
-      "tool_name": "autotask_search_tickets",
-      "vendor_slug": "autotask"
-    },
-    {
-      "call_count": 1324,
+      "call_count": 1651,
       "tool_name": "search_flexible_assets",
       "vendor_slug": "itglue"
     },
     {
-      "call_count": 1304,
+      "call_count": 1489,
+      "tool_name": "autotask_search_tickets",
+      "vendor_slug": "autotask"
+    },
+    {
+      "call_count": 1359,
       "tool_name": "autotask_get_ticket_details",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 1187,
+      "call_count": 1256,
       "tool_name": "get_alert",
       "vendor_slug": "rootly"
     },
     {
-      "call_count": 829,
+      "call_count": 830,
       "tool_name": "autotask_search_time_entries",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 693,
+      "call_count": 736,
       "tool_name": "cw_search_tickets",
       "vendor_slug": "connectwise-manage"
     },
     {
-      "call_count": 686,
-      "tool_name": "autotask_search_ticket_notes",
-      "vendor_slug": "autotask"
-    },
-    {
-      "call_count": 658,
+      "call_count": 673,
       "tool_name": "autotask_get_field_info",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 534,
+      "call_count": 672,
+      "tool_name": "autotask_search_ticket_notes",
+      "vendor_slug": "autotask"
+    },
+    {
+      "call_count": 550,
       "tool_name": "cw_get_ticket_notes",
       "vendor_slug": "connectwise-manage"
     },
     {
-      "call_count": 516,
+      "call_count": 497,
       "tool_name": "autotask_create_ticket_note",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 461,
+      "call_count": 472,
       "tool_name": "cipp_list_tenants",
       "vendor_slug": "cipp"
     },
     {
-      "call_count": 448,
+      "call_count": 455,
       "tool_name": "cipp_bec_check",
       "vendor_slug": "cipp"
     },
     {
-      "call_count": 417,
+      "call_count": 446,
       "tool_name": "search_organizations",
       "vendor_slug": "itglue"
     },
     {
-      "call_count": 323,
+      "call_count": 354,
       "tool_name": "auvik_devices_list",
       "vendor_slug": "auvik"
     },
     {
-      "call_count": 302,
+      "call_count": 317,
       "tool_name": "cw_get_ticket",
       "vendor_slug": "connectwise-manage"
     },
     {
-      "call_count": 273,
+      "call_count": 316,
       "tool_name": "search_configurations",
       "vendor_slug": "itglue"
     },
     {
-      "call_count": 263,
+      "call_count": 272,
       "tool_name": "autotask_search_companies",
       "vendor_slug": "autotask"
     }
