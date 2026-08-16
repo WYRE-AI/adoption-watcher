@@ -6,43 +6,43 @@
         "org_id": "8Cu12Wl9p2s-ypYTnXGxJ",
         "org_name": "Stu Ian",
         "plan": "pro",
-        "tool_calls": 14584
+        "tool_calls": 14330
       },
       {
         "org_id": "L-Fk69VfrntBjgVxOvWJX",
         "org_name": "WYRE Technology",
-        "plan": "pro",
-        "tool_calls": 10426
+        "plan": "free",
+        "tool_calls": 11221
       },
       {
         "org_id": "W0ETvPAiirjOFvqLDAXtI",
         "org_name": "Byte Time",
         "plan": "business",
-        "tool_calls": 1886
+        "tool_calls": 2216
       },
       {
         "org_id": "x5UYh751TgzLa3UiKpvmQ",
         "org_name": "ITPartners+",
         "plan": "pro",
-        "tool_calls": 1480
+        "tool_calls": 1461
       },
       {
         "org_id": "j8VgkefyBt6Qi47I0QDvS",
         "org_name": "Aligned Technology Partners",
         "plan": "pro",
-        "tool_calls": 1047
+        "tool_calls": 1026
       },
       {
         "org_id": "PMUa4ayGhHPChNfXqk9Y4",
         "org_name": "One2call Ops",
         "plan": "business",
-        "tool_calls": 697
+        "tool_calls": 678
       },
       {
         "org_id": "ghrO0tn7cS99BYhaDknJI",
         "org_name": "Koine Ventures",
         "plan": "free",
-        "tool_calls": 388
+        "tool_calls": 386
       },
       {
         "org_id": "7hvCcfX5Bivg81FmaQyRi",
@@ -181,9 +181,18 @@
       "plan": "free",
       "stripe_customer_id": null,
       "trial_ends_at": null
+    },
+    {
+      "created_at": "2026-02-19 17:45:34",
+      "org_id": "L-Fk69VfrntBjgVxOvWJX",
+      "org_name": "WYRE Technology",
+      "owner_email": "aaron@wyretechnology.com",
+      "plan": "free",
+      "stripe_customer_id": "cus_UqjhrKIWBjksni",
+      "trial_ends_at": null
     }
   ],
-  "generated_at": "2026-08-15T14:11:14.066Z",
+  "generated_at": "2026-08-16T14:11:17.986Z",
   "grandfathered_pro": [
     {
       "created_at": "2026-04-17 13:45:50",
@@ -266,11 +275,11 @@
       "plan": "business"
     },
     {
-      "count": 13,
+      "count": 14,
       "plan": "free"
     },
     {
-      "count": 19,
+      "count": 18,
       "plan": "pro"
     },
     {
@@ -282,18 +291,18 @@
     "activeOrgs": 10,
     "newOrgs14d": 0,
     "planSplit": {
-      "free": 13,
+      "free": 14,
       "other": 8,
       "paid": 10,
-      "pro": 19,
+      "pro": 18,
       "total": 50,
       "trial": 0
     },
     "recentSignups": 0,
-    "toolCalls30d": 29869,
-    "toolCallsToday": 307,
+    "toolCalls30d": 30687,
+    "toolCallsToday": 604,
     "topTool": {
-      "call_count": 5493,
+      "call_count": 6046,
       "tool_name": "list_alerts",
       "vendor_slug": "rootly"
     },
@@ -301,37 +310,37 @@
   },
   "tool_call_volume": [
     {
-      "calls": 23,
-      "day": "2026-07-16",
-      "plan": "business"
-    },
-    {
-      "calls": 459,
-      "day": "2026-07-16",
-      "plan": "pro"
-    },
-    {
-      "calls": 62,
+      "calls": 37,
       "day": "2026-07-17",
       "plan": "business"
     },
     {
-      "calls": 16,
+      "calls": 275,
       "day": "2026-07-17",
       "plan": "free"
     },
     {
-      "calls": 635,
+      "calls": 163,
       "day": "2026-07-17",
       "plan": "pro"
     },
     {
-      "calls": 1124,
+      "calls": 1026,
+      "day": "2026-07-18",
+      "plan": "free"
+    },
+    {
+      "calls": 98,
       "day": "2026-07-18",
       "plan": "pro"
     },
     {
-      "calls": 1095,
+      "calls": 939,
+      "day": "2026-07-19",
+      "plan": "free"
+    },
+    {
+      "calls": 156,
       "day": "2026-07-19",
       "plan": "pro"
     },
@@ -341,7 +350,12 @@
       "plan": "business"
     },
     {
-      "calls": 653,
+      "calls": 352,
+      "day": "2026-07-20",
+      "plan": "free"
+    },
+    {
+      "calls": 301,
       "day": "2026-07-20",
       "plan": "pro"
     },
@@ -351,12 +365,12 @@
       "plan": "business"
     },
     {
-      "calls": 3,
+      "calls": 316,
       "day": "2026-07-21",
       "plan": "free"
     },
     {
-      "calls": 1055,
+      "calls": 742,
       "day": "2026-07-21",
       "plan": "pro"
     },
@@ -366,7 +380,12 @@
       "plan": "business"
     },
     {
-      "calls": 1494,
+      "calls": 257,
+      "day": "2026-07-22",
+      "plan": "free"
+    },
+    {
+      "calls": 1237,
       "day": "2026-07-22",
       "plan": "pro"
     },
@@ -376,12 +395,12 @@
       "plan": "business"
     },
     {
-      "calls": 284,
+      "calls": 570,
       "day": "2026-07-23",
       "plan": "free"
     },
     {
-      "calls": 901,
+      "calls": 615,
       "day": "2026-07-23",
       "plan": "pro"
     },
@@ -391,12 +410,12 @@
       "plan": "business"
     },
     {
-      "calls": 4,
+      "calls": 221,
       "day": "2026-07-24",
       "plan": "free"
     },
     {
-      "calls": 764,
+      "calls": 547,
       "day": "2026-07-24",
       "plan": "pro"
     },
@@ -426,12 +445,12 @@
       "plan": "business"
     },
     {
-      "calls": 7,
+      "calls": 133,
       "day": "2026-07-27",
       "plan": "free"
     },
     {
-      "calls": 869,
+      "calls": 743,
       "day": "2026-07-27",
       "plan": "pro"
     },
@@ -441,12 +460,12 @@
       "plan": "business"
     },
     {
-      "calls": 6,
+      "calls": 191,
       "day": "2026-07-28",
       "plan": "free"
     },
     {
-      "calls": 726,
+      "calls": 541,
       "day": "2026-07-28",
       "plan": "pro"
     },
@@ -456,12 +475,12 @@
       "plan": "business"
     },
     {
-      "calls": 4,
+      "calls": 218,
       "day": "2026-07-29",
       "plan": "free"
     },
     {
-      "calls": 886,
+      "calls": 672,
       "day": "2026-07-29",
       "plan": "pro"
     },
@@ -471,7 +490,12 @@
       "plan": "business"
     },
     {
-      "calls": 1047,
+      "calls": 179,
+      "day": "2026-07-30",
+      "plan": "free"
+    },
+    {
+      "calls": 868,
       "day": "2026-07-30",
       "plan": "pro"
     },
@@ -481,12 +505,12 @@
       "plan": "business"
     },
     {
-      "calls": 2,
+      "calls": 121,
       "day": "2026-07-31",
       "plan": "free"
     },
     {
-      "calls": 468,
+      "calls": 349,
       "day": "2026-07-31",
       "plan": "pro"
     },
@@ -496,12 +520,22 @@
       "plan": "business"
     },
     {
-      "calls": 425,
+      "calls": 273,
+      "day": "2026-08-01",
+      "plan": "free"
+    },
+    {
+      "calls": 152,
       "day": "2026-08-01",
       "plan": "pro"
     },
     {
-      "calls": 596,
+      "calls": 97,
+      "day": "2026-08-02",
+      "plan": "free"
+    },
+    {
+      "calls": 499,
       "day": "2026-08-02",
       "plan": "pro"
     },
@@ -511,12 +545,12 @@
       "plan": "business"
     },
     {
-      "calls": 48,
+      "calls": 239,
       "day": "2026-08-03",
       "plan": "free"
     },
     {
-      "calls": 1319,
+      "calls": 1128,
       "day": "2026-08-03",
       "plan": "pro"
     },
@@ -526,12 +560,12 @@
       "plan": "business"
     },
     {
-      "calls": 6,
+      "calls": 87,
       "day": "2026-08-04",
       "plan": "free"
     },
     {
-      "calls": 756,
+      "calls": 675,
       "day": "2026-08-04",
       "plan": "pro"
     },
@@ -541,7 +575,12 @@
       "plan": "business"
     },
     {
-      "calls": 1034,
+      "calls": 203,
+      "day": "2026-08-05",
+      "plan": "free"
+    },
+    {
+      "calls": 831,
       "day": "2026-08-05",
       "plan": "pro"
     },
@@ -551,7 +590,12 @@
       "plan": "business"
     },
     {
-      "calls": 1432,
+      "calls": 243,
+      "day": "2026-08-06",
+      "plan": "free"
+    },
+    {
+      "calls": 1189,
       "day": "2026-08-06",
       "plan": "pro"
     },
@@ -561,7 +605,12 @@
       "plan": "business"
     },
     {
-      "calls": 752,
+      "calls": 299,
+      "day": "2026-08-07",
+      "plan": "free"
+    },
+    {
+      "calls": 453,
       "day": "2026-08-07",
       "plan": "pro"
     },
@@ -571,7 +620,12 @@
       "plan": "business"
     },
     {
-      "calls": 881,
+      "calls": 865,
+      "day": "2026-08-08",
+      "plan": "free"
+    },
+    {
+      "calls": 16,
       "day": "2026-08-08",
       "plan": "pro"
     },
@@ -581,7 +635,12 @@
       "plan": "business"
     },
     {
-      "calls": 1066,
+      "calls": 787,
+      "day": "2026-08-09",
+      "plan": "free"
+    },
+    {
+      "calls": 279,
       "day": "2026-08-09",
       "plan": "pro"
     },
@@ -591,7 +650,12 @@
       "plan": "business"
     },
     {
-      "calls": 1437,
+      "calls": 376,
+      "day": "2026-08-10",
+      "plan": "free"
+    },
+    {
+      "calls": 1061,
       "day": "2026-08-10",
       "plan": "pro"
     },
@@ -601,7 +665,12 @@
       "plan": "business"
     },
     {
-      "calls": 1024,
+      "calls": 346,
+      "day": "2026-08-11",
+      "plan": "free"
+    },
+    {
+      "calls": 678,
       "day": "2026-08-11",
       "plan": "pro"
     },
@@ -611,7 +680,12 @@
       "plan": "business"
     },
     {
-      "calls": 1264,
+      "calls": 320,
+      "day": "2026-08-12",
+      "plan": "free"
+    },
+    {
+      "calls": 944,
       "day": "2026-08-12",
       "plan": "pro"
     },
@@ -621,7 +695,12 @@
       "plan": "business"
     },
     {
-      "calls": 1091,
+      "calls": 341,
+      "day": "2026-08-13",
+      "plan": "free"
+    },
+    {
+      "calls": 750,
       "day": "2026-08-13",
       "plan": "pro"
     },
@@ -631,24 +710,44 @@
       "plan": "business"
     },
     {
-      "calls": 853,
+      "calls": 387,
+      "day": "2026-08-14",
+      "plan": "free"
+    },
+    {
+      "calls": 466,
       "day": "2026-08-14",
       "plan": "pro"
     },
     {
-      "calls": 8,
+      "calls": 30,
       "day": "2026-08-15",
       "plan": "business"
     },
     {
-      "calls": 299,
+      "calls": 1188,
+      "day": "2026-08-15",
+      "plan": "free"
+    },
+    {
+      "calls": 23,
       "day": "2026-08-15",
       "plan": "pro"
+    },
+    {
+      "calls": 337,
+      "day": "2026-08-16",
+      "plan": "business"
+    },
+    {
+      "calls": 267,
+      "day": "2026-08-16",
+      "plan": "free"
     }
   ],
   "top_tools": [
     {
-      "call_count": 5493,
+      "call_count": 6046,
       "tool_name": "list_alerts",
       "vendor_slug": "rootly"
     },
@@ -658,87 +757,87 @@
       "vendor_slug": "itglue"
     },
     {
-      "call_count": 3816,
+      "call_count": 3763,
       "tool_name": "autotask_raw_request",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 2820,
+      "call_count": 2781,
       "tool_name": "cipp_list_audit_logs",
       "vendor_slug": "cipp"
     },
     {
-      "call_count": 2242,
+      "call_count": 2369,
       "tool_name": "get_alert",
       "vendor_slug": "rootly"
     },
     {
-      "call_count": 1205,
+      "call_count": 1128,
       "tool_name": "autotask_search_tickets",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 914,
+      "call_count": 909,
       "tool_name": "cw_search_tickets",
       "vendor_slug": "connectwise-manage"
     },
     {
-      "call_count": 876,
+      "call_count": 849,
       "tool_name": "autotask_get_ticket_details",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 632,
+      "call_count": 615,
       "tool_name": "autotask_get_field_info",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 615,
-      "tool_name": "search_organizations",
-      "vendor_slug": "itglue"
-    },
-    {
-      "call_count": 595,
-      "tool_name": "cw_get_ticket_notes",
-      "vendor_slug": "connectwise-manage"
-    },
-    {
-      "call_count": 589,
+      "call_count": 605,
       "tool_name": "cipp_bec_check",
       "vendor_slug": "cipp"
     },
     {
-      "call_count": 560,
+      "call_count": 599,
+      "tool_name": "search_organizations",
+      "vendor_slug": "itglue"
+    },
+    {
+      "call_count": 580,
+      "tool_name": "cw_get_ticket_notes",
+      "vendor_slug": "connectwise-manage"
+    },
+    {
+      "call_count": 564,
       "tool_name": "cipp_list_tenants",
       "vendor_slug": "cipp"
     },
     {
-      "call_count": 545,
-      "tool_name": "autotask_search_ticket_notes",
-      "vendor_slug": "autotask"
-    },
-    {
-      "call_count": 521,
+      "call_count": 513,
       "tool_name": "search_configurations",
       "vendor_slug": "itglue"
     },
     {
+      "call_count": 507,
+      "tool_name": "cw_get_agreement_additions",
+      "vendor_slug": "connectwise-manage"
+    },
+    {
       "call_count": 488,
-      "tool_name": "autotask_create_ticket_note",
+      "tool_name": "autotask_search_ticket_notes",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 477,
+      "call_count": 481,
       "tool_name": "cipp_list_users",
       "vendor_slug": "cipp"
     },
     {
-      "call_count": 431,
-      "tool_name": "autotask_search_time_entries",
+      "call_count": 479,
+      "tool_name": "autotask_create_ticket_note",
       "vendor_slug": "autotask"
     },
     {
-      "call_count": 362,
+      "call_count": 354,
       "tool_name": "cw_get_ticket",
       "vendor_slug": "connectwise-manage"
     },
