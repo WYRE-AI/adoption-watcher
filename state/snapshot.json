@@ -7,7 +7,7 @@
           "org_id": "8Cu12Wl9p2s-ypYTnXGxJ",
           "org_name": "Stu Ian",
           "plan": "business",
-          "tool_calls": 12034
+          "tool_calls": 12026
         },
         {
           "org_id": "8VqA07x5ZR5g8r2zBWmdV",
@@ -78,7 +78,7 @@
       ]
     },
     "credit_burn_rate": [],
-    "generated_at": "2026-08-20T21:39:42.729Z",
+    "generated_at": "2026-08-20T21:44:16.721Z",
     "new_orgs": [
       {
         "day": "2026-08-07",
@@ -155,12 +155,12 @@
       "error_rate_4xx_plus_pct": 0,
       "error_rate_5xx_pct": 0,
       "latency_ms": {
-        "p50": 2689,
-        "p95": 15617,
-        "p99": 17781
+        "p50": 2698,
+        "p95": 15772,
+        "p99": 17795
       },
-      "requests": 526,
-      "throughput_per_min": 0.37,
+      "requests": 511,
+      "throughput_per_min": 0.35,
       "window_hours": 24
     },
     "plan_distribution": [
@@ -197,7 +197,7 @@
         "vendor_slug": "autotask"
       },
       {
-        "call_count": 1660,
+        "call_count": 1652,
         "tool_name": "cipp_list_audit_logs",
         "vendor_slug": "cipp"
       },
@@ -296,13 +296,13 @@
           "org_id": "8Cu12Wl9p2s-ypYTnXGxJ",
           "org_name": "Stu Ian",
           "plan": "pro",
-          "tool_calls": 16449
+          "tool_calls": 16441
         },
         {
           "org_id": "L-Fk69VfrntBjgVxOvWJX",
           "org_name": "WYRE Technology",
           "plan": "pro",
-          "tool_calls": 10627
+          "tool_calls": 10616
         },
         {
           "org_id": "W0ETvPAiirjOFvqLDAXtI",
@@ -473,7 +473,7 @@
         "trial_ends_at": null
       }
     ],
-    "generated_at": "2026-08-20T21:39:42.286Z",
+    "generated_at": "2026-08-20T21:44:16.176Z",
     "grandfathered_pro": [
       {
         "created_at": "2026-04-17 13:45:50",
@@ -580,10 +580,10 @@
         "trial": 0
       },
       "recentSignups": 0,
-      "toolCalls30d": 32960,
-      "toolCallsToday": 1323,
+      "toolCalls30d": 32941,
+      "toolCallsToday": 1328,
       "topTool": {
-        "call_count": 5558,
+        "call_count": 5551,
         "tool_name": "list_alerts",
         "vendor_slug": "rootly"
       },
@@ -591,7 +591,7 @@
     },
     "tool_call_volume": [
       {
-        "calls": 352,
+        "calls": 328,
         "day": "2026-07-21",
         "plan": "pro"
       },
@@ -861,14 +861,14 @@
         "plan": "business"
       },
       {
-        "calls": 1305,
+        "calls": 1310,
         "day": "2026-08-20",
         "plan": "pro"
       }
     ],
     "top_tools": [
       {
-        "call_count": 5558,
+        "call_count": 5551,
         "tool_name": "list_alerts",
         "vendor_slug": "rootly"
       },
@@ -883,12 +883,12 @@
         "vendor_slug": "autotask"
       },
       {
-        "call_count": 2480,
+        "call_count": 2479,
         "tool_name": "get_alert",
         "vendor_slug": "rootly"
       },
       {
-        "call_count": 2425,
+        "call_count": 2417,
         "tool_name": "cipp_list_audit_logs",
         "vendor_slug": "cipp"
       },
