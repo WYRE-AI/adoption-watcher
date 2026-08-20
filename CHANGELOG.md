@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- **Delivery moved to #product-notifications in the WYRE AI workspace.** Posts now go through the shared "WYRE Notifier" Slack app (`chat.postMessage`, org-level `SLACK_NOTIFIER_BOT_TOKEN` secret, channel pinned in the workflow) instead of the old wyretalk incoming webhook; `SLACK_WEBHOOK_URL` is retired.
+
 ### Added
 
 - **Conduit adoption coverage — repo renamed `gateway-adoption-watcher` → `adoption-watcher`.** The daily digest now pulls `/api/admin/metrics` from both Conduit (`conduit.wyre.ai`, new `CONDUIT_ADMIN_TOKEN` secret / `CONDUIT_BASE` var) and the legacy Gateway, rendering one combined message with a section per product. Snapshot moves to a per-product `schema: 2` shape (old flat snapshots are read as gateway-only, so first-run deltas survive the migration). Conduit's day-bucketed `new_orgs` (`{day, signups}`) is summed rather than counted. A single product failing becomes a warning block instead of killing the digest; the run still exits non-zero so Actions flags it.

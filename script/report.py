@@ -1,7 +1,8 @@
 """Daily WYRE adoption digest — Gateway (legacy) + Conduit.
 
 Hits each product's /api/admin/metrics endpoint, formats one combined
-Slack Block Kit message, and posts to SLACK_WEBHOOK_URL.
+Slack Block Kit message, and posts it to #product-notifications in the
+WYRE AI workspace via chat.postMessage (SLACK_BOT_TOKEN + SLACK_CHANNEL_ID).
 
 Both endpoints return the same shape (conduit inherited the gateway's
 metrics route): 30-day rolling counts — active orgs, top tools, plan
@@ -39,7 +40,11 @@ PRODUCTS = [
     },
 ]
 
-SLACK_WEBHOOK = os.environ.get("SLACK_WEBHOOK_URL", "").strip()
+# Posts as the shared "WYRE Notifier" Slack app (wyre-technology/.github
+# slack-app/notifier) using the org-level SLACK_NOTIFIER_BOT_TOKEN secret —
+# WYRE AI workspace, #product-notifications.
+SLACK_BOT_TOKEN = os.environ.get("SLACK_BOT_TOKEN", "").strip()
+SLACK_CHANNEL_ID = os.environ.get("SLACK_CHANNEL_ID", "").strip()
 SNAPSHOT_PATH = Path("state/snapshot.json")
 
 
@@ -177,20 +182,30 @@ def load_previous() -> dict:
 
 
 def post_slack(payload: dict) -> None:
-    if not SLACK_WEBHOOK:
-        print("SLACK_WEBHOOK_URL not set — printing payload instead:", file=sys.stderr)
+    if not SLACK_BOT_TOKEN or not SLACK_CHANNEL_ID:
+        print("SLACK_BOT_TOKEN/SLACK_CHANNEL_ID not set — printing payload instead:", file=sys.stderr)
         print(json.dumps(payload, indent=2))
         return
+    body = {
+        "channel": SLACK_CHANNEL_ID,
+        "text": "Daily adoption digest",
+        "username": "Adoption Watcher",
+        "icon_emoji": ":chart_with_upwards_trend:",
+        **payload,
+    }
     req = urllib.request.Request(
-        SLACK_WEBHOOK,
-        data=json.dumps(payload).encode("utf-8"),
-        headers={"Content-Type": "application/json"},
+        "https://slack.com/api/chat.postMessage",
+        data=json.dumps(body).encode("utf-8"),
+        headers={
+            "Authorization": f"Bearer {SLACK_BOT_TOKEN}",
+            "Content-Type": "application/json; charset=utf-8",
+        },
         method="POST",
     )
     with urllib.request.urlopen(req, timeout=30) as resp:
-        body = resp.read().decode().strip()
-        if body and body != "ok":
-            print(f"Slack response: {body}", file=sys.stderr)
+        result = json.loads(resp.read())
+        if not result.get("ok"):
+            sys.exit(f"chat.postMessage failed: {result.get('error')}")
 
 
 def main() -> int:

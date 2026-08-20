@@ -30,7 +30,9 @@ jobs:
           GATEWAY_ADMIN_TOKEN: ${{ secrets.GATEWAY_ADMIN_TOKEN }}
           CONDUIT_BASE: ${{ vars.CONDUIT_BASE || 'https://conduit.wyre.ai' }}
           CONDUIT_ADMIN_TOKEN: ${{ secrets.CONDUIT_ADMIN_TOKEN }}
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          # WYRE Notifier app (org-level secret) → #product-notifications, WYRE AI workspace
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_NOTIFIER_BOT_TOKEN }}
+          SLACK_CHANNEL_ID: C0BSHBQQBQ8
         run: python script/report.py
 
       - name: Commit updated snapshot

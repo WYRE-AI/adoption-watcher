@@ -20,12 +20,13 @@ coverage, PulseMCP traffic); this one tracks internal *usage*.
 
 ## Setup
 
-1. Create a Slack incoming webhook in the channel you want this digest in.
-2. Add it as a repo secret:
-   ```
-   gh secret set SLACK_WEBHOOK_URL --repo wyre-technology/adoption-watcher
-   ```
-3. Add the admin tokens (pipe straight from Azure — never paste values):
+1. Delivery uses the shared **WYRE Notifier** Slack app (WYRE AI workspace,
+   manifest in `wyre-technology/.github` → `slack-app/notifier/`) via the
+   org-level `SLACK_NOTIFIER_BOT_TOKEN` Actions secret — nothing to set per
+   repo. The target channel is `SLACK_CHANNEL_ID` in
+   `.github/workflows/daily.yml` (currently `C0BSHBQQBQ8`,
+   #product-notifications).
+2. Add the admin tokens (pipe straight from Azure — never paste values):
    ```
    # Legacy gateway — mcpgw-prod-kv Key Vault
    az keyvault secret show --vault-name mcpgw-prod-kv --name admin-api-key --query value -o tsv \
@@ -36,13 +37,13 @@ coverage, PulseMCP traffic); this one tracks internal *usage*.
      --secret-name admin-api-key --query value -o tsv \
      | gh secret set CONDUIT_ADMIN_TOKEN --repo wyre-technology/adoption-watcher
    ```
-4. (Optional) Override the base URLs — default to `https://mcp.wyre.ai` and
+3. (Optional) Override the base URLs — default to `https://mcp.wyre.ai` and
    `https://conduit.wyre.ai`:
    ```
    gh variable set GATEWAY_BASE --body "…" --repo wyre-technology/adoption-watcher
    gh variable set CONDUIT_BASE --body "…" --repo wyre-technology/adoption-watcher
    ```
-5. Trigger manually to verify formatting:
+4. Trigger manually to verify formatting:
    ```
    gh workflow run daily.yml --repo wyre-technology/adoption-watcher
    ```
@@ -51,7 +52,7 @@ coverage, PulseMCP traffic); this one tracks internal *usage*.
 
 `script/report.py` is plain stdlib Python. It hits each product's metrics
 endpoint with its bearer token, formats one combined Slack Block Kit message
-(one section per product), and posts to the webhook. It saves the responses
+(one section per product), and posts it via the WYRE Notifier bot. It saves the responses
 to `state/snapshot.json` (keyed per product, `schema: 2`; pre-rename flat
 snapshots are read as gateway-only) and diffs against the previous run for
 "since last run" deltas.
