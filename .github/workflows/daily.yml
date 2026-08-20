@@ -28,6 +28,8 @@ jobs:
         env:
           GATEWAY_BASE: ${{ vars.GATEWAY_BASE || 'https://mcp.wyre.ai' }}
           GATEWAY_ADMIN_TOKEN: ${{ secrets.GATEWAY_ADMIN_TOKEN }}
+          CONDUIT_BASE: ${{ vars.CONDUIT_BASE || 'https://conduit.wyre.ai' }}
+          CONDUIT_ADMIN_TOKEN: ${{ secrets.CONDUIT_ADMIN_TOKEN }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: python script/report.py
 

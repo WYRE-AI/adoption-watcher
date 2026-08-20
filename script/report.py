@@ -1,12 +1,13 @@
-"""Daily WYRE MCP Gateway adoption digest.
+"""Daily WYRE adoption digest — Gateway (legacy) + Conduit.
 
-Hits the gateway's /api/admin/metrics endpoint, formats the result as a
+Hits each product's /api/admin/metrics endpoint, formats one combined
 Slack Block Kit message, and posts to SLACK_WEBHOOK_URL.
 
-The metrics endpoint currently returns 30-day rolling counts (active orgs,
-top tools, credit burn, new orgs, plan distribution). The endpoint can be
-extended to take a `?window=24h` query later — when that lands, drop in a
-windowed version next to this one for a true day-over-day delta.
+Both endpoints return the same shape (conduit inherited the gateway's
+metrics route): 30-day rolling counts — active orgs, top tools, plan
+distribution, new-org signups. A product whose fetch fails is reported as
+a warning block instead of killing the whole digest, and the run exits
+non-zero afterwards so the Actions run shows red.
 
 Stdlib only — no pip install needed in CI.
 """
@@ -21,21 +22,36 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
-GATEWAY_BASE = os.environ.get("GATEWAY_BASE", "https://mcp.wyre.ai").rstrip("/")
-ADMIN_TOKEN = os.environ.get("GATEWAY_ADMIN_TOKEN", "").strip()
+PRODUCTS = [
+    {
+        "key": "gateway",
+        "label": "Gateway (legacy)",
+        "base": os.environ.get("GATEWAY_BASE", "https://mcp.wyre.ai").rstrip("/"),
+        "token": os.environ.get("GATEWAY_ADMIN_TOKEN", "").strip(),
+        "token_env": "GATEWAY_ADMIN_TOKEN",
+    },
+    {
+        "key": "conduit",
+        "label": "Conduit",
+        "base": os.environ.get("CONDUIT_BASE", "https://conduit.wyre.ai").rstrip("/"),
+        "token": os.environ.get("CONDUIT_ADMIN_TOKEN", "").strip(),
+        "token_env": "CONDUIT_ADMIN_TOKEN",
+    },
+]
+
 SLACK_WEBHOOK = os.environ.get("SLACK_WEBHOOK_URL", "").strip()
 SNAPSHOT_PATH = Path("state/snapshot.json")
 
 
-def fetch_metrics() -> dict:
-    if not ADMIN_TOKEN:
-        sys.exit("GATEWAY_ADMIN_TOKEN not set")
+def fetch_metrics(product: dict) -> dict:
+    if not product["token"]:
+        raise RuntimeError(f"{product['token_env']} not set")
     req = urllib.request.Request(
-        f"{GATEWAY_BASE}/api/admin/metrics",
+        f"{product['base']}/api/admin/metrics",
         headers={
-            "Authorization": f"Bearer {ADMIN_TOKEN}",
+            "Authorization": f"Bearer {product['token']}",
             "Accept": "application/json",
-            "User-Agent": "wyre-gateway-adoption-watcher",
+            "User-Agent": "wyre-adoption-watcher",
         },
     )
     try:
@@ -43,12 +59,14 @@ def fetch_metrics() -> dict:
             return json.loads(resp.read())
     except urllib.error.HTTPError as exc:
         if exc.code in (401, 403):
-            sys.exit(
-                f"Gateway rejected GATEWAY_ADMIN_TOKEN ({exc.code} {exc.reason}). "
-                f"The token does not match the gateway's ADMIN_API_KEY for "
-                f"{GATEWAY_BASE} — rotate the repo secret to the current prod value."
-            )
-        sys.exit(f"Gateway returned {exc.code} {exc.reason} for {GATEWAY_BASE}/api/admin/metrics")
+            raise RuntimeError(
+                f"{product['label']} rejected {product['token_env']} ({exc.code} {exc.reason}) — "
+                f"rotate the repo secret to {product['base']}'s current ADMIN_API_KEY."
+            ) from exc
+        raise RuntimeError(
+            f"{product['label']} returned {exc.code} {exc.reason} for "
+            f"{product['base']}/api/admin/metrics"
+        ) from exc
 
 
 def fmt_int(n: int | str) -> str:
@@ -59,9 +77,15 @@ def fmt_change(delta: int) -> str:
     return f"+{delta}" if delta > 0 else str(delta)
 
 
-def format_message(curr: dict, prev: dict | None) -> dict:
-    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+def new_org_count(new_orgs: list) -> int:
+    # Conduit buckets signups per day ({day, signups}); the legacy gateway
+    # returned one item per org. Sum signups when bucketed, else count items.
+    if new_orgs and isinstance(new_orgs[0], dict) and "signups" in new_orgs[0]:
+        return sum(int(b.get("signups", 0)) for b in new_orgs)
+    return len(new_orgs)
 
+
+def product_blocks(product: dict, curr: dict, prev: dict | None) -> list[dict]:
     active_orgs = curr.get("active_orgs", {}).get("orgs", []) or []
     active_count = curr.get("active_orgs", {}).get("count", len(active_orgs))
     total_calls = sum(int(o.get("tool_calls", 0)) for o in active_orgs)
@@ -73,19 +97,16 @@ def format_message(curr: dict, prev: dict | None) -> dict:
     calls_delta = total_calls - prev_calls if prev else 0
     orgs_delta = active_count - prev_count if prev else 0
 
-    top_tools = curr.get("top_tools", []) or []
-
     plan_dist = curr.get("plan_distribution", []) or []
     plan_summary = ", ".join(
         f"{p.get('plan', '?')}: {fmt_int(p.get('count', 0))}" for p in plan_dist
     ) or "_no data_"
 
-    new_orgs = curr.get("new_orgs", []) or []
-
     blocks: list[dict] = [
+        {"type": "divider"},
         {
-            "type": "header",
-            "text": {"type": "plain_text", "text": f":bar_chart: Gateway adoption · {today}"},
+            "type": "section",
+            "text": {"type": "mrkdwn", "text": f"*{product['label']}*"},
         },
         {
             "type": "section",
@@ -104,7 +125,7 @@ def format_message(curr: dict, prev: dict | None) -> dict:
                 },
                 {
                     "type": "mrkdwn",
-                    "text": f"*New orgs (last 7d)*\n{fmt_int(len(new_orgs))}",
+                    "text": f"*New orgs (last 7d)*\n{fmt_int(new_org_count(curr.get('new_orgs', []) or []))}",
                 },
             ],
         },
@@ -123,6 +144,7 @@ def format_message(curr: dict, prev: dict | None) -> dict:
             }
         )
 
+    top_tools = curr.get("top_tools", []) or []
     if top_tools:
         # Collapse vendor-level totals so the digest is readable.
         per_vendor: dict[str, int] = {}
@@ -138,19 +160,20 @@ def format_message(curr: dict, prev: dict | None) -> dict:
             }
         )
 
-    blocks.append(
-        {
-            "type": "context",
-            "elements": [
-                {
-                    "type": "mrkdwn",
-                    "text": f"<{GATEWAY_BASE}/admin/dashboard|Open admin dashboard> · gateway-adoption-watcher",
-                }
-            ],
-        }
-    )
+    return blocks
 
-    return {"blocks": blocks}
+
+def load_previous() -> dict:
+    if not SNAPSHOT_PATH.exists():
+        return {}
+    try:
+        prev = json.loads(SNAPSHOT_PATH.read_text())
+    except json.JSONDecodeError:
+        return {}
+    # Pre-rename snapshots were the gateway payload at the top level.
+    if "schema" not in prev and "active_orgs" in prev:
+        return {"gateway": prev}
+    return prev
 
 
 def post_slack(payload: dict) -> None:
@@ -171,29 +194,62 @@ def post_slack(payload: dict) -> None:
 
 
 def main() -> int:
-    print(f"Fetching gateway metrics from {GATEWAY_BASE}/api/admin/metrics …")
-    curr = fetch_metrics()
-    print(
-        "  active_orgs:",
-        curr.get("active_orgs", {}).get("count"),
-        "· top_tools:",
-        len(curr.get("top_tools", []) or []),
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    prev_all = load_previous()
+    snapshot: dict = {"schema": 2}
+    warnings: list[str] = []
+
+    blocks: list[dict] = [
+        {
+            "type": "header",
+            "text": {"type": "plain_text", "text": f":bar_chart: Adoption · {today}"},
+        }
+    ]
+
+    for product in PRODUCTS:
+        print(f"Fetching {product['label']} metrics from {product['base']}/api/admin/metrics …")
+        try:
+            curr = fetch_metrics(product)
+        except (RuntimeError, urllib.error.URLError, TimeoutError) as exc:
+            print(f"  FAILED: {exc}", file=sys.stderr)
+            warnings.append(f":warning: {product['label']}: {exc}")
+            # Keep yesterday's data so the next successful run diffs sanely.
+            if product["key"] in prev_all:
+                snapshot[product["key"]] = prev_all[product["key"]]
+            continue
+        print(
+            "  active_orgs:",
+            curr.get("active_orgs", {}).get("count"),
+            "· top_tools:",
+            len(curr.get("top_tools", []) or []),
+        )
+        blocks.extend(product_blocks(product, curr, prev_all.get(product["key"])))
+        snapshot[product["key"]] = curr
+
+    if warnings:
+        blocks.append(
+            {
+                "type": "section",
+                "text": {"type": "mrkdwn", "text": "\n".join(warnings)},
+            }
+        )
+
+    dashboards = " · ".join(
+        f"<{p['base']}/admin/dashboard|{p['label']} dashboard>" for p in PRODUCTS
+    )
+    blocks.append(
+        {
+            "type": "context",
+            "elements": [{"type": "mrkdwn", "text": f"{dashboards} · adoption-watcher"}],
+        }
     )
 
-    prev: dict | None = None
-    if SNAPSHOT_PATH.exists():
-        try:
-            prev = json.loads(SNAPSHOT_PATH.read_text())
-        except json.JSONDecodeError:
-            prev = None
-
-    payload = format_message(curr, prev)
-    post_slack(payload)
+    post_slack({"blocks": blocks})
 
     SNAPSHOT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    SNAPSHOT_PATH.write_text(json.dumps(curr, indent=2, sort_keys=True) + "\n")
+    SNAPSHOT_PATH.write_text(json.dumps(snapshot, indent=2, sort_keys=True) + "\n")
     print(f"Snapshot written to {SNAPSHOT_PATH}")
-    return 0
+    return 1 if warnings else 0
 
 
 if __name__ == "__main__":

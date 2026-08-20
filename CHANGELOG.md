@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **Conduit adoption coverage — repo renamed `gateway-adoption-watcher` → `adoption-watcher`.** The daily digest now pulls `/api/admin/metrics` from both Conduit (`conduit.wyre.ai`, new `CONDUIT_ADMIN_TOKEN` secret / `CONDUIT_BASE` var) and the legacy Gateway, rendering one combined message with a section per product. Snapshot moves to a per-product `schema: 2` shape (old flat snapshots are read as gateway-only, so first-run deltas survive the migration). Conduit's day-bucketed `new_orgs` (`{day, signups}`) is summed rather than counted. A single product failing becomes a warning block instead of killing the digest; the run still exits non-zero so Actions flags it.
+
 ### Fixed
 
 - Daily digest had been failing every run with `HTTP 401: Unauthorized` from
