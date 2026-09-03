@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **PR-triggered CI workflow** (`.github/workflows/ci.yml`): every pull request now runs a Python 3.12 syntax check and import smoke test of `script/report.py`, `ruff` lint (pinned 0.16.5), and JSON validation of `state/snapshot.json`. Closes the repo's automated-checks gap (Vanta `github-code-change-automated-checks-enabled`).
+
 ### Changed
 
 - **Delivery moved to #product-notifications in the WYRE AI workspace.** Posts now go through the shared "WYRE Notifier" Slack app (`chat.postMessage`, org-level `SLACK_NOTIFIER_BOT_TOKEN` secret, channel pinned in the workflow) instead of the old wyretalk incoming webhook; `SLACK_WEBHOOK_URL` is retired.
