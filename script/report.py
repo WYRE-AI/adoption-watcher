@@ -1,14 +1,16 @@
-"""Daily WYRE adoption digest — Gateway (legacy) + Conduit.
+"""Daily WYRE adoption digest — Conduit.
 
-Hits each product's /api/admin/metrics endpoint, formats one combined
-Slack Block Kit message, and posts it to #product-notifications in the
-WYRE AI workspace via chat.postMessage (SLACK_BOT_TOKEN + SLACK_CHANNEL_ID).
+Hits Conduit's /api/admin/metrics endpoint, formats a Slack Block Kit
+message, and posts it to #product-notifications in the WYRE AI workspace
+via chat.postMessage (SLACK_BOT_TOKEN + SLACK_CHANNEL_ID).
 
-Both endpoints return the same shape (conduit inherited the gateway's
-metrics route): 30-day rolling counts — active orgs, top tools, plan
-distribution, new-org signups. A product whose fetch fails is reported as
-a warning block instead of killing the whole digest, and the run exits
-non-zero afterwards so the Actions run shows red.
+The endpoint returns 30-day rolling counts — active orgs, top tools, plan
+distribution, and new-org signups. A failed fetch is reported as a warning
+block, and the run exits non-zero afterwards so the Actions run shows red.
+
+The legacy MCP gateway is retired and is not fetched. Older snapshots may
+still contain a ``gateway`` key, or a pre-schema flat gateway payload.
+Those are ignored so a Conduit-only run still loads and diffs.
 
 Stdlib only — no pip install needed in CI.
 """
@@ -23,14 +25,9 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
+# Conduit only. The legacy MCP gateway product was removed so this job
+# cannot be pointed back at it via GATEWAY_BASE / GATEWAY_ADMIN_TOKEN.
 PRODUCTS = [
-    {
-        "key": "gateway",
-        "label": "Gateway (legacy)",
-        "base": os.environ.get("GATEWAY_BASE", "https://mcp.wyre.ai").rstrip("/"),
-        "token": os.environ.get("GATEWAY_ADMIN_TOKEN", "").strip(),
-        "token_env": "GATEWAY_ADMIN_TOKEN",
-    },
     {
         "key": "conduit",
         "label": "Conduit",
@@ -83,8 +80,7 @@ def fmt_change(delta: int) -> str:
 
 
 def new_org_count(new_orgs: list) -> int:
-    # Conduit buckets signups per day ({day, signups}); the legacy gateway
-    # returned one item per org. Sum signups when bucketed, else count items.
+    # Day buckets ({day, signups}) are summed. A bare list of orgs is counted.
     if new_orgs and isinstance(new_orgs[0], dict) and "signups" in new_orgs[0]:
         return sum(int(b.get("signups", 0)) for b in new_orgs)
     return len(new_orgs)
@@ -168,6 +164,22 @@ def product_blocks(product: dict, curr: dict, prev: dict | None) -> list[dict]:
     return blocks
 
 
+def normalize_snapshot(prev: object) -> dict:
+    """Return a per-product snapshot safe for Conduit-only diffs.
+
+    Schema 2 files look like ``{"schema": 2, "conduit": {...}}``. A leftover
+    ``gateway`` key from the retired MCP gateway is dropped. Flat pre-schema
+    files stored that gateway payload at the top level (``active_orgs`` and
+    no ``schema``); they are not Conduit metrics, so they load as empty
+    instead of being diffed as Conduit or raising.
+    """
+    if not isinstance(prev, dict):
+        return {}
+    if "schema" not in prev and "active_orgs" in prev:
+        return {}
+    return {key: value for key, value in prev.items() if key != "gateway"}
+
+
 def load_previous() -> dict:
     if not SNAPSHOT_PATH.exists():
         return {}
@@ -175,10 +187,7 @@ def load_previous() -> dict:
         prev = json.loads(SNAPSHOT_PATH.read_text())
     except json.JSONDecodeError:
         return {}
-    # Pre-rename snapshots were the gateway payload at the top level.
-    if "schema" not in prev and "active_orgs" in prev:
-        return {"gateway": prev}
-    return prev
+    return normalize_snapshot(prev)
 
 
 def post_slack(payload: dict) -> None:
