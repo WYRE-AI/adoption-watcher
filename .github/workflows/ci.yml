@@ -26,6 +26,53 @@ jobs:
       - name: Import smoke test
         run: python -c "import sys; sys.path.insert(0, 'script'); import report"
 
+      - name: Snapshot compatibility
+        run: |
+          python - <<'PY'
+          import sys
+          sys.path.insert(0, "script")
+          import report
+
+          flat = {"active_orgs": {"count": 1, "orgs": []}, "new_orgs": []}
+          assert report.normalize_snapshot(flat) == {}
+          assert report.normalize_snapshot(None) == {}
+          assert report.normalize_snapshot([]) == {}
+
+          mixed = {
+              "schema": 2,
+              "gateway": {"active_orgs": {"count": 9, "orgs": []}},
+              "conduit": {"active_orgs": {"count": 3, "orgs": [{"tool_calls": 4}]}},
+          }
+          norm = report.normalize_snapshot(mixed)
+          assert "gateway" not in norm
+          assert norm["schema"] == 2
+          assert norm["conduit"]["active_orgs"]["count"] == 3
+
+          conduit_only = {"schema": 2, "conduit": mixed["conduit"]}
+          assert report.normalize_snapshot(conduit_only) == conduit_only
+
+          assert [p["key"] for p in report.PRODUCTS] == ["conduit"]
+          assert report.PRODUCTS[0]["base"] == "https://conduit.wyre.ai"
+
+          curr = {
+              "active_orgs": {
+                  "count": 2,
+                  "orgs": [{"org_name": "a", "plan": "pro", "tool_calls": 10}],
+              },
+              "plan_distribution": [{"plan": "pro", "count": 1}],
+              "new_orgs": [{"day": "2026-10-01", "signups": 2}],
+              "top_tools": [{"vendor_slug": "acme", "call_count": 10}],
+          }
+          prev = {
+              "active_orgs": {
+                  "count": 1,
+                  "orgs": [{"org_name": "a", "plan": "pro", "tool_calls": 4}],
+              },
+          }
+          assert report.product_blocks(report.PRODUCTS[0], curr, prev)
+          assert report.product_blocks(report.PRODUCTS[0], curr, None)
+          PY
+
       - name: Lint (ruff)
         run: |
           pip install ruff==0.16.5

@@ -1,8 +1,7 @@
 # wyre-adoption-watcher
 
-Daily Slack digest of WYRE product adoption — **Conduit** (conduit.wyre.ai)
-and the **legacy Gateway** (mcp.wyre.ai) side by side. Pulls each product's
-`/api/admin/metrics` endpoint:
+Daily Slack digest of WYRE product adoption for **Conduit** (conduit.wyre.ai).
+Pulls `/api/admin/metrics`:
 
 - Active orgs (30-day rolling)
 - Total tool calls and per-org breakdown
@@ -16,7 +15,9 @@ complementary: `stars-watcher` tracks external *reach* (stars, registry
 coverage, PulseMCP traffic); this one tracks internal *usage*.
 
 > Renamed from `gateway-adoption-watcher` on 2026-08-20 when Conduit
-> coverage was added; GitHub redirects the old URL.
+> coverage was added; GitHub redirects the old URL. The legacy MCP gateway
+> (`mcp.wyre.ai`) has since been retired. This job does not fetch it, and
+> there is no `GATEWAY_BASE` / `GATEWAY_ADMIN_TOKEN` setting.
 
 ## Setup
 
@@ -26,21 +27,15 @@ coverage, PulseMCP traffic); this one tracks internal *usage*.
    repo. The target channel is `SLACK_CHANNEL_ID` in
    `.github/workflows/daily.yml` (currently `C0BSHBQQBQ8`,
    #product-notifications).
-2. Add the admin tokens (pipe straight from Azure — never paste values):
+2. Add the Conduit admin token (pipe straight from Azure — never paste values):
    ```
-   # Legacy gateway — mcpgw-prod-kv Key Vault
-   az keyvault secret show --vault-name mcpgw-prod-kv --name admin-api-key --query value -o tsv \
-     | gh secret set GATEWAY_ADMIN_TOKEN --repo wyre-technology/adoption-watcher
-
    # Conduit — conduit-prod Container App secret
    az containerapp secret show -n conduit-prod-gateway -g rg-conduit-prod \
      --secret-name admin-api-key --query value -o tsv \
      | gh secret set CONDUIT_ADMIN_TOKEN --repo wyre-technology/adoption-watcher
    ```
-3. (Optional) Override the base URLs — default to `https://mcp.wyre.ai` and
-   `https://conduit.wyre.ai`:
+3. (Optional) Override the Conduit base URL — defaults to `https://conduit.wyre.ai`:
    ```
-   gh variable set GATEWAY_BASE --body "…" --repo wyre-technology/adoption-watcher
    gh variable set CONDUIT_BASE --body "…" --repo wyre-technology/adoption-watcher
    ```
 4. Trigger manually to verify formatting:
@@ -50,19 +45,18 @@ coverage, PulseMCP traffic); this one tracks internal *usage*.
 
 ## How it works
 
-`script/report.py` is plain stdlib Python. It hits each product's metrics
-endpoint with its bearer token, formats one combined Slack Block Kit message
-(one section per product), and posts it via the WYRE Notifier bot. It saves the responses
-to `state/snapshot.json` (keyed per product, `schema: 2`; pre-rename flat
-snapshots are read as gateway-only) and diffs against the previous run for
-"since last run" deltas.
+`script/report.py` is plain stdlib Python. It hits Conduit's metrics
+endpoint with its bearer token, formats a Slack Block Kit message, and
+posts it via the WYRE Notifier bot. It saves the response to
+`state/snapshot.json` (`schema: 2`, keyed by product) and diffs against the
+previous run for "since last run" deltas. A leftover `gateway` key, or an
+older flat pre-schema gateway payload, is ignored and not written back.
 
-If one product's fetch fails, its section is replaced by a warning block, the
-other product still posts, and the run exits non-zero so the Actions run
-shows red.
+If the fetch fails, the section is replaced by a warning block and the run
+exits non-zero so the Actions run shows red.
 
 ## Window
 
-Both metrics endpoints return 30-day rolling counts. When they grow a
+The metrics endpoint returns 30-day rolling counts. When it grows a
 `?window=24h` query parameter, swap that in for a true day-over-day delta —
 same digest shape.

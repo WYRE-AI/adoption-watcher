@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Removed
+
+- **Legacy Gateway metrics.** The daily digest is Conduit-only (`conduit.wyre.ai`). It no longer fetches the retired MCP gateway at `mcp.wyre.ai`, and `GATEWAY_BASE` / `GATEWAY_ADMIN_TOKEN` are gone from the workflow and setup. Older `state/snapshot.json` files that still have a `gateway` key, or a pre-schema flat gateway payload, load cleanly — that data is ignored and not written back.
+
 ### Added
 
 - **PR-triggered CI workflow** (`.github/workflows/ci.yml`): every pull request now runs a Python 3.12 syntax check and import smoke test of `script/report.py`, `ruff` lint (pinned 0.16.5), and JSON validation of `state/snapshot.json`. Closes the repo's automated-checks gap (Vanta `github-code-change-automated-checks-enabled`).
