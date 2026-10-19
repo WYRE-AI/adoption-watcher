@@ -1,121 +1,241 @@
 {
   "conduit": {
     "active_orgs": {
-      "count": 24,
+      "count": 46,
       "orgs": [
+        {
+          "org_id": "mYRJKLjH-O0LwrClIqOwf",
+          "org_name": "EpiOn",
+          "plan": "conduit",
+          "tool_calls": 34500
+        },
         {
           "org_id": "8Cu12Wl9p2s-ypYTnXGxJ",
           "org_name": "Stu Ian",
           "plan": "conduit",
-          "tool_calls": 6599
-        },
-        {
-          "org_id": "gTZdOMf8clFS80w-FYrC2",
-          "org_name": "West Michigan Tech Services",
-          "plan": "conduit",
-          "tool_calls": 5304
-        },
-        {
-          "org_id": "2CUVn41F2g3RaeitES_sb",
-          "org_name": "My Computer Guy",
-          "plan": "conduit",
-          "tool_calls": 3892
-        },
-        {
-          "org_id": "z-OZ0R33cd_oijSgt6IcE",
-          "org_name": "Computerwild",
-          "plan": "conduit",
-          "tool_calls": 3051
-        },
-        {
-          "org_id": "8VqA07x5ZR5g8r2zBWmdV",
-          "org_name": "Upstate Services Group",
-          "plan": "conduit",
-          "tool_calls": 2078
+          "tool_calls": 23499
         },
         {
           "org_id": "L-Fk69VfrntBjgVxOvWJX",
           "org_name": "WYRE Technology",
           "plan": "conduit",
-          "tool_calls": 1957
+          "tool_calls": 16932
         },
         {
-          "org_id": "03GVnMz-N3YcKgqJjfVtj",
-          "org_name": "Empowering Technology Solutions",
+          "org_id": "gTZdOMf8clFS80w-FYrC2",
+          "org_name": "West Michigan Tech Services",
           "plan": "conduit",
-          "tool_calls": 1815
-        },
-        {
-          "org_id": "Wil0bCm2zX8JZoXlTGQ3R",
-          "org_name": "IS Systems",
-          "plan": "conduit",
-          "tool_calls": 1436
-        },
-        {
-          "org_id": "YChmIFPGt8ggJ29ie5xmz",
-          "org_name": "Greater Nashua Technology Consulting LLC",
-          "plan": "conduit",
-          "tool_calls": 1035
-        },
-        {
-          "org_id": "8THYBXmQxWs1vLheWmF3f",
-          "org_name": "GreyFalcon MSP",
-          "plan": "conduit",
-          "tool_calls": 569
-        },
-        {
-          "org_id": "miRsPJikLLFf-pg8IxNNw",
-          "org_name": "ImpactTek",
-          "plan": "conduit",
-          "tool_calls": 559
-        },
-        {
-          "org_id": "xReRcP6Gu7vx5rZLGZep3",
-          "org_name": "Wanbound BV",
-          "plan": "conduit",
-          "tool_calls": 446
-        },
-        {
-          "org_id": "KrpGgpke48hBJb79vhi0f",
-          "org_name": "Zouling Technologies",
-          "plan": "conduit",
-          "tool_calls": 328
-        },
-        {
-          "org_id": "mYRJKLjH-O0LwrClIqOwf",
-          "org_name": "EpiOn",
-          "plan": "conduit",
-          "tool_calls": 259
+          "tool_calls": 7758
         },
         {
           "org_id": "W0ETvPAiirjOFvqLDAXtI",
           "org_name": "Byte Time",
           "plan": "conduit",
-          "tool_calls": 68
+          "tool_calls": 4906
+        },
+        {
+          "org_id": "2CUVn41F2g3RaeitES_sb",
+          "org_name": "My Computer Guy",
+          "plan": "conduit",
+          "tool_calls": 4004
+        },
+        {
+          "org_id": "03GVnMz-N3YcKgqJjfVtj",
+          "org_name": "Empowering Technology Solutions",
+          "plan": "conduit",
+          "tool_calls": 3314
+        },
+        {
+          "org_id": "WJojMeQHgqm4nMF9BzonM",
+          "org_name": "AIS",
+          "plan": "trial",
+          "tool_calls": 3224
+        },
+        {
+          "org_id": "z-OZ0R33cd_oijSgt6IcE",
+          "org_name": "Computerwild",
+          "plan": "conduit",
+          "tool_calls": 3199
+        },
+        {
+          "org_id": "1VdqIC11USyIHeTQkqCyQ",
+          "org_name": "The Network Gurus",
+          "plan": "conduit",
+          "tool_calls": 2901
+        },
+        {
+          "org_id": "EBLO0ehnXhN7JxxZzpZ4A",
+          "org_name": "ZetaOne",
+          "plan": "conduit",
+          "tool_calls": 2834
+        },
+        {
+          "org_id": "8VqA07x5ZR5g8r2zBWmdV",
+          "org_name": "Upstate Services Group",
+          "plan": "conduit",
+          "tool_calls": 2818
+        },
+        {
+          "org_id": "KrpGgpke48hBJb79vhi0f",
+          "org_name": "Zouling Technologies",
+          "plan": "conduit",
+          "tool_calls": 2189
+        },
+        {
+          "org_id": "Wil0bCm2zX8JZoXlTGQ3R",
+          "org_name": "IS Systems",
+          "plan": "conduit",
+          "tool_calls": 1194
+        },
+        {
+          "org_id": "miRsPJikLLFf-pg8IxNNw",
+          "org_name": "ImpactTek",
+          "plan": "conduit",
+          "tool_calls": 855
+        },
+        {
+          "org_id": "5ES05YdwJ-XwOIxi5n9Ed",
+          "org_name": "CloudPoint",
+          "plan": "conduit",
+          "tool_calls": 751
+        },
+        {
+          "org_id": "8THYBXmQxWs1vLheWmF3f",
+          "org_name": "GreyFalcon MSP",
+          "plan": "conduit",
+          "tool_calls": 709
+        },
+        {
+          "org_id": "PMUa4ayGhHPChNfXqk9Y4",
+          "org_name": "One2call Ops",
+          "plan": "conduit",
+          "tool_calls": 689
+        },
+        {
+          "org_id": "MXt1qVh7VpVIP2LZ0KuI8",
+          "org_name": "WilroffReitsma BV",
+          "plan": "conduit",
+          "tool_calls": 670
+        },
+        {
+          "org_id": "zh3bF73lROnWkrOl76M8U",
+          "org_name": "TTechT-Autotask",
+          "plan": "conduit",
+          "tool_calls": 664
+        },
+        {
+          "org_id": "uK2C1vl1eSm9Xbxja4e_n",
+          "org_name": "Net3 IT, LLC",
+          "plan": "conduit",
+          "tool_calls": 423
+        },
+        {
+          "org_id": "PwI0doEcrJQrwxVc0eZio",
+          "org_name": "Onsite Logic / Secure Unions",
+          "plan": "conduit",
+          "tool_calls": 421
+        },
+        {
+          "org_id": "XPUPiBYXnQtkrNPLSYtdu",
+          "org_name": "CMIT Solutions of Philadelphia",
+          "plan": "conduit",
+          "tool_calls": 376
+        },
+        {
+          "org_id": "j8VgkefyBt6Qi47I0QDvS",
+          "org_name": "Aligned Technology Partners",
+          "plan": "conduit",
+          "tool_calls": 321
+        },
+        {
+          "org_id": "VbdKMteExjE-z3dID8TXL",
+          "org_name": "KNG",
+          "plan": "conduit",
+          "tool_calls": 316
+        },
+        {
+          "org_id": "lvUETqfLZPbCQC81vrMbS",
+          "org_name": "TECHBLEED",
+          "plan": "conduit",
+          "tool_calls": 292
+        },
+        {
+          "org_id": "9mJQHHiizcrKLkWpG83Dc",
+          "org_name": "Ysleta del Sur Pueblo",
+          "plan": "conduit",
+          "tool_calls": 271
+        },
+        {
+          "org_id": "YChmIFPGt8ggJ29ie5xmz",
+          "org_name": "Greater Nashua Technology Consulting LLC",
+          "plan": "conduit",
+          "tool_calls": 259
         },
         {
           "org_id": "l3r8NLnKt7IIkB-6QLfsT",
           "org_name": "ITernal Networks",
           "plan": "conduit",
-          "tool_calls": 41
+          "tool_calls": 257
         },
         {
-          "org_id": "bRI0dKXq2bK8h-OeAPLq_",
-          "org_name": "Invision Technologies",
+          "org_id": "xReRcP6Gu7vx5rZLGZep3",
+          "org_name": "Wanbound BV",
+          "plan": "conduit",
+          "tool_calls": 245
+        },
+        {
+          "org_id": "PyQLP-fV8im2dhxxhCD11",
+          "org_name": "Vantage Networks",
+          "plan": "conduit",
+          "tool_calls": 149
+        },
+        {
+          "org_id": "oGJ1ZlpXTkNVioTijXWf1",
+          "org_name": "Turnkey Computer Systems",
+          "plan": "conduit",
+          "tool_calls": 79
+        },
+        {
+          "org_id": "oK9yLl14iKsG1ldv4LXqQ",
+          "org_name": "Delivery",
+          "plan": "free",
+          "tool_calls": 62
+        },
+        {
+          "org_id": "8A-M8ENism3za8vVTE6un",
+          "org_name": "Nwaj Tech",
+          "plan": "conduit",
+          "tool_calls": 53
+        },
+        {
+          "org_id": "TCA5fSUvdc3GmtRkFh_ug",
+          "org_name": "Furniture Wizard Software",
+          "plan": "conduit",
+          "tool_calls": 45
+        },
+        {
+          "org_id": "Up1_KI1GLA2hmkEh28gfR",
+          "org_name": "Home Church",
+          "plan": "conduit",
+          "tool_calls": 37
+        },
+        {
+          "org_id": "z6e6Cmu6AOuiZ2A7e6j19",
+          "org_name": "Axon Consulting Services, LLC",
+          "plan": "conduit",
+          "tool_calls": 28
+        },
+        {
+          "org_id": "reJKd3lRjXe0bhswYAdSe",
+          "org_name": "myCRE",
+          "plan": "trial",
+          "tool_calls": 25
+        },
+        {
+          "org_id": "vcEWg69s-9ZH289RL421a",
+          "org_name": "Arkys Web Software Inc.",
           "plan": "conduit",
           "tool_calls": 22
-        },
-        {
-          "org_id": "yHCamoNhLbqgCxhpopqjQ",
-          "org_name": "Rival MSP",
-          "plan": "conduit",
-          "tool_calls": 20
-        },
-        {
-          "org_id": "DF1bTpMG_-qqiNSsxr2pT",
-          "org_name": "HTServices",
-          "plan": "conduit",
-          "tool_calls": 19
         },
         {
           "org_id": "C3teiNqplhI6xvj9Ms4Oa",
@@ -124,16 +244,22 @@
           "tool_calls": 18
         },
         {
-          "org_id": "GoLZ2RuFz327WqU6tTdyT",
-          "org_name": "SMIT",
+          "org_id": "mIeK6KBy9Kxm6x551bbbY",
+          "org_name": "Presilient Managed Services",
           "plan": "conduit",
-          "tool_calls": 11
+          "tool_calls": 15
         },
         {
-          "org_id": "j8VgkefyBt6Qi47I0QDvS",
-          "org_name": "Aligned Technology Partners",
+          "org_id": "bRI0dKXq2bK8h-OeAPLq_",
+          "org_name": "Invision Technologies",
           "plan": "conduit",
-          "tool_calls": 5
+          "tool_calls": 15
+        },
+        {
+          "org_id": "yHCamoNhLbqgCxhpopqjQ",
+          "org_name": "Rival MSP",
+          "plan": "conduit",
+          "tool_calls": 10
         },
         {
           "org_id": "dZstxeLsHXE7CPfXhlQr4",
@@ -142,85 +268,167 @@
           "tool_calls": 4
         },
         {
-          "org_id": "oGJ1ZlpXTkNVioTijXWf1",
-          "org_name": "Turnkey Computer Systems",
+          "org_id": "JVsNK7dBFfho4QK6wB5XO",
+          "org_name": "Creative Computer",
           "plan": "conduit",
           "tool_calls": 4
+        },
+        {
+          "org_id": "DF1bTpMG_-qqiNSsxr2pT",
+          "org_name": "HTServices",
+          "plan": "conduit",
+          "tool_calls": 2
         }
       ]
     },
     "credit_burn_rate": [],
-    "generated_at": "2026-09-30T19:05:44.411Z",
+    "generated_at": "2026-10-19T19:46:48.377Z",
     "new_orgs": [
       {
-        "day": "2026-09-17",
+        "day": "2026-10-06",
         "signups": 1
       },
       {
-        "day": "2026-09-22",
+        "day": "2026-10-08",
         "signups": 1
       },
       {
-        "day": "2026-09-23",
+        "day": "2026-10-09",
         "signups": 2
       },
       {
-        "day": "2026-09-27",
+        "day": "2026-10-10",
+        "signups": 2
+      },
+      {
+        "day": "2026-10-11",
         "signups": 1
+      },
+      {
+        "day": "2026-10-12",
+        "signups": 1
+      },
+      {
+        "day": "2026-10-13",
+        "signups": 1
+      },
+      {
+        "day": "2026-10-14",
+        "signups": 1
+      },
+      {
+        "day": "2026-10-17",
+        "signups": 2
       }
     ],
     "new_orgs_recent": [
       {
-        "created_at": "2026-09-27 12:53:16",
-        "org_id": "Up1_KI1GLA2hmkEh28gfR",
-        "org_name": "Home Church",
-        "owner_email": "cwhite@homechurchtecumseh.com",
-        "owner_name": "cwhite@homechurchtecumseh.com",
+        "created_at": "2026-10-17 08:53:10",
+        "org_id": "EBLO0ehnXhN7JxxZzpZ4A",
+        "org_name": "ZetaOne",
+        "owner_email": "jeremy.hodge@ZetaOne.com",
+        "owner_name": "Jeremy G. Hodge",
         "plan": "conduit"
       },
       {
-        "created_at": "2026-09-23 20:36:12",
-        "org_id": "oGJ1ZlpXTkNVioTijXWf1",
-        "org_name": "Turnkey Computer Systems",
-        "owner_email": "ryang@teamturnkey.com",
-        "owner_name": "ryang@teamturnkey.com",
+        "created_at": "2026-10-17 00:19:30",
+        "org_id": "mIeK6KBy9Kxm6x551bbbY",
+        "org_name": "Presilient Managed Services",
+        "owner_email": "andrew.hurl@presilient.com.au",
+        "owner_name": "Andrew Hurl",
         "plan": "conduit"
       },
       {
-        "created_at": "2026-09-23 03:29:53",
-        "org_id": "03GVnMz-N3YcKgqJjfVtj",
-        "org_name": "Empowering Technology Solutions",
-        "owner_email": "brian@etsworks.com",
-        "owner_name": "Brian Arredondo",
+        "created_at": "2026-10-14 15:07:06",
+        "org_id": "PyQLP-fV8im2dhxxhCD11",
+        "org_name": "Vantage Networks",
+        "owner_email": "James.Dickons@vantagenet.com.au",
+        "owner_name": "James Dickons",
         "plan": "conduit"
       },
       {
-        "created_at": "2026-09-22 22:45:37",
-        "org_id": "C3teiNqplhI6xvj9Ms4Oa",
-        "org_name": "EZMSP",
-        "owner_email": "Jeremie@ezmsp.com",
-        "owner_name": "Jeremie Scheiner",
+        "created_at": "2026-10-13 23:07:54",
+        "org_id": "XPUPiBYXnQtkrNPLSYtdu",
+        "org_name": "CMIT Solutions of Philadelphia",
+        "owner_email": "dtranchina@cmitphiladelphia.com",
+        "owner_name": "dtranchina@cmitphiladelphia.com",
         "plan": "conduit"
       },
       {
-        "created_at": "2026-09-17 18:39:53",
-        "org_id": "iK8zaKYmTQzLmwyidW7Ua",
-        "org_name": "PCR Business",
-        "owner_email": "shaun@pcrbusiness.com",
-        "owner_name": "shaun@pcrbusiness.com",
+        "created_at": "2026-10-12 02:39:11",
+        "org_id": "lvUETqfLZPbCQC81vrMbS",
+        "org_name": "TECHBLEED",
+        "owner_email": "john@techbleed.com",
+        "owner_name": "John Pogosyan",
+        "plan": "conduit"
+      },
+      {
+        "created_at": "2026-10-11 14:43:17",
+        "org_id": "z6e6Cmu6AOuiZ2A7e6j19",
+        "org_name": "Axon Consulting Services, LLC",
+        "owner_email": "taylor@axoncs.com",
+        "owner_name": "taylor@axoncs.com",
+        "plan": "conduit"
+      },
+      {
+        "created_at": "2026-10-10 15:57:34",
+        "org_id": "8A-M8ENism3za8vVTE6un",
+        "org_name": "Nwaj Tech",
+        "owner_email": "sgombar@nwaj.tech",
+        "owner_name": "sgombar@nwaj.tech",
+        "plan": "conduit"
+      },
+      {
+        "created_at": "2026-10-10 10:18:48",
+        "org_id": "5ES05YdwJ-XwOIxi5n9Ed",
+        "org_name": "CloudPoint",
+        "owner_email": "kristof.de.meyer@cloudpoint.be",
+        "owner_name": "kristof.de.meyer@cloudpoint.be",
+        "plan": "conduit"
+      },
+      {
+        "created_at": "2026-10-09 15:55:10",
+        "org_id": "igK1Yl1TmZk8xVF5y82W8",
+        "org_name": "Computer Technology Solutions, Inc.",
+        "owner_email": "xdinsmore@yourcts.com",
+        "owner_name": "xdinsmore@yourcts.com",
+        "plan": "conduit"
+      },
+      {
+        "created_at": "2026-10-09 14:12:42",
+        "org_id": "MXt1qVh7VpVIP2LZ0KuI8",
+        "org_name": "WilroffReitsma BV",
+        "owner_email": "rro@wilroffreitsma.nl",
+        "owner_name": "rro@wilroffreitsma.nl",
+        "plan": "conduit"
+      },
+      {
+        "created_at": "2026-10-08 15:18:19",
+        "org_id": "9mJQHHiizcrKLkWpG83Dc",
+        "org_name": "Ysleta del Sur Pueblo",
+        "owner_email": "jpineira@ydsp-nsn.gov",
+        "owner_name": "jpineira@ydsp-nsn.gov",
+        "plan": "conduit"
+      },
+      {
+        "created_at": "2026-10-06 20:16:51",
+        "org_id": "PwI0doEcrJQrwxVc0eZio",
+        "org_name": "Onsite Logic / Secure Unions",
+        "owner_email": "timnew@onsitelogic.com",
+        "owner_name": "Tim New",
         "plan": "conduit"
       }
     ],
     "performance": {
-      "error_rate_4xx_plus_pct": 1.2,
-      "error_rate_5xx_pct": 0.53,
+      "error_rate_4xx_plus_pct": 3.07,
+      "error_rate_5xx_pct": 0.07,
       "latency_ms": {
-        "p50": 1281,
-        "p95": 4569,
-        "p99": 14769
+        "p50": 615,
+        "p95": 3256,
+        "p99": 15046
       },
-      "requests": 5242,
-      "throughput_per_min": 3.64,
+      "requests": 17640,
+      "throughput_per_min": 12.25,
       "window_hours": 24
     },
     "plan_distribution": [
@@ -229,11 +437,11 @@
         "plan": "business"
       },
       {
-        "count": 52,
+        "count": 67,
         "plan": "conduit"
       },
       {
-        "count": 10,
+        "count": 9,
         "plan": "free"
       },
       {
@@ -247,671 +455,106 @@
     ],
     "top_tools": [
       {
-        "call_count": 3443,
+        "call_count": 21161,
+        "tool_name": "cw_get_agreement_additions",
+        "vendor_slug": "connectwise-psa"
+      },
+      {
+        "call_count": 18389,
         "tool_name": "autotask_raw_request",
         "vendor_slug": "autotask"
       },
       {
-        "call_count": 2603,
-        "tool_name": "autotask_get_ticket_details",
-        "vendor_slug": "autotask"
+        "call_count": 9043,
+        "tool_name": "cwautomate_computers_list",
+        "vendor_slug": "connectwise-automate"
       },
       {
-        "call_count": 1631,
-        "tool_name": "autotask_search_tickets",
-        "vendor_slug": "autotask"
+        "call_count": 6818,
+        "tool_name": "search_flexible_assets",
+        "vendor_slug": "itglue"
       },
       {
-        "call_count": 1277,
+        "call_count": 5663,
         "tool_name": "cw_get_ticket_notes",
         "vendor_slug": "connectwise-psa"
       },
       {
-        "call_count": 955,
-        "tool_name": "cipp_list_user_groups",
-        "vendor_slug": "cipp"
+        "call_count": 5207,
+        "tool_name": "autotask_search_tickets",
+        "vendor_slug": "autotask"
       },
       {
-        "call_count": 826,
-        "tool_name": "halopsa_tickets_get",
-        "vendor_slug": "halopsa"
+        "call_count": 4402,
+        "tool_name": "autotask_get_ticket_details",
+        "vendor_slug": "autotask"
       },
       {
-        "call_count": 798,
+        "call_count": 3671,
+        "tool_name": "cw_search_tickets",
+        "vendor_slug": "connectwise-psa"
+      },
+      {
+        "call_count": 2321,
         "tool_name": "autotask_search_time_entries",
         "vendor_slug": "autotask"
       },
       {
-        "call_count": 765,
-        "tool_name": "cw_get_agreement_additions",
-        "vendor_slug": "connectwise-psa"
-      },
-      {
-        "call_count": 562,
-        "tool_name": "autotask_search_ticket_notes",
-        "vendor_slug": "autotask"
-      },
-      {
-        "call_count": 533,
-        "tool_name": "autotask_create_ticket_note",
-        "vendor_slug": "autotask"
-      },
-      {
-        "call_count": 503,
+        "call_count": 1481,
         "tool_name": "cipp_list_audit_logs",
         "vendor_slug": "cipp"
       },
       {
-        "call_count": 498,
-        "tool_name": "saas_alerts_events_query",
-        "vendor_slug": "saas-alerts"
-      },
-      {
-        "call_count": 444,
-        "tool_name": "autotask_get_field_info",
-        "vendor_slug": "autotask"
-      },
-      {
-        "call_count": 420,
-        "tool_name": "search_flexible_assets",
-        "vendor_slug": "itglue"
-      },
-      {
-        "call_count": 407,
-        "tool_name": "cw_search_tickets",
+        "call_count": 1476,
+        "tool_name": "cw_search_companies",
         "vendor_slug": "connectwise-psa"
       },
       {
-        "call_count": 397,
-        "tool_name": "autotask_update_ticket",
-        "vendor_slug": "autotask"
-      },
-      {
-        "call_count": 385,
-        "tool_name": "cipp_list_users",
-        "vendor_slug": "cipp"
-      },
-      {
-        "call_count": 369,
-        "tool_name": "cpq_update_quote",
-        "vendor_slug": "connectwise-cpq"
-      },
-      {
-        "call_count": 345,
-        "tool_name": "search_organizations",
-        "vendor_slug": "itglue"
-      },
-      {
-        "call_count": 340,
-        "tool_name": "get_document",
-        "vendor_slug": "itglue"
-      }
-    ]
-  },
-  "gateway": {
-    "active_orgs": {
-      "count": 9,
-      "orgs": [
-        {
-          "org_id": "8Cu12Wl9p2s-ypYTnXGxJ",
-          "org_name": "Stu Ian",
-          "plan": "pro",
-          "tool_calls": 14140
-        },
-        {
-          "org_id": "L-Fk69VfrntBjgVxOvWJX",
-          "org_name": "WYRE Technology",
-          "plan": "pro",
-          "tool_calls": 6010
-        },
-        {
-          "org_id": "W0ETvPAiirjOFvqLDAXtI",
-          "org_name": "Byte Time",
-          "plan": "pro",
-          "tool_calls": 4643
-        },
-        {
-          "org_id": "x5UYh751TgzLa3UiKpvmQ",
-          "org_name": "ITPartners+",
-          "plan": "pro",
-          "tool_calls": 1476
-        },
-        {
-          "org_id": "j8VgkefyBt6Qi47I0QDvS",
-          "org_name": "Aligned Technology Partners",
-          "plan": "pro",
-          "tool_calls": 377
-        },
-        {
-          "org_id": "PMUa4ayGhHPChNfXqk9Y4",
-          "org_name": "One2call Ops",
-          "plan": "pro",
-          "tool_calls": 342
-        },
-        {
-          "org_id": "VbdKMteExjE-z3dID8TXL",
-          "org_name": "KNG",
-          "plan": "pro",
-          "tool_calls": 170
-        },
-        {
-          "org_id": "7hvCcfX5Bivg81FmaQyRi",
-          "org_name": "AM3 Technology & Cybersecurity",
-          "plan": "pro",
-          "tool_calls": 13
-        },
-        {
-          "org_id": "TCA5fSUvdc3GmtRkFh_ug",
-          "org_name": "Furniture Wizard Software",
-          "plan": "pro",
-          "tool_calls": 9
-        }
-      ]
-    },
-    "free_orgs": [
-      {
-        "created_at": "2026-07-19 22:18:33",
-        "org_id": "-fU6p2_QUcWt0CDflH9Eu",
-        "org_name": "Propel Technology",
-        "owner_email": "james@propeltechnology.com",
-        "plan": "free",
-        "stripe_customer_id": null,
-        "trial_ends_at": null
-      },
-      {
-        "created_at": "2026-07-02 08:34:32",
-        "org_id": "SQmJGz3BVcF66nDIxLOWh",
-        "org_name": "MCS",
-        "owner_email": "john.gray@mcsmc.co.uk",
-        "plan": "free",
-        "stripe_customer_id": null,
-        "trial_ends_at": null
-      },
-      {
-        "created_at": "2026-06-10 16:38:50",
-        "org_id": "FS-brC9zc9SuxjiC_uXhD",
-        "org_name": "Thrive-IT",
-        "owner_email": "Jeff@thriveitmsp.com",
-        "plan": "free",
-        "stripe_customer_id": null,
-        "trial_ends_at": null
-      },
-      {
-        "created_at": "2026-05-19 18:38:00",
-        "org_id": "9D6NcUJ0yE_3jfVpH9AEa",
-        "org_name": "Blue Ridge Tech",
-        "owner_email": "zack@blueridge.tech",
-        "plan": "free",
-        "stripe_customer_id": null,
-        "trial_ends_at": null
-      },
-      {
-        "created_at": "2026-05-18 12:04:01",
-        "org_id": "v3wAe5a-ntb_BtByYBXJQ",
-        "org_name": "Pierre",
-        "owner_email": "pierre.trublereau@gmail.com",
-        "plan": "free",
-        "stripe_customer_id": null,
-        "trial_ends_at": null
-      },
-      {
-        "created_at": "2026-05-16 18:09:25",
-        "org_id": "oGfr653pfawLFXlaSBkJq",
-        "org_name": "Thomas Cloud",
-        "owner_email": "tom@48tech.com",
-        "plan": "free",
-        "stripe_customer_id": null,
-        "trial_ends_at": null
-      },
-      {
-        "created_at": "2026-05-14 12:23:25",
-        "org_id": "1VdqIC11USyIHeTQkqCyQ",
-        "org_name": "The Network Gurus",
-        "owner_email": "evan@thenetworkgurus.com",
-        "plan": "free",
-        "stripe_customer_id": null,
-        "trial_ends_at": null
-      },
-      {
-        "created_at": "2026-05-14 11:40:27",
-        "org_id": "9OxDarsiERsiI-ocYO_0F",
-        "org_name": "mspilot",
-        "owner_email": "pierce@mspilot.io",
-        "plan": "free",
-        "stripe_customer_id": null,
-        "trial_ends_at": null
-      },
-      {
-        "created_at": "2026-05-13 16:45:03",
-        "org_id": "Cgj67-PJMFl0JpJRXHumw",
-        "org_name": "MSP Advisor",
-        "owner_email": "grant@mspadvisor.com",
-        "plan": "free",
-        "stripe_customer_id": null,
-        "trial_ends_at": null
-      },
-      {
-        "created_at": "2026-05-08 21:13:02",
-        "org_id": "ybkrvP7pDT83PPfUVzzdV",
-        "org_name": "Great Oak Digital",
-        "owner_email": "john.davis@greatoakdigital.com",
-        "plan": "free",
-        "stripe_customer_id": null,
-        "trial_ends_at": null
-      },
-      {
-        "created_at": "2026-05-07 18:44:03",
-        "org_id": "oK9yLl14iKsG1ldv4LXqQ",
-        "org_name": "Delivery",
-        "owner_email": "jclough@aisllp.com",
-        "plan": "free",
-        "stripe_customer_id": null,
-        "trial_ends_at": null
-      },
-      {
-        "created_at": "2026-05-07 09:00:55",
-        "org_id": "7EWKWOiqA_u2gC1IDCIey",
-        "org_name": "ACI TECHNOLOGY",
-        "owner_email": "baudoin.fety@acitechnology.fr",
-        "plan": "free",
-        "stripe_customer_id": null,
-        "trial_ends_at": null
-      },
-      {
-        "created_at": "2026-05-06 14:17:41",
-        "org_id": "eHWCduSsKxZSTC3-OTVqZ",
-        "org_name": "ITA",
-        "owner_email": "tony.hayden@insighttechadv.com",
-        "plan": "free",
-        "stripe_customer_id": null,
-        "trial_ends_at": null
-      },
-      {
-        "created_at": "2026-04-11 13:18:24",
-        "org_id": "ghrO0tn7cS99BYhaDknJI",
-        "org_name": "Koine Ventures",
-        "owner_email": "ledmonds@tabernacle.tech",
-        "plan": "free",
-        "stripe_customer_id": null,
-        "trial_ends_at": null
-      }
-    ],
-    "generated_at": "2026-09-30T19:05:43.844Z",
-    "grandfathered_pro": [
-      {
-        "created_at": "2026-04-17 13:45:50",
-        "org_id": "mB0omxRVE5WVyfGiU9SbB",
-        "org_name": "Liongard",
-        "owner_email": "vincent.tran@liongard.com",
-        "plan": "pro",
-        "stripe_customer_id": null,
-        "trial_ends_at": null
-      },
-      {
-        "created_at": "2026-04-17 13:03:15",
-        "org_id": "9wrzNaViqAAjNIvFZiM_0",
-        "org_name": "Castlerock Managed IT Services",
-        "owner_email": "damian.casserley@castlerock.co",
-        "plan": "pro",
-        "stripe_customer_id": null,
-        "trial_ends_at": null
-      },
-      {
-        "created_at": "2026-04-13 10:23:09",
-        "org_id": "TkUOpkqjIsItWPDvR-_Hu",
-        "org_name": "Ilkley IT",
-        "owner_email": "warren@ilkleyitservices.co.uk",
-        "plan": "pro",
-        "stripe_customer_id": null,
-        "trial_ends_at": null
-      },
-      {
-        "created_at": "2026-04-11 00:35:01",
-        "org_id": "izNpQQ-N9fY3b3I9W1BPT",
-        "org_name": "sheasty",
-        "owner_email": "sheasty@nerdssupport.com",
-        "plan": "pro",
-        "stripe_customer_id": null,
-        "trial_ends_at": null
-      },
-      {
-        "created_at": "2026-04-10 13:58:18",
-        "org_id": "q5ricYpvwHLrL09C3N8sJ",
-        "org_name": "Divergys",
-        "owner_email": "mpowell@divergys.com",
-        "plan": "pro",
-        "stripe_customer_id": null,
-        "trial_ends_at": null
-      },
-      {
-        "created_at": "2026-04-10 02:49:13",
-        "org_id": "nuY4ycS8anTaeUqXQzY0c",
-        "org_name": "Your IT",
-        "owner_email": "jeff@youritbc.com.au",
-        "plan": "pro",
-        "stripe_customer_id": null,
-        "trial_ends_at": null
-      },
-      {
-        "created_at": "2026-04-09 22:59:16",
-        "org_id": "gariFK_7fGwgq52b9PLkh",
-        "org_name": "Empower IT Group",
-        "owner_email": "yusniel2010@gmail.com",
-        "plan": "pro",
-        "stripe_customer_id": null,
-        "trial_ends_at": null
-      },
-      {
-        "created_at": "2026-04-09 22:46:03",
-        "org_id": "7hvCcfX5Bivg81FmaQyRi",
-        "org_name": "AM3 Technology & Cybersecurity",
-        "owner_email": "cramirez@am3-it.com",
-        "plan": "pro",
-        "stripe_customer_id": null,
-        "trial_ends_at": null
-      }
-    ],
-    "new_orgs": [],
-    "new_orgs_recent": [],
-    "plan_distribution": [
-      {
-        "count": 2,
-        "plan": "business"
-      },
-      {
-        "count": 14,
-        "plan": "free"
-      },
-      {
-        "count": 26,
-        "plan": "pro"
-      },
-      {
-        "count": 8,
-        "plan": "trial"
-      }
-    ],
-    "tiles": {
-      "activeOrgs": 9,
-      "newOrgs14d": 0,
-      "planSplit": {
-        "free": 14,
-        "other": 8,
-        "paid": 2,
-        "pro": 26,
-        "total": 50,
-        "trial": 0
-      },
-      "recentSignups": 0,
-      "toolCalls30d": 27147,
-      "toolCallsToday": 590,
-      "topTool": {
-        "call_count": 7241,
-        "tool_name": "search_flexible_assets",
-        "vendor_slug": "itglue"
-      },
-      "totalOrgs": 50
-    },
-    "tool_call_volume": [
-      {
-        "calls": 377,
-        "day": "2026-08-31",
-        "plan": "pro"
-      },
-      {
-        "calls": 1907,
-        "day": "2026-09-01",
-        "plan": "pro"
-      },
-      {
-        "calls": 1652,
-        "day": "2026-09-02",
-        "plan": "pro"
-      },
-      {
-        "calls": 1893,
-        "day": "2026-09-03",
-        "plan": "pro"
-      },
-      {
-        "calls": 1335,
-        "day": "2026-09-04",
-        "plan": "pro"
-      },
-      {
-        "calls": 1156,
-        "day": "2026-09-05",
-        "plan": "pro"
-      },
-      {
-        "calls": 1289,
-        "day": "2026-09-06",
-        "plan": "pro"
-      },
-      {
-        "calls": 1483,
-        "day": "2026-09-07",
-        "plan": "pro"
-      },
-      {
-        "calls": 1460,
-        "day": "2026-09-08",
-        "plan": "pro"
-      },
-      {
-        "calls": 1380,
-        "day": "2026-09-09",
-        "plan": "pro"
-      },
-      {
-        "calls": 979,
-        "day": "2026-09-10",
-        "plan": "pro"
-      },
-      {
-        "calls": 1070,
-        "day": "2026-09-11",
-        "plan": "pro"
-      },
-      {
-        "calls": 531,
-        "day": "2026-09-12",
-        "plan": "pro"
-      },
-      {
-        "calls": 640,
-        "day": "2026-09-13",
-        "plan": "pro"
-      },
-      {
-        "calls": 1181,
-        "day": "2026-09-14",
-        "plan": "pro"
-      },
-      {
-        "calls": 783,
-        "day": "2026-09-15",
-        "plan": "pro"
-      },
-      {
-        "calls": 1073,
-        "day": "2026-09-16",
-        "plan": "pro"
-      },
-      {
-        "calls": 846,
-        "day": "2026-09-17",
-        "plan": "pro"
-      },
-      {
-        "calls": 617,
-        "day": "2026-09-18",
-        "plan": "pro"
-      },
-      {
-        "calls": 88,
-        "day": "2026-09-19",
-        "plan": "pro"
-      },
-      {
-        "calls": 60,
-        "day": "2026-09-20",
-        "plan": "pro"
-      },
-      {
-        "calls": 797,
-        "day": "2026-09-21",
-        "plan": "pro"
-      },
-      {
-        "calls": 689,
-        "day": "2026-09-22",
-        "plan": "pro"
-      },
-      {
-        "calls": 476,
-        "day": "2026-09-23",
-        "plan": "pro"
-      },
-      {
-        "calls": 623,
-        "day": "2026-09-24",
-        "plan": "pro"
-      },
-      {
-        "calls": 430,
-        "day": "2026-09-25",
-        "plan": "pro"
-      },
-      {
-        "calls": 73,
-        "day": "2026-09-26",
-        "plan": "pro"
-      },
-      {
-        "calls": 158,
-        "day": "2026-09-27",
-        "plan": "pro"
-      },
-      {
-        "calls": 794,
-        "day": "2026-09-28",
-        "plan": "pro"
-      },
-      {
-        "calls": 717,
-        "day": "2026-09-29",
-        "plan": "pro"
-      },
-      {
-        "calls": 590,
-        "day": "2026-09-30",
-        "plan": "pro"
-      }
-    ],
-    "top_tools": [
-      {
-        "call_count": 7241,
-        "tool_name": "search_flexible_assets",
-        "vendor_slug": "itglue"
-      },
-      {
-        "call_count": 2955,
-        "tool_name": "list_alerts",
-        "vendor_slug": "rootly"
-      },
-      {
-        "call_count": 1951,
-        "tool_name": "autotask_raw_request",
-        "vendor_slug": "autotask"
-      },
-      {
-        "call_count": 1803,
-        "tool_name": "autotask_search_tickets",
-        "vendor_slug": "autotask"
-      },
-      {
-        "call_count": 1754,
-        "tool_name": "cw_get_ticket_notes",
-        "vendor_slug": "connectwise-manage"
-      },
-      {
-        "call_count": 1587,
-        "tool_name": "autotask_get_field_info",
-        "vendor_slug": "autotask"
-      },
-      {
-        "call_count": 1263,
-        "tool_name": "cw_search_tickets",
-        "vendor_slug": "connectwise-manage"
-      },
-      {
-        "call_count": 948,
-        "tool_name": "search_configurations",
-        "vendor_slug": "itglue"
-      },
-      {
-        "call_count": 881,
-        "tool_name": "search_organizations",
-        "vendor_slug": "itglue"
-      },
-      {
-        "call_count": 877,
-        "tool_name": "list_inventory_items",
-        "vendor_slug": "sentinelone"
-      },
-      {
-        "call_count": 858,
-        "tool_name": "cw_get_agreement_additions",
-        "vendor_slug": "connectwise-manage"
-      },
-      {
-        "call_count": 790,
-        "tool_name": "get_alert",
-        "vendor_slug": "rootly"
-      },
-      {
-        "call_count": 720,
-        "tool_name": "cw_search_configurations",
-        "vendor_slug": "connectwise-manage"
-      },
-      {
-        "call_count": 707,
-        "tool_name": "cw_get_ticket",
-        "vendor_slug": "connectwise-manage"
-      },
-      {
-        "call_count": 704,
-        "tool_name": "cipp_list_users",
-        "vendor_slug": "cipp"
-      },
-      {
-        "call_count": 603,
-        "tool_name": "cipp_bec_check",
-        "vendor_slug": "cipp"
-      },
-      {
-        "call_count": 575,
-        "tool_name": "autotask_get_ticket_details",
-        "vendor_slug": "autotask"
-      },
-      {
-        "call_count": 421,
-        "tool_name": "ncentral_list_devices",
-        "vendor_slug": "ncentral"
-      },
-      {
-        "call_count": 394,
+        "call_count": 1317,
         "tool_name": "autotask_search_ticket_notes",
         "vendor_slug": "autotask"
       },
       {
-        "call_count": 392,
-        "tool_name": "server/discover",
-        "vendor_slug": "freshdesk"
+        "call_count": 1264,
+        "tool_name": "cw_update_ticket",
+        "vendor_slug": "connectwise-psa"
+      },
+      {
+        "call_count": 1136,
+        "tool_name": "cw_add_ticket_note",
+        "vendor_slug": "connectwise-psa"
+      },
+      {
+        "call_count": 1058,
+        "tool_name": "cw_get_ticket",
+        "vendor_slug": "connectwise-psa"
+      },
+      {
+        "call_count": 1039,
+        "tool_name": "cipp_list_users",
+        "vendor_slug": "cipp"
+      },
+      {
+        "call_count": 952,
+        "tool_name": "search_organizations",
+        "vendor_slug": "itglue"
+      },
+      {
+        "call_count": 858,
+        "tool_name": "autotask_create_ticket_note",
+        "vendor_slug": "autotask"
+      },
+      {
+        "call_count": 853,
+        "tool_name": "cw_search_agreements",
+        "vendor_slug": "connectwise-psa"
+      },
+      {
+        "call_count": 830,
+        "tool_name": "search_configurations",
+        "vendor_slug": "itglue"
       }
-    ],
-    "trialing_orgs": 0
+    ]
   },
   "schema": 2
 }
