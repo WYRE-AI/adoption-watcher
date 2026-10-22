@@ -4,100 +4,112 @@
       "count": 48,
       "orgs": [
         {
-          "org_id": "mYRJKLjH-O0LwrClIqOwf",
-          "org_name": "EpiOn",
-          "plan": "conduit",
-          "tool_calls": 35642
-        },
-        {
           "org_id": "L-Fk69VfrntBjgVxOvWJX",
           "org_name": "WYRE Technology",
           "plan": "conduit",
-          "tool_calls": 31152
+          "tool_calls": 44915
+        },
+        {
+          "org_id": "mYRJKLjH-O0LwrClIqOwf",
+          "org_name": "EpiOn",
+          "plan": "conduit",
+          "tool_calls": 36161
         },
         {
           "org_id": "8Cu12Wl9p2s-ypYTnXGxJ",
           "org_name": "Stu Ian",
           "plan": "conduit",
-          "tool_calls": 26679
+          "tool_calls": 28240
         },
         {
           "org_id": "EBLO0ehnXhN7JxxZzpZ4A",
           "org_name": "ZetaOne",
           "plan": "conduit",
-          "tool_calls": 8769
+          "tool_calls": 10877
         },
         {
           "org_id": "gTZdOMf8clFS80w-FYrC2",
           "org_name": "West Michigan Tech Services",
           "plan": "conduit",
-          "tool_calls": 8274
+          "tool_calls": 8904
         },
         {
           "org_id": "W0ETvPAiirjOFvqLDAXtI",
           "org_name": "Byte Time",
           "plan": "conduit",
-          "tool_calls": 5857
-        },
-        {
-          "org_id": "2CUVn41F2g3RaeitES_sb",
-          "org_name": "My Computer Guy",
-          "plan": "conduit",
-          "tool_calls": 3911
+          "tool_calls": 6622
         },
         {
           "org_id": "WJojMeQHgqm4nMF9BzonM",
           "org_name": "AIS",
           "plan": "trial",
-          "tool_calls": 3856
+          "tool_calls": 4498
+        },
+        {
+          "org_id": "2CUVn41F2g3RaeitES_sb",
+          "org_name": "My Computer Guy",
+          "plan": "conduit",
+          "tool_calls": 3940
         },
         {
           "org_id": "03GVnMz-N3YcKgqJjfVtj",
           "org_name": "Empowering Technology Solutions",
           "plan": "conduit",
-          "tool_calls": 3352
+          "tool_calls": 3380
         },
         {
           "org_id": "z-OZ0R33cd_oijSgt6IcE",
           "org_name": "Computerwild",
           "plan": "conduit",
-          "tool_calls": 3232
-        },
-        {
-          "org_id": "8VqA07x5ZR5g8r2zBWmdV",
-          "org_name": "Upstate Services Group",
-          "plan": "conduit",
-          "tool_calls": 3013
+          "tool_calls": 3257
         },
         {
           "org_id": "KrpGgpke48hBJb79vhi0f",
           "org_name": "Zouling Technologies",
           "plan": "conduit",
-          "tool_calls": 3006
+          "tool_calls": 3124
+        },
+        {
+          "org_id": "8VqA07x5ZR5g8r2zBWmdV",
+          "org_name": "Upstate Services Group",
+          "plan": "conduit",
+          "tool_calls": 3093
         },
         {
           "org_id": "1VdqIC11USyIHeTQkqCyQ",
           "org_name": "The Network Gurus",
           "plan": "conduit",
-          "tool_calls": 2901
+          "tool_calls": 3021
+        },
+        {
+          "org_id": "l3r8NLnKt7IIkB-6QLfsT",
+          "org_name": "ITernal Networks",
+          "plan": "conduit",
+          "tool_calls": 1841
         },
         {
           "org_id": "Wil0bCm2zX8JZoXlTGQ3R",
           "org_name": "IS Systems",
           "plan": "conduit",
-          "tool_calls": 1495
+          "tool_calls": 1543
+        },
+        {
+          "org_id": "j8VgkefyBt6Qi47I0QDvS",
+          "org_name": "Aligned Technology Partners",
+          "plan": "conduit",
+          "tool_calls": 1023
         },
         {
           "org_id": "PMUa4ayGhHPChNfXqk9Y4",
           "org_name": "One2call Ops",
           "plan": "conduit",
-          "tool_calls": 862
+          "tool_calls": 940
         },
         {
           "org_id": "miRsPJikLLFf-pg8IxNNw",
           "org_name": "ImpactTek",
           "plan": "conduit",
-          "tool_calls": 828
+          "tool_calls": 830
         },
         {
           "org_id": "5ES05YdwJ-XwOIxi5n9Ed",
@@ -112,40 +124,46 @@
           "tool_calls": 745
         },
         {
-          "org_id": "j8VgkefyBt6Qi47I0QDvS",
-          "org_name": "Aligned Technology Partners",
-          "plan": "conduit",
-          "tool_calls": 727
-        },
-        {
-          "org_id": "8THYBXmQxWs1vLheWmF3f",
-          "org_name": "GreyFalcon MSP",
-          "plan": "conduit",
-          "tool_calls": 712
-        },
-        {
           "org_id": "zh3bF73lROnWkrOl76M8U",
           "org_name": "TTechT-Autotask",
           "plan": "conduit",
-          "tool_calls": 664
+          "tool_calls": 718
         },
         {
           "org_id": "uK2C1vl1eSm9Xbxja4e_n",
           "org_name": "Net3 IT, LLC",
           "plan": "conduit",
-          "tool_calls": 652
-        },
-        {
-          "org_id": "XPUPiBYXnQtkrNPLSYtdu",
-          "org_name": "CMIT Solutions of Philadelphia",
-          "plan": "conduit",
-          "tool_calls": 464
+          "tool_calls": 674
         },
         {
           "org_id": "PwI0doEcrJQrwxVc0eZio",
           "org_name": "Onsite Logic / Secure Unions",
           "plan": "conduit",
-          "tool_calls": 433
+          "tool_calls": 585
+        },
+        {
+          "org_id": "XPUPiBYXnQtkrNPLSYtdu",
+          "org_name": "CMIT Solutions of Philadelphia",
+          "plan": "conduit",
+          "tool_calls": 559
+        },
+        {
+          "org_id": "RDnoYUOk4LY2hymzKZAVG",
+          "org_name": "MMIT Business Solutions Group",
+          "plan": "conduit",
+          "tool_calls": 451
+        },
+        {
+          "org_id": "9mJQHHiizcrKLkWpG83Dc",
+          "org_name": "Ysleta del Sur Pueblo",
+          "plan": "conduit",
+          "tool_calls": 426
+        },
+        {
+          "org_id": "PyQLP-fV8im2dhxxhCD11",
+          "org_name": "Vantage Networks",
+          "plan": "conduit",
+          "tool_calls": 414
         },
         {
           "org_id": "yHCamoNhLbqgCxhpopqjQ",
@@ -154,22 +172,16 @@
           "tool_calls": 414
         },
         {
-          "org_id": "9mJQHHiizcrKLkWpG83Dc",
-          "org_name": "Ysleta del Sur Pueblo",
+          "org_id": "8THYBXmQxWs1vLheWmF3f",
+          "org_name": "GreyFalcon MSP",
           "plan": "conduit",
-          "tool_calls": 384
+          "tool_calls": 395
         },
         {
           "org_id": "VbdKMteExjE-z3dID8TXL",
           "org_name": "KNG",
           "plan": "conduit",
-          "tool_calls": 334
-        },
-        {
-          "org_id": "PyQLP-fV8im2dhxxhCD11",
-          "org_name": "Vantage Networks",
-          "plan": "conduit",
-          "tool_calls": 334
+          "tool_calls": 390
         },
         {
           "org_id": "lvUETqfLZPbCQC81vrMbS",
@@ -181,23 +193,11 @@
           "org_id": "YChmIFPGt8ggJ29ie5xmz",
           "org_name": "Greater Nashua Technology Consulting LLC",
           "plan": "conduit",
-          "tool_calls": 264
-        },
-        {
-          "org_id": "l3r8NLnKt7IIkB-6QLfsT",
-          "org_name": "ITernal Networks",
-          "plan": "conduit",
-          "tool_calls": 261
+          "tool_calls": 269
         },
         {
           "org_id": "xReRcP6Gu7vx5rZLGZep3",
           "org_name": "Wanbound BV",
-          "plan": "conduit",
-          "tool_calls": 225
-        },
-        {
-          "org_id": "RDnoYUOk4LY2hymzKZAVG",
-          "org_name": "MMIT Business Solutions Group",
           "plan": "conduit",
           "tool_calls": 202
         },
@@ -205,25 +205,25 @@
           "org_id": "oGJ1ZlpXTkNVioTijXWf1",
           "org_name": "Turnkey Computer Systems",
           "plan": "conduit",
-          "tool_calls": 109
-        },
-        {
-          "org_id": "oK9yLl14iKsG1ldv4LXqQ",
-          "org_name": "Delivery",
-          "plan": "free",
-          "tool_calls": 74
+          "tool_calls": 117
         },
         {
           "org_id": "J8YpRPu4LpXltJroWvaRY",
           "org_name": "BlueCastle IT Solutions",
           "plan": "conduit",
-          "tool_calls": 64
+          "tool_calls": 111
+        },
+        {
+          "org_id": "oK9yLl14iKsG1ldv4LXqQ",
+          "org_name": "Delivery",
+          "plan": "free",
+          "tool_calls": 80
         },
         {
           "org_id": "8A-M8ENism3za8vVTE6un",
           "org_name": "Nwaj Tech",
           "plan": "conduit",
-          "tool_calls": 59
+          "tool_calls": 61
         },
         {
           "org_id": "reJKd3lRjXe0bhswYAdSe",
@@ -262,10 +262,10 @@
           "tool_calls": 18
         },
         {
-          "org_id": "bRI0dKXq2bK8h-OeAPLq_",
-          "org_name": "Invision Technologies",
+          "org_id": "JVsNK7dBFfho4QK6wB5XO",
+          "org_name": "Creative Computer",
           "plan": "conduit",
-          "tool_calls": 15
+          "tool_calls": 16
         },
         {
           "org_id": "mIeK6KBy9Kxm6x551bbbY",
@@ -274,20 +274,20 @@
           "tool_calls": 15
         },
         {
-          "org_id": "JVsNK7dBFfho4QK6wB5XO",
-          "org_name": "Creative Computer",
+          "org_id": "DF1bTpMG_-qqiNSsxr2pT",
+          "org_name": "HTServices",
           "plan": "conduit",
-          "tool_calls": 13
+          "tool_calls": 15
+        },
+        {
+          "org_id": "bRI0dKXq2bK8h-OeAPLq_",
+          "org_name": "Invision Technologies",
+          "plan": "conduit",
+          "tool_calls": 15
         },
         {
           "org_id": "dZstxeLsHXE7CPfXhlQr4",
           "org_name": "Network Outsource",
-          "plan": "conduit",
-          "tool_calls": 4
-        },
-        {
-          "org_id": "DF1bTpMG_-qqiNSsxr2pT",
-          "org_name": "HTServices",
           "plan": "conduit",
           "tool_calls": 2
         }
@@ -295,17 +295,18 @@
     },
     "credit_burn_rate": [
       {
-        "credits": 68,
+        "credits": 98,
         "day": "2026-10-21",
+        "plan": "conduit"
+      },
+      {
+        "credits": 37,
+        "day": "2026-10-22",
         "plan": "conduit"
       }
     ],
-    "generated_at": "2026-10-21T18:32:22.971Z",
+    "generated_at": "2026-10-22T18:27:33.209Z",
     "new_orgs": [
-      {
-        "day": "2026-10-08",
-        "signups": 1
-      },
       {
         "day": "2026-10-09",
         "signups": 2
@@ -455,26 +456,18 @@
         "owner_email": "rro@wilroffreitsma.nl",
         "owner_name": "rro@wilroffreitsma.nl",
         "plan": "conduit"
-      },
-      {
-        "created_at": "2026-10-08 15:18:19",
-        "org_id": "9mJQHHiizcrKLkWpG83Dc",
-        "org_name": "Ysleta del Sur Pueblo",
-        "owner_email": "jpineira@ydsp-nsn.gov",
-        "owner_name": "jpineira@ydsp-nsn.gov",
-        "plan": "conduit"
       }
     ],
     "performance": {
-      "error_rate_4xx_plus_pct": 9.47,
-      "error_rate_5xx_pct": 0.08,
+      "error_rate_4xx_plus_pct": 4.72,
+      "error_rate_5xx_pct": 0.04,
       "latency_ms": {
-        "p50": 632,
-        "p95": 2794,
-        "p99": 10539
+        "p50": 578,
+        "p95": 2163,
+        "p99": 6100
       },
-      "requests": 23659,
-      "throughput_per_min": 16.43,
+      "requests": 33790,
+      "throughput_per_min": 23.47,
       "window_hours": 24
     },
     "plan_distribution": [
@@ -501,104 +494,104 @@
     ],
     "top_tools": [
       {
-        "call_count": 23106,
+        "call_count": 26670,
         "tool_name": "autotask_raw_request",
         "vendor_slug": "autotask"
       },
       {
-        "call_count": 21579,
+        "call_count": 21692,
         "tool_name": "cw_get_agreement_additions",
         "vendor_slug": "connectwise-psa"
       },
       {
-        "call_count": 9863,
+        "call_count": 15494,
         "tool_name": "autotask_search_tickets",
         "vendor_slug": "autotask"
       },
       {
-        "call_count": 9047,
-        "tool_name": "cwautomate_computers_list",
-        "vendor_slug": "connectwise-automate"
-      },
-      {
-        "call_count": 8241,
+        "call_count": 9514,
         "tool_name": "search_flexible_assets",
         "vendor_slug": "itglue"
       },
       {
-        "call_count": 8097,
+        "call_count": 9056,
+        "tool_name": "cwautomate_computers_list",
+        "vendor_slug": "connectwise-automate"
+      },
+      {
+        "call_count": 8238,
         "tool_name": "autotask_get_ticket_details",
         "vendor_slug": "autotask"
       },
       {
-        "call_count": 6506,
+        "call_count": 7187,
         "tool_name": "cw_get_ticket_notes",
         "vendor_slug": "connectwise-psa"
       },
       {
-        "call_count": 4088,
+        "call_count": 4431,
         "tool_name": "cw_search_tickets",
         "vendor_slug": "connectwise-psa"
       },
       {
-        "call_count": 2517,
-        "tool_name": "datto_get_device_audit",
-        "vendor_slug": "datto-rmm"
-      },
-      {
-        "call_count": 2444,
-        "tool_name": "autotask_search_time_entries",
-        "vendor_slug": "autotask"
-      },
-      {
-        "call_count": 1804,
+        "call_count": 3234,
         "tool_name": "avanan_query_events",
         "vendor_slug": "avanan-legacy"
       },
       {
-        "call_count": 1773,
+        "call_count": 3177,
         "tool_name": "search_alerts",
         "vendor_slug": "sentinelone"
       },
       {
-        "call_count": 1751,
+        "call_count": 3138,
         "tool_name": "list_alerts",
         "vendor_slug": "sentinelone"
       },
       {
-        "call_count": 1607,
-        "tool_name": "cipp_list_audit_logs",
-        "vendor_slug": "cipp"
+        "call_count": 2524,
+        "tool_name": "datto_get_device_audit",
+        "vendor_slug": "datto-rmm"
       },
       {
-        "call_count": 1532,
-        "tool_name": "cw_search_companies",
-        "vendor_slug": "connectwise-psa"
+        "call_count": 2408,
+        "tool_name": "autotask_search_time_entries",
+        "vendor_slug": "autotask"
       },
       {
-        "call_count": 1519,
+        "call_count": 1824,
+        "tool_name": "datto_list_alerts",
+        "vendor_slug": "datto-rmm"
+      },
+      {
+        "call_count": 1720,
         "tool_name": "cw_update_ticket",
         "vendor_slug": "connectwise-psa"
       },
       {
-        "call_count": 1509,
-        "tool_name": "autotask_search_ticket_notes",
-        "vendor_slug": "autotask"
+        "call_count": 1621,
+        "tool_name": "cipp_list_audit_logs",
+        "vendor_slug": "cipp"
       },
       {
-        "call_count": 1431,
+        "call_count": 1620,
         "tool_name": "cw_add_ticket_note",
         "vendor_slug": "connectwise-psa"
       },
       {
-        "call_count": 1237,
-        "tool_name": "cw_get_ticket",
+        "call_count": 1583,
+        "tool_name": "autotask_search_ticket_notes",
+        "vendor_slug": "autotask"
+      },
+      {
+        "call_count": 1552,
+        "tool_name": "cw_search_companies",
         "vendor_slug": "connectwise-psa"
       },
       {
-        "call_count": 1110,
-        "tool_name": "datto_list_alerts",
-        "vendor_slug": "datto-rmm"
+        "call_count": 1372,
+        "tool_name": "cw_get_ticket",
+        "vendor_slug": "connectwise-psa"
       }
     ]
   },
