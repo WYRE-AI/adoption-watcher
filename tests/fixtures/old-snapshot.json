@@ -1,0 +1,22 @@
+{
+  "schema": 2,
+  "gateway": {
+    "active_orgs": {
+      "count": 99,
+      "orgs": []
+    }
+  },
+  "conduit": {
+    "active_orgs": {
+      "count": 2,
+      "orgs": [
+        {
+          "org_id": "ORG-SYNTH-1",
+          "org_name": "Acme Synthetic",
+          "plan": "business",
+          "tool_calls": 8
+        }
+      ]
+    }
+  }
+}

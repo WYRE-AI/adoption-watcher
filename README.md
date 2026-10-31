@@ -6,8 +6,8 @@ Pulls `/api/admin/metrics`:
 - Active orgs (30-day rolling)
 - Total tool calls and per-org breakdown
 - Top vendors by tool calls
-- Plan distribution
-- New org signups
+- Current pricing and subscription view
+- New orgs (14d)
 
 Runs every day at 14:05 UTC (five minutes after `stars-watcher` so the two
 digests don't land on top of each other). The two watchers are deliberately
@@ -49,11 +49,24 @@ coverage, PulseMCP traffic); this one tracks internal *usage*.
 endpoint with its bearer token, formats a Slack Block Kit message, and
 posts it via the WYRE Notifier bot. It saves the response to
 `state/snapshot.json` (`schema: 2`, keyed by product) and diffs against the
-previous run for "since last run" deltas. A leftover `gateway` key, or an
-older flat pre-schema gateway payload, is ignored and not written back.
+previous run for "since last run" deltas.
 
 If the fetch fails, the section is replaced by a warning block and the run
 exits non-zero so the Actions run shows red.
+
+Use dry-run mode to print the Block Kit JSON and plain-text digest without
+posting or writing state. Set `DRY_RUN=1` or pass `--dry-run`. Add
+`--fixture PATH` to render from a saved metrics JSON (fixture runs are always
+dry runs), for example
+`python3 script/report.py --fixture tests/fixtures/metrics-sample.json`. Set
+`INTERNAL_ORG_IDS` to a comma-separated list to override the default WYRE
+internal organization.
+
+Test orgs are excluded too. `TEST_ORG_IDS` and `TEST_ORG_DOMAINS` in
+`script/report.py` list orgs that are only used for testing (currently
+"Sachshaus Testing" and owners on `sachshaus.net`). They apply even when
+`INTERNAL_ORG_IDS` is overridden. Conduit already drops orgs it flags as demo
+or synthetic, so only add test orgs that Conduit does not flag.
 
 ## Window
 

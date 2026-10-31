@@ -7,8 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- **Current pricing instead of legacy plan mix.** The digest no longer prints the raw `organizations.plan` counts (`business`, `free`, `pro`, `conduit`, `trial`), which reflected retired tiers. It now shows paying orgs, reseller orgs and trials, plus the current pricing from Conduit's `src/billing/prices.ts`: $39/seat for direct and MSP customers, $18/seat wholesale plus reseller markup, and no org fee (the $399 base fee is gone).
+- **Active orgs use the true total.** `active_orgs.count` is used instead of the length of the 50-row org list, minus WYRE internal orgs, and the previous snapshot gets the same adjustment so the delta compares like with like.
+- **New orgs window labelled correctly.** The endpoint reports the last 14 days, so the field now reads "New orgs (14d)" instead of "last 7d".
+
+### Added
+
+- **WYRE internal org exclusion.** The WYRE Technology tenant (default `INTERNAL_ORG_IDS=L-Fk69VfrntBjgVxOvWJX`), orgs owned by `wyre.ai` or `wyretechnology.com` addresses, and orgs tagged `exclude-from-metrics` are left out of active orgs, tool calls, top orgs and new orgs.
+- **Test org exclusion.** Test orgs that Conduit does not flag as demo or synthetic are excluded the same way as internal orgs, by org id (`TEST_ORG_IDS`, currently "Sachshaus Testing") or owner domain (`TEST_ORG_DOMAINS`, currently `sachshaus.net`). The digest footer now reads "Excludes WYRE internal and test orgs".
+- **Dry run.** `--dry-run` (or `DRY_RUN=1`) prints the Block Kit JSON and a plain-text rendering without posting to Slack or writing `state/snapshot.json`. `--fixture PATH` reads metrics from a JSON file and always implies dry run.
+- **Unit tests** in `tests/` (stdlib `unittest`, synthetic fixtures), run in CI alongside `ruff check script/ tests/`.
+
 ### Removed
 
+- Leftover gateway branches in snapshot loading. Only the `conduit` key of an old snapshot is read.
 - **Legacy Gateway metrics.** The daily digest is Conduit-only (`conduit.wyre.ai`). It no longer fetches the retired MCP gateway at `mcp.wyre.ai`, and `GATEWAY_BASE` / `GATEWAY_ADMIN_TOKEN` are gone from the workflow and setup. Older `state/snapshot.json` files that still have a `gateway` key, or a pre-schema flat gateway payload, load cleanly — that data is ignored and not written back.
 
 ### Added
