@@ -128,6 +128,41 @@ class MainTests(unittest.TestCase):
             self.assertTrue(snapshot_path.exists())
 
 
+    def test_normal_mode_diffs_against_previous_conduit_snapshot(self):
+        current = json.loads(FIXTURE.read_text())
+        previous_conduit = json.loads(FIXTURE.read_text())
+        previous_conduit["active_orgs"]["count"] -= 1
+        previous_conduit["active_orgs"]["orgs"] = [
+            {**org, "tool_calls": int(org.get("tool_calls") or 0) - 2}
+            for org in previous_conduit["active_orgs"]["orgs"]
+        ]
+        customer_orgs = report.customer_orgs(current)
+        with (
+            tempfile.TemporaryDirectory() as temp_dir,
+            mock.patch.object(report, "SNAPSHOT_PATH", Path(temp_dir) / "snapshot.json"),
+            mock.patch.object(report, "load_previous", return_value={"conduit": previous_conduit}),
+            mock.patch.object(report, "post_slack") as post_slack,
+            mock.patch.object(report, "fetch_metrics", return_value=current),
+            mock.patch.object(sys, "argv", ["report.py"]),
+            mock.patch("builtins.print"),
+        ):
+            self.assertEqual(report.main(), 0)
+        text = report.blocks_to_text(post_slack.call_args.args[0]["blocks"])
+        self.assertIn(f"(+{2 * len(customer_orgs)} vs last run)", text)
+        self.assertIn("(+1)", text)
+
+    def test_fixture_without_dry_run_flag_never_posts(self):
+        with (
+            mock.patch.object(report, "SNAPSHOT_PATH") as snapshot_path,
+            mock.patch.object(report, "load_previous", return_value={}),
+            mock.patch.object(report, "post_slack") as post_slack,
+            mock.patch.object(sys, "argv", ["report.py", "--fixture", str(FIXTURE)]),
+            mock.patch("builtins.print"),
+        ):
+            self.assertEqual(report.main(), 0)
+        post_slack.assert_not_called()
+        snapshot_path.write_text.assert_not_called()
+
     @mock.patch.object(report, "post_slack")
     @mock.patch.object(report, "load_previous")
     @mock.patch.object(report, "SNAPSHOT_PATH")

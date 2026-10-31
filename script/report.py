@@ -361,7 +361,7 @@ def build_digest(
         )
     elif metrics is not None:
         for product in PRODUCTS:
-            blocks.extend(product_blocks(product, metrics, previous))
+            blocks.extend(product_blocks(product, metrics, (previous or {}).get(product["key"])))
 
     context_text = (
         f"<{PRODUCTS[0]['base']}/admin/dashboard|Conduit dashboard> · adoption-watcher · "
@@ -381,7 +381,8 @@ def main() -> int:
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--fixture", help="Read metrics JSON from a file instead of fetching")
     args = parser.parse_args()
-    dry_run = args.dry_run or os.environ.get("DRY_RUN") == "1"
+    # A fixture is mock data: never post it or save it as the snapshot.
+    dry_run = args.dry_run or bool(args.fixture) or os.environ.get("DRY_RUN") == "1"
 
     previous = load_previous()
     warnings: list[str] = []
@@ -395,6 +396,7 @@ def main() -> int:
             print(f"Fetching {PRODUCTS[0]['label']} metrics from {PRODUCTS[0]['base']}/api/admin/metrics …")
             metrics = fetch_metrics(PRODUCTS[0])
     except (RuntimeError, urllib.error.URLError, TimeoutError) as exc:
+        print(f"  FAILED: {exc}", file=sys.stderr)
         warnings.append(f":warning: {PRODUCTS[0]['label']}: {exc}")
 
     blocks, payload_json = build_digest(metrics, previous, warnings)

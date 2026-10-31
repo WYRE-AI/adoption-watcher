@@ -55,7 +55,10 @@ If the fetch fails, the section is replaced by a warning block and the run
 exits non-zero so the Actions run shows red.
 
 Use dry-run mode to print the Block Kit JSON and plain-text digest without
-posting or writing state. Set `DRY_RUN=1` or pass `--dry-run`. Set
+posting or writing state. Set `DRY_RUN=1` or pass `--dry-run`. Add
+`--fixture PATH` to render from a saved metrics JSON (fixture runs are always
+dry runs), for example
+`python3 script/report.py --fixture tests/fixtures/metrics-sample.json`. Set
 `INTERNAL_ORG_IDS` to a comma-separated list to override the default WYRE
 internal organization.
 
