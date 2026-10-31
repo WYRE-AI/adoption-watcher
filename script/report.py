@@ -1,4 +1,4 @@
-"""Daily WYRE adoption digest for Conduit."""
+"""Daily Conduit adoption digest with dry-run, internal org exclusion, and Conduit pricing."""
 
 from __future__ import annotations
 
@@ -65,11 +65,28 @@ def is_internal_org(org: dict, internal_org_ids: set[str]) -> bool:
 
 
 def customer_orgs(metrics: dict, internal_org_ids: set[str] | None = None) -> list[dict]:
-    internal_org_ids = internal_org_ids or get_internal_org_ids()
+    if internal_org_ids is None:
+        internal_org_ids = get_internal_org_ids()
     orgs = metrics.get("active_orgs", {}).get("orgs") or []
     if not isinstance(orgs, list):
         return []
     return [org for org in orgs if not is_internal_org(org, internal_org_ids)]
+
+
+def adjusted_active_count(metrics: dict, internal_org_ids: set[str] | None = None) -> int:
+    active = metrics.get("active_orgs") or {}
+    orgs = active.get("orgs") or []
+    if internal_org_ids is None:
+        internal_org_ids = get_internal_org_ids()
+    customer_count = len(
+        [org for org in orgs if isinstance(org, dict) and not is_internal_org(org, internal_org_ids)]
+    )
+    if active.get("count") is None:
+        return customer_count
+    internal_count = sum(
+        1 for org in orgs if isinstance(org, dict) and is_internal_org(org, internal_org_ids)
+    )
+    return max(0, int(active.get("count") or 0) - internal_count)
 
 
 def fetch_metrics(product: dict) -> dict:
@@ -90,7 +107,8 @@ def fetch_metrics(product: dict) -> dict:
     except urllib.error.HTTPError as exc:
         if exc.code in (401, 403):
             raise RuntimeError(
-                f"{product['label']} rejected {product['token_env']} ({exc.code} {exc.reason})"
+                f"{product['label']} rejected {product['token_env']} ({exc.code} {exc.reason}). "
+                f"Rotate the repo secret to {product['base']}'s current ADMIN_API_KEY."
             ) from exc
         raise RuntimeError(
             f"{product['label']} returned {exc.code} {exc.reason} for "
@@ -107,9 +125,15 @@ def fmt_change(delta: int) -> str:
 
 
 def new_org_count(new_orgs: list, internal_org_ids: set[str] | None = None) -> int:
-    if new_orgs and isinstance(new_orgs[0], dict) and "signups" in new_orgs[0]:
-        return sum(int(item.get("signups") or 0) for item in new_orgs)
     orgs = new_orgs or []
+    if orgs and isinstance(orgs[0], dict) and "signups" in orgs[0]:
+        if internal_org_ids is None:
+            internal_org_ids = get_internal_org_ids()
+        return sum(
+            int(item.get("signups") or 0)
+            for item in orgs
+            if not (isinstance(item, dict) and is_internal_org(item, internal_org_ids))
+        )
     if internal_org_ids is None:
         internal_org_ids = get_internal_org_ids()
     return sum(
@@ -126,7 +150,7 @@ def product_blocks(
     internal_org_ids: set[str] | None = None,
 ) -> list[dict]:
     orgs = customer_orgs(curr, internal_org_ids)
-    active_count = len(orgs)
+    active_count = adjusted_active_count(curr, internal_org_ids)
     total_calls = sum(int(org.get("tool_calls") or 0) for org in orgs)
 
     previous_orgs = (prev or {}).get("active_orgs", {}).get("orgs") or []
@@ -136,8 +160,7 @@ def product_blocks(
         if not is_internal_org(org, internal_org_ids or get_internal_org_ids())
     ]
     previous_calls = sum(int(org.get("tool_calls") or 0) for org in previous_customer_orgs)
-    previous_count = (prev or {}).get("active_orgs", {}).get("count")
-    previous_active_count = len(previous_customer_orgs) if previous_count is None else int(previous_count)
+    previous_active_count = adjusted_active_count(prev or {}, internal_org_ids or get_internal_org_ids())
 
     if prev:
         calls_delta = total_calls - previous_calls
@@ -149,7 +172,14 @@ def product_blocks(
     growth = curr.get("growth") or {}
     paying_count = int(growth.get("payingOrgs") or 0)
     reseller_count = int(growth.get("resellerOrgs") or 0)
-    trial_count = sum(1 for org in orgs if org.get("plan") == "trial")
+    trial_distribution = next(
+        (entry for entry in curr.get("plan_distribution") or [] if entry.get("plan") == "trial"),
+        None,
+    )
+    if trial_distribution is not None:
+        trial_count = int(trial_distribution.get("count") or 0)
+    else:
+        trial_count = sum(1 for org in orgs if org.get("plan") == "trial")
 
     blocks = [
         {"type": "divider"},
@@ -174,7 +204,7 @@ def product_blocks(
                 {
                     "type": "mrkdwn",
                     "text": (
-                        f"*New orgs (last 7d)*\n"
+                        f"*New orgs (14d)*\n"
                         f"{fmt_int(new_org_count(curr.get('new_orgs_recent') or curr.get('new_orgs') or [], internal_org_ids))}"
                     ),
                 },
@@ -186,6 +216,15 @@ def product_blocks(
                 {"type": "mrkdwn", "text": f"*Paying orgs*\n{fmt_int(paying_count)}"},
                 {"type": "mrkdwn", "text": f"*Reseller orgs*\n{fmt_int(reseller_count)}"},
                 {"type": "mrkdwn", "text": f"*Trials*\n{fmt_int(trial_count)}"},
+            ],
+        },
+        {
+            "type": "context",
+            "elements": [
+                {
+                    "type": "mrkdwn",
+                    "text": "Paying and reseller counts are Conduit's dashboard figures",
+                }
             ],
         },
         {"type": "section", "text": {"type": "mrkdwn", "text": f"*Current pricing*\n{PRICING_NOTE}"}},
@@ -222,13 +261,12 @@ def product_blocks(
 
 
 def normalize_snapshot(previous: object) -> dict:
+    """Return the normalized Conduit snapshot."""
     if not isinstance(previous, dict):
         return {}
-    if "schema" in previous and "conduit" in previous:
-        return {"conduit": previous["conduit"]}
-    if "schema" not in previous and "active_orgs" in previous:
+    if not isinstance(previous.get("conduit"), dict):
         return {}
-    return {}
+    return {"conduit": previous["conduit"]}
 
 
 def load_previous() -> dict:
@@ -302,20 +340,39 @@ def blocks_to_text(blocks: list[dict]) -> str:
     return "\n\n".join(rendered)
 
 
-def build_digest(metrics: dict, previous: dict | None = None) -> tuple[list[dict], str]:
+def build_digest(
+    metrics: dict | None,
+    previous: dict | None = None,
+    warnings: list[str] | None = None,
+) -> tuple[list[dict], str]:
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     blocks = [
         {
             "type": "header",
             "text": {"type": "plain_text", "text": f":bar_chart: Adoption · {today}"},
         },
+    ]
+    if warnings:
+        blocks.append(
+            {
+                "type": "section",
+                "text": {"type": "mrkdwn", "text": "\n".join(warnings)},
+            }
+        )
+    elif metrics is not None:
+        for product in PRODUCTS:
+            blocks.extend(product_blocks(product, metrics, previous))
+
+    context_text = (
+        f"<{PRODUCTS[0]['base']}/admin/dashboard|Conduit dashboard> · adoption-watcher · "
+        "Excludes WYRE internal orgs"
+    )
+    blocks.append(
         {
             "type": "context",
-            "elements": [{"type": "mrkdwn", "text": "Excludes WYRE internal orgs"}],
-        },
-    ]
-    for product in PRODUCTS:
-        blocks.extend(product_blocks(product, metrics, previous))
+            "elements": [{"type": "mrkdwn", "text": context_text}],
+        }
+    )
     return blocks, json.dumps({"blocks": blocks}, indent=2)
 
 
@@ -326,55 +383,33 @@ def main() -> int:
     args = parser.parse_args()
     dry_run = args.dry_run or os.environ.get("DRY_RUN") == "1"
 
-    if args.fixture:
-        metrics = json.loads(Path(args.fixture).read_text())
-    else:
-        metrics = fetch_metrics(PRODUCTS[0])
+    previous = load_previous()
+    warnings: list[str] = []
+    snapshot: dict = {"schema": 2}
+    metrics: dict | None = None
 
+    try:
+        if args.fixture:
+            metrics = json.loads(Path(args.fixture).read_text())
+        else:
+            print(f"Fetching {PRODUCTS[0]['label']} metrics from {PRODUCTS[0]['base']}/api/admin/metrics …")
+            metrics = fetch_metrics(PRODUCTS[0])
+    except (RuntimeError, urllib.error.URLError, TimeoutError) as exc:
+        warnings.append(f":warning: {PRODUCTS[0]['label']}: {exc}")
+
+    blocks, payload_json = build_digest(metrics, previous, warnings)
     if dry_run:
-        blocks, payload_json = build_digest(metrics)
         print(payload_json)
         print("\nPlain text digest:")
         print(blocks_to_text(blocks))
-        return 0
-
-    previous = load_previous()
-    blocks = [
-        {
-            "type": "header",
-            "text": {"type": "plain_text", "text": f":bar_chart: Adoption · {datetime.now(timezone.utc).strftime('%Y-%m-%d')}"},
-        },
-        {
-            "type": "context",
-            "elements": [{"type": "mrkdwn", "text": "Excludes WYRE internal orgs"}],
-        },
-    ]
-    warnings: list[str] = []
-    snapshot: dict = {"schema": 2}
-
-    for product in PRODUCTS:
-        print(f"Fetching {product['label']} metrics from {product['base']}/api/admin/metrics …")
-        try:
-            curr = fetch_metrics(product)
-        except (RuntimeError, urllib.error.URLError, TimeoutError) as exc:
-            print(f"  FAILED: {exc}", file=sys.stderr)
-            warnings.append(f":warning: {product['label']}: {exc}")
-            if product["key"] in previous:
-                snapshot[product["key"]] = previous[product["key"]]
-            continue
-
-        blocks.extend(product_blocks(product, curr, previous.get(product["key"])))
-        snapshot[product["key"]] = curr
-
-    if warnings:
-        blocks.append(
-            {
-                "type": "section",
-                "text": {"type": "mrkdwn", "text": "\n".join(warnings)},
-            }
-        )
+        return 1 if warnings else 0
 
     post_slack({"blocks": blocks})
+    if metrics is None:
+        if "conduit" in previous:
+            snapshot["conduit"] = previous["conduit"]
+    else:
+        snapshot["conduit"] = metrics
     SNAPSHOT_PATH.parent.mkdir(parents=True, exist_ok=True)
     SNAPSHOT_PATH.write_text(json.dumps(snapshot, indent=2, sort_keys=True) + "\n")
     print(f"Snapshot written to {SNAPSHOT_PATH}")
