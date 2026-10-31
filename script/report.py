@@ -1,22 +1,8 @@
-"""Daily WYRE adoption digest — Conduit.
-
-Hits Conduit's /api/admin/metrics endpoint, formats a Slack Block Kit
-message, and posts it to #product-notifications in the WYRE AI workspace
-via chat.postMessage (SLACK_BOT_TOKEN + SLACK_CHANNEL_ID).
-
-The endpoint returns 30-day rolling counts — active orgs, top tools, plan
-distribution, and new-org signups. A failed fetch is reported as a warning
-block, and the run exits non-zero afterwards so the Actions run shows red.
-
-The legacy MCP gateway is retired and is not fetched. Older snapshots may
-still contain a ``gateway`` key, or a pre-schema flat gateway payload.
-Those are ignored so a Conduit-only run still loads and diffs.
-
-Stdlib only — no pip install needed in CI.
-"""
+"""Daily WYRE adoption digest for Conduit."""
 
 from __future__ import annotations
 
+import argparse
 import json
 import os
 import sys
@@ -25,8 +11,23 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
-# Conduit only. The legacy MCP gateway product was removed so this job
-# cannot be pointed back at it via GATEWAY_BASE / GATEWAY_ADMIN_TOKEN.
+# Source of truth: WYRE-AI/conduit src/billing/prices.ts.
+# PER_SEAT_PRICE_CENTS is the flat $39 per billable seat for direct and MSP
+# customers. RESELLER_PER_SEAT_CENTS is the $18 per-seat wholesale rate before
+# the reseller markup. ORG_FEE_CENTS is now zero.
+PER_SEAT_PRICE_CENTS = 3_900
+RESELLER_PER_SEAT_CENTS = 1_800
+ORG_FEE_CENTS = 0
+
+PRICING_NOTE = (
+    f"${PER_SEAT_PRICE_CENTS / 100:.0f}/seat direct & MSP · "
+    f"${RESELLER_PER_SEAT_CENTS / 100:.0f}/seat wholesale + reseller markup · "
+    f"no org fee"
+)
+
+DEFAULT_INTERNAL_ORG_ID = "L-Fk69VfrntBjgVxOvWJX"
+INTERNAL_ORG_DOMAINS = ("wyre.ai", "wyretechnology.com")
+
 PRODUCTS = [
     {
         "key": "conduit",
@@ -37,33 +38,59 @@ PRODUCTS = [
     },
 ]
 
-# Posts as the shared "WYRE Notifier" Slack app (wyre-technology/.github
-# slack-app/notifier) using the org-level SLACK_NOTIFIER_BOT_TOKEN secret —
-# WYRE AI workspace, #product-notifications.
 SLACK_BOT_TOKEN = os.environ.get("SLACK_BOT_TOKEN", "").strip()
 SLACK_CHANNEL_ID = os.environ.get("SLACK_CHANNEL_ID", "").strip()
 SNAPSHOT_PATH = Path("state/snapshot.json")
 
 
+def get_internal_org_ids() -> set[str]:
+    configured = os.environ.get("INTERNAL_ORG_IDS", DEFAULT_INTERNAL_ORG_ID)
+    return {org_id.strip() for org_id in configured.split(",") if org_id.strip()}
+
+
+def is_internal_org(org: dict, internal_org_ids: set[str]) -> bool:
+    org_id = org.get("org_id") or org.get("id") or ""
+    if org_id in internal_org_ids:
+        return True
+    tags = org.get("metric_tags") or org.get("tags") or []
+    if isinstance(tags, list) and "exclude-from-metrics" in tags:
+        return True
+    if org.get("exclude_from_metrics") is True or org.get("exclude_from_metrics") == "exclude-from-metrics":
+        return True
+    owner_email = org.get("owner_email") or ""
+    if "@" not in owner_email:
+        return False
+    domain = owner_email.rsplit("@", 1)[1].strip().lower()
+    return domain in INTERNAL_ORG_DOMAINS
+
+
+def customer_orgs(metrics: dict, internal_org_ids: set[str] | None = None) -> list[dict]:
+    internal_org_ids = internal_org_ids or get_internal_org_ids()
+    orgs = metrics.get("active_orgs", {}).get("orgs") or []
+    if not isinstance(orgs, list):
+        return []
+    return [org for org in orgs if not is_internal_org(org, internal_org_ids)]
+
+
 def fetch_metrics(product: dict) -> dict:
     if not product["token"]:
         raise RuntimeError(f"{product['token_env']} not set")
-    req = urllib.request.Request(
+    request = urllib.request.Request(
         f"{product['base']}/api/admin/metrics",
         headers={
             "Authorization": f"Bearer {product['token']}",
             "Accept": "application/json",
             "User-Agent": "wyre-adoption-watcher",
         },
+        method="GET",
     )
     try:
-        with urllib.request.urlopen(req, timeout=30) as resp:
-            return json.loads(resp.read())
+        with urllib.request.urlopen(request, timeout=30) as response:
+            return json.loads(response.read())
     except urllib.error.HTTPError as exc:
         if exc.code in (401, 403):
             raise RuntimeError(
-                f"{product['label']} rejected {product['token_env']} ({exc.code} {exc.reason}) — "
-                f"rotate the repo secret to {product['base']}'s current ADMIN_API_KEY."
+                f"{product['label']} rejected {product['token_env']} ({exc.code} {exc.reason})"
             ) from exc
         raise RuntimeError(
             f"{product['label']} returned {exc.code} {exc.reason} for "
@@ -71,72 +98,103 @@ def fetch_metrics(product: dict) -> dict:
         ) from exc
 
 
-def fmt_int(n: int | str) -> str:
-    return f"{int(n):,}"
+def fmt_int(value: int | str) -> str:
+    return f"{int(value):,}"
 
 
 def fmt_change(delta: int) -> str:
     return f"+{delta}" if delta > 0 else str(delta)
 
 
-def new_org_count(new_orgs: list) -> int:
-    # Day buckets ({day, signups}) are summed. A bare list of orgs is counted.
+def new_org_count(new_orgs: list, internal_org_ids: set[str] | None = None) -> int:
     if new_orgs and isinstance(new_orgs[0], dict) and "signups" in new_orgs[0]:
-        return sum(int(b.get("signups", 0)) for b in new_orgs)
-    return len(new_orgs)
+        return sum(int(item.get("signups") or 0) for item in new_orgs)
+    orgs = new_orgs or []
+    if internal_org_ids is None:
+        internal_org_ids = get_internal_org_ids()
+    return sum(
+        1
+        for org in orgs
+        if isinstance(org, dict) and not is_internal_org(org, internal_org_ids)
+    )
 
 
-def product_blocks(product: dict, curr: dict, prev: dict | None) -> list[dict]:
-    active_orgs = curr.get("active_orgs", {}).get("orgs", []) or []
-    active_count = curr.get("active_orgs", {}).get("count", len(active_orgs))
-    total_calls = sum(int(o.get("tool_calls", 0)) for o in active_orgs)
+def product_blocks(
+    product: dict,
+    curr: dict,
+    prev: dict | None = None,
+    internal_org_ids: set[str] | None = None,
+) -> list[dict]:
+    orgs = customer_orgs(curr, internal_org_ids)
+    active_count = len(orgs)
+    total_calls = sum(int(org.get("tool_calls") or 0) for org in orgs)
 
-    prev_active = (prev or {}).get("active_orgs", {}).get("orgs", []) or []
-    prev_calls = sum(int(o.get("tool_calls", 0)) for o in prev_active)
-    prev_count = (prev or {}).get("active_orgs", {}).get("count", len(prev_active))
+    previous_orgs = (prev or {}).get("active_orgs", {}).get("orgs") or []
+    previous_customer_orgs = [
+        org
+        for org in previous_orgs
+        if not is_internal_org(org, internal_org_ids or get_internal_org_ids())
+    ]
+    previous_calls = sum(int(org.get("tool_calls") or 0) for org in previous_customer_orgs)
+    previous_count = (prev or {}).get("active_orgs", {}).get("count")
+    previous_active_count = len(previous_customer_orgs) if previous_count is None else int(previous_count)
 
-    calls_delta = total_calls - prev_calls if prev else 0
-    orgs_delta = active_count - prev_count if prev else 0
+    if prev:
+        calls_delta = total_calls - previous_calls
+        orgs_delta = active_count - previous_active_count
+    else:
+        calls_delta = 0
+        orgs_delta = 0
 
-    plan_dist = curr.get("plan_distribution", []) or []
-    plan_summary = ", ".join(
-        f"{p.get('plan', '?')}: {fmt_int(p.get('count', 0))}" for p in plan_dist
-    ) or "_no data_"
+    growth = curr.get("growth") or {}
+    paying_count = int(growth.get("payingOrgs") or 0)
+    reseller_count = int(growth.get("resellerOrgs") or 0)
+    trial_count = sum(1 for org in orgs if org.get("plan") == "trial")
 
-    blocks: list[dict] = [
+    blocks = [
         {"type": "divider"},
-        {
-            "type": "section",
-            "text": {"type": "mrkdwn", "text": f"*{product['label']}*"},
-        },
+        {"type": "section", "text": {"type": "mrkdwn", "text": f"*{product['label']}*"}},
         {
             "type": "section",
             "fields": [
                 {
                     "type": "mrkdwn",
-                    "text": f"*Tool calls (30d rolling)*\n{fmt_int(total_calls)} ({fmt_change(calls_delta)} vs last run)",
+                    "text": (
+                        f"*Tool calls (30d rolling)*\n{fmt_int(total_calls)}"
+                        f"{f' ({fmt_change(calls_delta)} vs last run)' if prev else ''}"
+                    ),
                 },
                 {
                     "type": "mrkdwn",
-                    "text": f"*Active orgs (30d)*\n{fmt_int(active_count)} ({fmt_change(orgs_delta)})",
+                    "text": (
+                        f"*Active orgs (30d)*\n{fmt_int(active_count)}"
+                        f"{f' ({fmt_change(orgs_delta)})' if prev else ''}"
+                    ),
                 },
                 {
                     "type": "mrkdwn",
-                    "text": f"*Plan mix*\n{plan_summary}",
-                },
-                {
-                    "type": "mrkdwn",
-                    "text": f"*New orgs (last 7d)*\n{fmt_int(new_org_count(curr.get('new_orgs', []) or []))}",
+                    "text": (
+                        f"*New orgs (last 7d)*\n"
+                        f"{fmt_int(new_org_count(curr.get('new_orgs_recent') or curr.get('new_orgs') or [], internal_org_ids))}"
+                    ),
                 },
             ],
         },
+        {
+            "type": "section",
+            "fields": [
+                {"type": "mrkdwn", "text": f"*Paying orgs*\n{fmt_int(paying_count)}"},
+                {"type": "mrkdwn", "text": f"*Reseller orgs*\n{fmt_int(reseller_count)}"},
+                {"type": "mrkdwn", "text": f"*Trials*\n{fmt_int(trial_count)}"},
+            ],
+        },
+        {"type": "section", "text": {"type": "mrkdwn", "text": f"*Current pricing*\n{PRICING_NOTE}"}},
     ]
 
-    if active_orgs:
-        top = active_orgs[:8]
+    if orgs:
         lines = "\n".join(
-            f"• `{o.get('org_name', '?')}` ({o.get('plan', '?')}) — {fmt_int(o.get('tool_calls', 0))}"
-            for o in top
+            f"• {org.get('org_name', '?')}: {fmt_int(org.get('tool_calls') or 0)}"
+            for org in orgs[:8]
         )
         blocks.append(
             {
@@ -145,15 +203,14 @@ def product_blocks(product: dict, curr: dict, prev: dict | None) -> list[dict]:
             }
         )
 
-    top_tools = curr.get("top_tools", []) or []
+    top_tools = curr.get("top_tools") or []
     if top_tools:
-        # Collapse vendor-level totals so the digest is readable.
         per_vendor: dict[str, int] = {}
-        for t in top_tools:
-            slug = t.get("vendor_slug", "?")
-            per_vendor[slug] = per_vendor.get(slug, 0) + int(t.get("call_count", 0))
-        ranked = sorted(per_vendor.items(), key=lambda kv: -kv[1])[:8]
-        lines = "\n".join(f"• `{slug}` — {fmt_int(n)}" for slug, n in ranked)
+        for tool in top_tools:
+            slug = tool.get("vendor_slug") or "?"
+            per_vendor[slug] = per_vendor.get(slug, 0) + int(tool.get("call_count") or 0)
+        ranked = sorted(per_vendor.items(), key=lambda item: -item[1])[:8]
+        lines = "\n".join(f"• {slug}: {fmt_int(call_count)}" for slug, call_count in ranked)
         blocks.append(
             {
                 "type": "section",
@@ -164,35 +221,29 @@ def product_blocks(product: dict, curr: dict, prev: dict | None) -> list[dict]:
     return blocks
 
 
-def normalize_snapshot(prev: object) -> dict:
-    """Return a per-product snapshot safe for Conduit-only diffs.
-
-    Schema 2 files look like ``{"schema": 2, "conduit": {...}}``. A leftover
-    ``gateway`` key from the retired MCP gateway is dropped. Flat pre-schema
-    files stored that gateway payload at the top level (``active_orgs`` and
-    no ``schema``); they are not Conduit metrics, so they load as empty
-    instead of being diffed as Conduit or raising.
-    """
-    if not isinstance(prev, dict):
+def normalize_snapshot(previous: object) -> dict:
+    if not isinstance(previous, dict):
         return {}
-    if "schema" not in prev and "active_orgs" in prev:
+    if "schema" in previous and "conduit" in previous:
+        return {"conduit": previous["conduit"]}
+    if "schema" not in previous and "active_orgs" in previous:
         return {}
-    return {key: value for key, value in prev.items() if key != "gateway"}
+    return {}
 
 
 def load_previous() -> dict:
     if not SNAPSHOT_PATH.exists():
         return {}
     try:
-        prev = json.loads(SNAPSHOT_PATH.read_text())
+        previous = json.loads(SNAPSHOT_PATH.read_text())
     except json.JSONDecodeError:
         return {}
-    return normalize_snapshot(prev)
+    return normalize_snapshot(previous)
 
 
 def post_slack(payload: dict) -> None:
     if not SLACK_BOT_TOKEN or not SLACK_CHANNEL_ID:
-        print("SLACK_BOT_TOKEN/SLACK_CHANNEL_ID not set — printing payload instead:", file=sys.stderr)
+        print("SLACK_BOT_TOKEN/SLACK_CHANNEL_ID not set - printing payload instead:", file=sys.stderr)
         print(json.dumps(payload, indent=2))
         return
     body = {
@@ -202,7 +253,7 @@ def post_slack(payload: dict) -> None:
         "icon_emoji": ":chart_with_upwards_trend:",
         **payload,
     }
-    req = urllib.request.Request(
+    request = urllib.request.Request(
         "https://slack.com/api/chat.postMessage",
         data=json.dumps(body).encode("utf-8"),
         headers={
@@ -211,24 +262,95 @@ def post_slack(payload: dict) -> None:
         },
         method="POST",
     )
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        result = json.loads(resp.read())
+    with urllib.request.urlopen(request, timeout=30) as response:
+        result = json.loads(response.read())
         if not result.get("ok"):
             sys.exit(f"chat.postMessage failed: {result.get('error')}")
 
 
-def main() -> int:
-    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-    prev_all = load_previous()
-    snapshot: dict = {"schema": 2}
-    warnings: list[str] = []
+def block_text(block: dict) -> str:
+    if block.get("type") == "header":
+        return block.get("text", {}).get("text", "")
+    if block.get("type") == "context":
+        return " ".join(
+            element.get("text") or ""
+            for element in block.get("elements") or []
+        )
+    if block.get("type") == "section":
+        lines: list[str] = []
+        if block.get("text", {}).get("text"):
+            lines.extend(block["text"]["text"].split("\n"))
+        for field in block.get("fields") or []:
+            if field.get("text"):
+                lines.extend(field["text"].split("\n"))
+        return "\n".join(lines)
+    return ""
 
-    blocks: list[dict] = [
+
+def blocks_to_text(blocks: list[dict]) -> str:
+    rendered = []
+    for block in blocks:
+        text = block_text(block).strip()
+        lines = []
+        for line in text.split("\n"):
+            line = line.strip().replace("*", "").replace("`", "")
+            if line.startswith("• "):
+                line = f"- {line[2:]}"
+            lines.append(line)
+        if text:
+            rendered.append("\n".join(lines))
+    return "\n\n".join(rendered)
+
+
+def build_digest(metrics: dict, previous: dict | None = None) -> tuple[list[dict], str]:
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    blocks = [
         {
             "type": "header",
             "text": {"type": "plain_text", "text": f":bar_chart: Adoption · {today}"},
-        }
+        },
+        {
+            "type": "context",
+            "elements": [{"type": "mrkdwn", "text": "Excludes WYRE internal orgs"}],
+        },
     ]
+    for product in PRODUCTS:
+        blocks.extend(product_blocks(product, metrics, previous))
+    return blocks, json.dumps({"blocks": blocks}, indent=2)
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description="WYRE adoption digest")
+    parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--fixture", help="Read metrics JSON from a file instead of fetching")
+    args = parser.parse_args()
+    dry_run = args.dry_run or os.environ.get("DRY_RUN") == "1"
+
+    if args.fixture:
+        metrics = json.loads(Path(args.fixture).read_text())
+    else:
+        metrics = fetch_metrics(PRODUCTS[0])
+
+    if dry_run:
+        blocks, payload_json = build_digest(metrics)
+        print(payload_json)
+        print("\nPlain text digest:")
+        print(blocks_to_text(blocks))
+        return 0
+
+    previous = load_previous()
+    blocks = [
+        {
+            "type": "header",
+            "text": {"type": "plain_text", "text": f":bar_chart: Adoption · {datetime.now(timezone.utc).strftime('%Y-%m-%d')}"},
+        },
+        {
+            "type": "context",
+            "elements": [{"type": "mrkdwn", "text": "Excludes WYRE internal orgs"}],
+        },
+    ]
+    warnings: list[str] = []
+    snapshot: dict = {"schema": 2}
 
     for product in PRODUCTS:
         print(f"Fetching {product['label']} metrics from {product['base']}/api/admin/metrics …")
@@ -237,17 +359,11 @@ def main() -> int:
         except (RuntimeError, urllib.error.URLError, TimeoutError) as exc:
             print(f"  FAILED: {exc}", file=sys.stderr)
             warnings.append(f":warning: {product['label']}: {exc}")
-            # Keep yesterday's data so the next successful run diffs sanely.
-            if product["key"] in prev_all:
-                snapshot[product["key"]] = prev_all[product["key"]]
+            if product["key"] in previous:
+                snapshot[product["key"]] = previous[product["key"]]
             continue
-        print(
-            "  active_orgs:",
-            curr.get("active_orgs", {}).get("count"),
-            "· top_tools:",
-            len(curr.get("top_tools", []) or []),
-        )
-        blocks.extend(product_blocks(product, curr, prev_all.get(product["key"])))
+
+        blocks.extend(product_blocks(product, curr, previous.get(product["key"])))
         snapshot[product["key"]] = curr
 
     if warnings:
@@ -258,18 +374,7 @@ def main() -> int:
             }
         )
 
-    dashboards = " · ".join(
-        f"<{p['base']}/admin/dashboard|{p['label']} dashboard>" for p in PRODUCTS
-    )
-    blocks.append(
-        {
-            "type": "context",
-            "elements": [{"type": "mrkdwn", "text": f"{dashboards} · adoption-watcher"}],
-        }
-    )
-
     post_slack({"blocks": blocks})
-
     SNAPSHOT_PATH.parent.mkdir(parents=True, exist_ok=True)
     SNAPSHOT_PATH.write_text(json.dumps(snapshot, indent=2, sort_keys=True) + "\n")
     print(f"Snapshot written to {SNAPSHOT_PATH}")
