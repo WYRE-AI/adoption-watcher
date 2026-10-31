@@ -62,6 +62,12 @@ dry runs), for example
 `INTERNAL_ORG_IDS` to a comma-separated list to override the default WYRE
 internal organization.
 
+Test orgs are excluded too. `TEST_ORG_IDS` and `TEST_ORG_DOMAINS` in
+`script/report.py` list orgs that are only used for testing (currently
+"Sachshaus Testing" and owners on `sachshaus.net`). They apply even when
+`INTERNAL_ORG_IDS` is overridden. Conduit already drops orgs it flags as demo
+or synthetic, so only add test orgs that Conduit does not flag.
+
 ## Window
 
 The metrics endpoint returns 30-day rolling counts. When it grows a

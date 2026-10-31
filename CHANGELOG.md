@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - **WYRE internal org exclusion.** The WYRE Technology tenant (default `INTERNAL_ORG_IDS=L-Fk69VfrntBjgVxOvWJX`), orgs owned by `wyre.ai` or `wyretechnology.com` addresses, and orgs tagged `exclude-from-metrics` are left out of active orgs, tool calls, top orgs and new orgs.
+- **Test org exclusion.** Test orgs that Conduit does not flag as demo or synthetic are excluded the same way as internal orgs, by org id (`TEST_ORG_IDS`, currently "Sachshaus Testing") or owner domain (`TEST_ORG_DOMAINS`, currently `sachshaus.net`). The digest footer now reads "Excludes WYRE internal and test orgs".
 - **Dry run.** `--dry-run` (or `DRY_RUN=1`) prints the Block Kit JSON and a plain-text rendering without posting to Slack or writing `state/snapshot.json`. `--fixture PATH` reads metrics from a JSON file and always implies dry run.
 - **Unit tests** in `tests/` (stdlib `unittest`, synthetic fixtures), run in CI alongside `ruff check script/ tests/`.
 

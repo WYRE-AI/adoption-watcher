@@ -1,4 +1,4 @@
-"""Daily Conduit adoption digest with dry-run, internal org exclusion, and Conduit pricing."""
+"""Daily Conduit adoption digest with dry-run, internal and test org exclusion, and Conduit pricing."""
 
 from __future__ import annotations
 
@@ -28,6 +28,16 @@ PRICING_NOTE = (
 DEFAULT_INTERNAL_ORG_ID = "L-Fk69VfrntBjgVxOvWJX"
 INTERNAL_ORG_DOMAINS = ("wyre.ai", "wyretechnology.com")
 
+# Test orgs that are not customers. Conduit's own metrics already drop orgs
+# flagged demo or synthetic; these are test orgs it does not flag. They are
+# always excluded, even when INTERNAL_ORG_IDS is overridden. Add new ones here
+# by org id, with the org name as a comment-style value.
+TEST_ORG_IDS = {
+    "JmBzai1r48eXOJg7nPSi-": "Sachshaus Testing",
+}
+# Owner email domains used only for test signups.
+TEST_ORG_DOMAINS = ("sachshaus.net",)
+
 PRODUCTS = [
     {
         "key": "conduit",
@@ -50,7 +60,7 @@ def get_internal_org_ids() -> set[str]:
 
 def is_internal_org(org: dict, internal_org_ids: set[str]) -> bool:
     org_id = org.get("org_id") or org.get("id") or ""
-    if org_id in internal_org_ids:
+    if org_id in internal_org_ids or org_id in TEST_ORG_IDS:
         return True
     tags = org.get("metric_tags") or org.get("tags") or []
     if isinstance(tags, list) and "exclude-from-metrics" in tags:
@@ -61,7 +71,7 @@ def is_internal_org(org: dict, internal_org_ids: set[str]) -> bool:
     if "@" not in owner_email:
         return False
     domain = owner_email.rsplit("@", 1)[1].strip().lower()
-    return domain in INTERNAL_ORG_DOMAINS
+    return domain in INTERNAL_ORG_DOMAINS or domain in TEST_ORG_DOMAINS
 
 
 def customer_orgs(metrics: dict, internal_org_ids: set[str] | None = None) -> list[dict]:
@@ -365,7 +375,7 @@ def build_digest(
 
     context_text = (
         f"<{PRODUCTS[0]['base']}/admin/dashboard|Conduit dashboard> · adoption-watcher · "
-        "Excludes WYRE internal orgs"
+        "Excludes WYRE internal and test orgs"
     )
     blocks.append(
         {

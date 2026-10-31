@@ -104,7 +104,33 @@ class DigestTests(unittest.TestCase):
             "<https://conduit.wyre.ai/admin/dashboard|Conduit dashboard>",
             contexts[1]["elements"][0]["text"],
         )
-        self.assertIn("Excludes WYRE internal orgs", contexts[1]["elements"][0]["text"])
+        self.assertIn("Excludes WYRE internal and test orgs", contexts[1]["elements"][0]["text"])
+
+
+    def test_test_orgs_are_excluded_by_id_and_owner_domain(self):
+        metrics = {
+            "active_orgs": {
+                "count": 3,
+                "orgs": [
+                    {"org_id": "JmBzai1r48eXOJg7nPSi-", "org_name": "Sachshaus Testing", "plan": "conduit", "tool_calls": 500},
+                    {"org_id": "ORG-SYNTH-1", "org_name": "Acme Synthetic", "plan": "conduit", "tool_calls": 20},
+                    {"org_id": "ORG-SYNTH-2", "org_name": "Northwind Synthetic", "plan": "conduit", "tool_calls": 5},
+                ],
+            },
+            "new_orgs_recent": [
+                {"org_id": "ORG-SYNTH-9", "org_name": "Domain Test Org", "owner_email": "someone+test@sachshaus.net"},
+                {"org_id": "JmBzai1r48eXOJg7nPSi-", "org_name": "Sachshaus Testing"},
+                {"org_id": "ORG-SYNTH-3", "org_name": "Contoso Synthetic", "owner_email": "owner@contoso.example"},
+            ],
+        }
+        # Test orgs stay excluded even when INTERNAL_ORG_IDS is overridden.
+        blocks = report.product_blocks(report.PRODUCTS[0], metrics, internal_org_ids={"SOMETHING-ELSE"})
+        text = report.blocks_to_text(blocks)
+        self.assertNotIn("Sachshaus Testing", text)
+        self.assertNotIn("500", text)
+        self.assertIn("Tool calls (30d rolling)\n25", text)
+        self.assertIn("Active orgs (30d)\n2", text)
+        self.assertIn("New orgs (14d)\n1", text)
 
 
 class MainTests(unittest.TestCase):
