@@ -4,70 +4,70 @@
       "count": 53,
       "orgs": [
         {
-          "org_id": "L-Fk69VfrntBjgVxOvWJX",
-          "org_name": "WYRE Technology",
-          "plan": "conduit",
-          "tool_calls": 86990
-        },
-        {
           "org_id": "EBLO0ehnXhN7JxxZzpZ4A",
           "org_name": "ZetaOne",
           "plan": "conduit",
-          "tool_calls": 75006
+          "tool_calls": 96723
+        },
+        {
+          "org_id": "L-Fk69VfrntBjgVxOvWJX",
+          "org_name": "WYRE Technology",
+          "plan": "conduit",
+          "tool_calls": 88351
         },
         {
           "org_id": "mYRJKLjH-O0LwrClIqOwf",
           "org_name": "EpiOn",
           "plan": "conduit",
-          "tool_calls": 40514
+          "tool_calls": 40610
         },
         {
           "org_id": "8Cu12Wl9p2s-ypYTnXGxJ",
           "org_name": "Stu Ian",
           "plan": "conduit",
-          "tool_calls": 34011
+          "tool_calls": 35065
         },
         {
           "org_id": "j8VgkefyBt6Qi47I0QDvS",
           "org_name": "Aligned Technology Partners",
           "plan": "conduit",
-          "tool_calls": 12114
-        },
-        {
-          "org_id": "W0ETvPAiirjOFvqLDAXtI",
-          "org_name": "Byte Time",
-          "plan": "conduit",
-          "tool_calls": 11769
+          "tool_calls": 12177
         },
         {
           "org_id": "gTZdOMf8clFS80w-FYrC2",
           "org_name": "West Michigan Tech Services",
           "plan": "conduit",
-          "tool_calls": 11396
+          "tool_calls": 11614
+        },
+        {
+          "org_id": "W0ETvPAiirjOFvqLDAXtI",
+          "org_name": "Byte Time",
+          "plan": "conduit",
+          "tool_calls": 11590
         },
         {
           "org_id": "WJojMeQHgqm4nMF9BzonM",
           "org_name": "AIS",
           "plan": "trial",
-          "tool_calls": 6206
+          "tool_calls": 7128
         },
         {
           "org_id": "KrpGgpke48hBJb79vhi0f",
           "org_name": "Zouling Technologies",
           "plan": "conduit",
-          "tool_calls": 4245
+          "tool_calls": 4264
         },
         {
           "org_id": "l3r8NLnKt7IIkB-6QLfsT",
           "org_name": "ITernal Networks",
           "plan": "conduit",
-          "tool_calls": 3971
+          "tool_calls": 4003
         },
         {
           "org_id": "z-OZ0R33cd_oijSgt6IcE",
           "org_name": "Computerwild",
           "plan": "conduit",
-          "tool_calls": 3346
+          "tool_calls": 3329
         },
         {
           "org_id": "1VdqIC11USyIHeTQkqCyQ",
@@ -79,13 +79,13 @@
           "org_id": "8VqA07x5ZR5g8r2zBWmdV",
           "org_name": "Upstate Services Group",
           "plan": "conduit",
-          "tool_calls": 2705
+          "tool_calls": 2675
         },
         {
           "org_id": "XPUPiBYXnQtkrNPLSYtdu",
           "org_name": "CMIT Solutions of Philadelphia",
           "plan": "conduit",
-          "tool_calls": 2344
+          "tool_calls": 2353
         },
         {
           "org_id": "reJKd3lRjXe0bhswYAdSe",
@@ -94,58 +94,58 @@
           "tool_calls": 2118
         },
         {
-          "org_id": "Wil0bCm2zX8JZoXlTGQ3R",
-          "org_name": "IS Systems",
+          "org_id": "PyQLP-fV8im2dhxxhCD11",
+          "org_name": "Vantage Networks",
           "plan": "conduit",
-          "tool_calls": 1710
+          "tool_calls": 1829
         },
         {
           "org_id": "PwI0doEcrJQrwxVc0eZio",
           "org_name": "Onsite Logic / Secure Unions",
           "plan": "conduit",
-          "tool_calls": 1662
+          "tool_calls": 1684
+        },
+        {
+          "org_id": "Wil0bCm2zX8JZoXlTGQ3R",
+          "org_name": "IS Systems",
+          "plan": "conduit",
+          "tool_calls": 1659
         },
         {
           "org_id": "PMUa4ayGhHPChNfXqk9Y4",
           "org_name": "One2call Ops",
           "plan": "conduit",
-          "tool_calls": 1638
-        },
-        {
-          "org_id": "PyQLP-fV8im2dhxxhCD11",
-          "org_name": "Vantage Networks",
-          "plan": "conduit",
-          "tool_calls": 1560
+          "tool_calls": 1656
         },
         {
           "org_id": "03GVnMz-N3YcKgqJjfVtj",
           "org_name": "Empowering Technology Solutions",
           "plan": "conduit",
-          "tool_calls": 1513
+          "tool_calls": 1470
         },
         {
           "org_id": "uK2C1vl1eSm9Xbxja4e_n",
           "org_name": "Net3 IT, LLC",
           "plan": "conduit",
-          "tool_calls": 1409
+          "tool_calls": 1435
+        },
+        {
+          "org_id": "MXt1qVh7VpVIP2LZ0KuI8",
+          "org_name": "WilroffReitsma BV",
+          "plan": "conduit",
+          "tool_calls": 1322
         },
         {
           "org_id": "2CUVn41F2g3RaeitES_sb",
           "org_name": "My Computer Guy",
           "plan": "conduit",
-          "tool_calls": 1279
+          "tool_calls": 1264
         },
         {
           "org_id": "RDnoYUOk4LY2hymzKZAVG",
           "org_name": "MMIT Business Solutions Group",
           "plan": "conduit",
           "tool_calls": 1260
-        },
-        {
-          "org_id": "MXt1qVh7VpVIP2LZ0KuI8",
-          "org_name": "WilroffReitsma BV",
-          "plan": "conduit",
-          "tool_calls": 1253
         },
         {
           "org_id": "VbdKMteExjE-z3dID8TXL",
@@ -157,43 +157,55 @@
           "org_id": "zh3bF73lROnWkrOl76M8U",
           "org_name": "TTechT-Autotask",
           "plan": "conduit",
-          "tool_calls": 1050
-        },
-        {
-          "org_id": "9mJQHHiizcrKLkWpG83Dc",
-          "org_name": "Ysleta del Sur Pueblo",
-          "plan": "conduit",
-          "tool_calls": 844
-        },
-        {
-          "org_id": "5ES05YdwJ-XwOIxi5n9Ed",
-          "org_name": "CloudPoint",
-          "plan": "conduit",
-          "tool_calls": 822
-        },
-        {
-          "org_id": "miRsPJikLLFf-pg8IxNNw",
-          "org_name": "ImpactTek",
-          "plan": "conduit",
-          "tool_calls": 741
-        },
-        {
-          "org_id": "YChmIFPGt8ggJ29ie5xmz",
-          "org_name": "Greater Nashua Technology Consulting LLC",
-          "plan": "conduit",
-          "tool_calls": 650
+          "tool_calls": 1159
         },
         {
           "org_id": "xReRcP6Gu7vx5rZLGZep3",
           "org_name": "Wanbound BV",
           "plan": "conduit",
-          "tool_calls": 592
+          "tool_calls": 898
+        },
+        {
+          "org_id": "9mJQHHiizcrKLkWpG83Dc",
+          "org_name": "Ysleta del Sur Pueblo",
+          "plan": "conduit",
+          "tool_calls": 866
+        },
+        {
+          "org_id": "5ES05YdwJ-XwOIxi5n9Ed",
+          "org_name": "CloudPoint",
+          "plan": "conduit",
+          "tool_calls": 840
+        },
+        {
+          "org_id": "miRsPJikLLFf-pg8IxNNw",
+          "org_name": "ImpactTek",
+          "plan": "conduit",
+          "tool_calls": 752
+        },
+        {
+          "org_id": "YChmIFPGt8ggJ29ie5xmz",
+          "org_name": "Greater Nashua Technology Consulting LLC",
+          "plan": "conduit",
+          "tool_calls": 726
+        },
+        {
+          "org_id": "eyqJwhchuZBSAaaT0rdku",
+          "org_name": "Rural Solutions",
+          "plan": "conduit",
+          "tool_calls": 712
         },
         {
           "org_id": "J8YpRPu4LpXltJroWvaRY",
           "org_name": "BlueCastle IT Solutions",
           "plan": "conduit",
-          "tool_calls": 536
+          "tool_calls": 570
+        },
+        {
+          "org_id": "BUO6xWbsbaD8qpXqmKvH9",
+          "org_name": "West Computers",
+          "plan": "conduit",
+          "tool_calls": 502
         },
         {
           "org_id": "yHCamoNhLbqgCxhpopqjQ",
@@ -202,22 +214,10 @@
           "tool_calls": 495
         },
         {
-          "org_id": "BUO6xWbsbaD8qpXqmKvH9",
-          "org_name": "West Computers",
-          "plan": "conduit",
-          "tool_calls": 477
-        },
-        {
           "org_id": "O2Kpbhf6ttJaDGK3nRdlA",
           "org_name": "PCSOFT",
           "plan": "conduit",
-          "tool_calls": 429
-        },
-        {
-          "org_id": "eyqJwhchuZBSAaaT0rdku",
-          "org_name": "Rural Solutions",
-          "plan": "conduit",
-          "tool_calls": 421
+          "tool_calls": 457
         },
         {
           "org_id": "lvUETqfLZPbCQC81vrMbS",
@@ -235,7 +235,7 @@
           "org_id": "hH84KN-K2WTHfNbleqt7r",
           "org_name": "Sonoma IT",
           "plan": "conduit",
-          "tool_calls": 177
+          "tool_calls": 191
         },
         {
           "org_id": "8THYBXmQxWs1vLheWmF3f",
@@ -244,10 +244,16 @@
           "tool_calls": 160
         },
         {
+          "org_id": "8A-M8ENism3za8vVTE6un",
+          "org_name": "Nwaj Tech",
+          "plan": "conduit",
+          "tool_calls": 124
+        },
+        {
           "org_id": "oK9yLl14iKsG1ldv4LXqQ",
           "org_name": "Delivery",
           "plan": "free",
-          "tool_calls": 124
+          "tool_calls": 121
         },
         {
           "org_id": "oGJ1ZlpXTkNVioTijXWf1",
@@ -256,16 +262,10 @@
           "tool_calls": 113
         },
         {
-          "org_id": "8A-M8ENism3za8vVTE6un",
-          "org_name": "Nwaj Tech",
-          "plan": "conduit",
-          "tool_calls": 108
-        },
-        {
           "org_id": "nuY4ycS8anTaeUqXQzY0c",
           "org_name": "Your IT",
           "plan": "pro",
-          "tool_calls": 47
+          "tool_calls": 51
         },
         {
           "org_id": "z6e6Cmu6AOuiZ2A7e6j19",
@@ -295,7 +295,7 @@
           "org_id": "JVsNK7dBFfho4QK6wB5XO",
           "org_name": "Creative Computer",
           "plan": "conduit",
-          "tool_calls": 30
+          "tool_calls": 31
         },
         {
           "org_id": "DF1bTpMG_-qqiNSsxr2pT",
@@ -352,10 +352,10 @@
         "plan": "conduit"
       }
     ],
-    "generated_at": "2026-11-01T14:11:15.501Z",
+    "generated_at": "2026-11-02T14:15:36.278Z",
     "growth": {
       "activeOrgs": 53,
-      "asOf": "2026-11-01T14:11:15.493Z",
+      "asOf": "2026-11-02T14:15:36.270Z",
       "definitions": {
         "activeOrgs": "Active org: at least one tool call in request_log in the 30 days before the date (tool_name is set, vendor_slug is not _unified or _gateway; failed calls count). Excludes deleted, demo, and synthetic organizations, and organizations created after the as-of date.",
         "payingOrgs": "Paying org: a live, non-zero Stripe subscription, using local subscriptions with status active, past_due, or unpaid, excluding grace: placeholders. There is no amount column locally, so $0 subscriptions can't be excluded. Excludes deleted, demo, and synthetic organizations, and organizations created after the as-of date.",
@@ -407,9 +407,33 @@
       {
         "day": "2026-10-31",
         "signups": 1
+      },
+      {
+        "day": "2026-11-01",
+        "signups": 1
+      },
+      {
+        "day": "2026-11-02",
+        "signups": 1
       }
     ],
     "new_orgs_recent": [
+      {
+        "created_at": "2026-11-02 13:57:27",
+        "org_id": "RrR9o-qNurdZv1nHvGhHO",
+        "org_name": "Rural Solutions - Manoj",
+        "owner_email": "manoj@ruralsolutionsvt.com",
+        "owner_name": "manoj@ruralsolutionsvt.com",
+        "plan": "conduit"
+      },
+      {
+        "created_at": "2026-11-01 23:52:58",
+        "org_id": "-6ulrTEi_UH-snDmw4X0J",
+        "org_name": "Rejuvenate IT",
+        "owner_email": "Martin.Yelland@rejuvenate.it",
+        "owner_name": "Martin Yelland",
+        "plan": "conduit"
+      },
       {
         "created_at": "2026-10-31 13:50:53",
         "org_id": "eyqJwhchuZBSAaaT0rdku",
@@ -492,15 +516,15 @@
       }
     ],
     "performance": {
-      "error_rate_4xx_plus_pct": 1.08,
-      "error_rate_5xx_pct": 0.07,
+      "error_rate_4xx_plus_pct": 0.82,
+      "error_rate_5xx_pct": 0.03,
       "latency_ms": {
-        "p50": 466,
-        "p95": 2414,
-        "p99": 15325
+        "p50": 493,
+        "p95": 6583,
+        "p99": 15033
       },
-      "requests": 18997,
-      "throughput_per_min": 13.19,
+      "requests": 32424,
+      "throughput_per_min": 22.52,
       "window_hours": 24
     },
     "plan_distribution": [
@@ -509,7 +533,7 @@
         "plan": "business"
       },
       {
-        "count": 77,
+        "count": 79,
         "plan": "conduit"
       },
       {
@@ -527,102 +551,102 @@
     ],
     "top_tools": [
       {
-        "call_count": 45198,
+        "call_count": 50055,
         "tool_name": "autotask_raw_request",
         "vendor_slug": "autotask"
       },
       {
-        "call_count": 34544,
+        "call_count": 40163,
         "tool_name": "autotask_get_ticket_details",
         "vendor_slug": "autotask"
       },
       {
-        "call_count": 30042,
+        "call_count": 31882,
         "tool_name": "autotask_search_tickets",
         "vendor_slug": "autotask"
       },
       {
-        "call_count": 22258,
+        "call_count": 22338,
         "tool_name": "cw_get_agreement_additions",
         "vendor_slug": "connectwise-psa"
       },
       {
-        "call_count": 18358,
-        "tool_name": "search_flexible_assets",
-        "vendor_slug": "itglue"
-      },
-      {
-        "call_count": 16688,
+        "call_count": 20965,
         "tool_name": "autotask_get_service_call",
         "vendor_slug": "autotask"
       },
       {
-        "call_count": 11772,
+        "call_count": 18846,
+        "tool_name": "search_flexible_assets",
+        "vendor_slug": "itglue"
+      },
+      {
+        "call_count": 12279,
         "tool_name": "cw_get_ticket_notes",
         "vendor_slug": "connectwise-psa"
       },
       {
-        "call_count": 9097,
-        "tool_name": "cwautomate_computers_list",
-        "vendor_slug": "connectwise-automate"
-      },
-      {
-        "call_count": 6783,
-        "tool_name": "cw_search_tickets",
-        "vendor_slug": "connectwise-psa"
-      },
-      {
-        "call_count": 6570,
-        "tool_name": "avanan_query_events",
-        "vendor_slug": "avanan-legacy"
-      },
-      {
-        "call_count": 6552,
+        "call_count": 9355,
         "tool_name": "autotask_search_service_call_tickets",
         "vendor_slug": "autotask"
       },
       {
-        "call_count": 6403,
+        "call_count": 9102,
+        "tool_name": "cwautomate_computers_list",
+        "vendor_slug": "connectwise-automate"
+      },
+      {
+        "call_count": 6888,
+        "tool_name": "cw_search_tickets",
+        "vendor_slug": "connectwise-psa"
+      },
+      {
+        "call_count": 6635,
+        "tool_name": "avanan_query_events",
+        "vendor_slug": "avanan-legacy"
+      },
+      {
+        "call_count": 6473,
         "tool_name": "search_alerts",
         "vendor_slug": "sentinelone"
       },
       {
-        "call_count": 6337,
+        "call_count": 6406,
         "tool_name": "list_alerts",
         "vendor_slug": "sentinelone"
       },
       {
-        "call_count": 3885,
-        "tool_name": "autotask_get_field_info",
-        "vendor_slug": "autotask"
-      },
-      {
-        "call_count": 3859,
+        "call_count": 6322,
         "tool_name": "autotask_search_service_call_ticket_resources",
         "vendor_slug": "autotask"
       },
       {
-        "call_count": 3542,
+        "call_count": 5389,
+        "tool_name": "autotask_get_field_info",
+        "vendor_slug": "autotask"
+      },
+      {
+        "call_count": 3583,
         "tool_name": "datto_list_alerts",
         "vendor_slug": "datto-rmm"
       },
       {
-        "call_count": 3339,
+        "call_count": 3478,
         "tool_name": "autotask_search_resources",
         "vendor_slug": "autotask"
       },
       {
-        "call_count": 3164,
+        "call_count": 3214,
         "tool_name": "autotask_search_time_entries",
         "vendor_slug": "autotask"
       },
       {
-        "call_count": 3128,
+        "call_count": 3188,
         "tool_name": "autotask_get_contract_recurring_lines",
         "vendor_slug": "autotask"
       },
       {
-        "call_count": 2906,
+        "call_count": 2888,
         "tool_name": "autotask_search_ticket_notes",
         "vendor_slug": "autotask"
       }
