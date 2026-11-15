@@ -32,15 +32,15 @@ coverage, PulseMCP traffic); this one tracks internal *usage*.
    # Conduit — conduit-prod Container App secret
    az containerapp secret show -n conduit-prod-gateway -g rg-conduit-prod \
      --secret-name admin-api-key --query value -o tsv \
-     | gh secret set CONDUIT_ADMIN_TOKEN --repo wyre-technology/adoption-watcher
+     | gh secret set CONDUIT_ADMIN_TOKEN --repo WYRE-AI/adoption-watcher
    ```
 3. (Optional) Override the Conduit base URL — defaults to `https://conduit.wyre.ai`:
    ```
-   gh variable set CONDUIT_BASE --body "…" --repo wyre-technology/adoption-watcher
+   gh variable set CONDUIT_BASE --body "…" --repo WYRE-AI/adoption-watcher
    ```
 4. Trigger manually to verify formatting:
    ```
-   gh workflow run daily.yml --repo wyre-technology/adoption-watcher
+   gh workflow run daily.yml --repo WYRE-AI/adoption-watcher
    ```
 
 ## How it works
